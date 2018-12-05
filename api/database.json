@@ -1,0 +1,80 @@
+{
+  "users": [
+    {
+      "username": "JohnnyIsland",
+      "email": "johnnathanwood@gmail.com",
+      "password": "1",
+      "id": 1
+    }
+  ],
+  "profiles": [],
+  "messages": [],
+  "watches": [
+    {
+      "id": "",
+      "name": "",
+      "description": "",
+      "img": ""
+    },
+    {
+      "id": "",
+      "name": "",
+      "description": "",
+      "img": ""
+    },
+    {
+      "id": "",
+      "name": "",
+      "description": "",
+      "img": ""
+    },
+    {
+      "id": "",
+      "name": "",
+      "description": "",
+      "img": ""
+    },
+    {
+      "id": "",
+      "name": "",
+      "description": "",
+      "img": ""
+    },
+    {
+      "id": "",
+      "name": "",
+      "description": "",
+      "img": ""
+    },
+    {
+      "id": "",
+      "name": "",
+      "description": "",
+      "img": ""
+    },
+    {
+      "id": "",
+      "name": "",
+      "description": "",
+      "img": ""
+    },
+    {
+      "id": "",
+      "name": "",
+      "description": "",
+      "img": ""
+    },
+    {
+      "id": "",
+      "name": "",
+      "description": "",
+      "img": ""
+    },
+    {
+      "id": "",
+      "name": "",
+      "description": "",
+      "img": ""
+    }
+  ]
+}
