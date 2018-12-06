@@ -21,7 +21,7 @@ export default class Register extends Component {
     }
 
     handleButtonClick = () => {
-        document.location.href = 'http://localhost:3000/login'
+        document.location.href = 'http://localhost:3000/createProfile'
 
         const users = {
             username: this.state.username,
@@ -30,7 +30,7 @@ export default class Register extends Component {
         }
 
         this.props.addUser(users)
-            .then(() => this.props.history.push("/login"))
+            .then(() => this.props.history.push("/createProfile"))
 
     }
 

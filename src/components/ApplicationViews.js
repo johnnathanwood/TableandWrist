@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import DataManager from '../module/DataManager'
 import Login from "./login/LoginForm"
 import Register from "./login/RegisterForm"
-import Profile from './profile/makeProfileForm'
+import CreateProfile from './profile/makeProfileForm'
 
 export default class ApplicationViews extends Component {
     isAuthenticated = () => localStorage.getItem("credentials") !== null
@@ -51,8 +51,8 @@ export default class ApplicationViews extends Component {
           addUser={this.addUser}
           users={this.state.users} />
         }} />
-                 <Route exact path="/profile" render={(props) => {
-          return <Profile {...props}
+                 <Route exact path="/createProfile" render={(props) => {
+          return <CreateProfile {...props}
           addProfile={this.addUser} />
         }} />
         <Route exact path="/login" component={Login} />

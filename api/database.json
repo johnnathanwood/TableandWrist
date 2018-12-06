@@ -5,6 +5,12 @@
       "email": "johnnathanwood@gmail.com",
       "password": "1",
       "id": 1
+    },
+    {
+      "username": "Johnny",
+      "email": "johnnathanwood@gmail.com",
+      "password": "1",
+      "id": 2
     }
   ],
   "profiles": [],

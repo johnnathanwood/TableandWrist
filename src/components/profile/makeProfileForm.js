@@ -1,8 +1,10 @@
-
 import React, { Component } from "react"
+import ReactDOM from 'react-dom'
+import Avatar from 'react-avatar-edit'
 
 
-export default class Profile extends Component {
+
+export default class CreateProfile extends Component {
 
     state = {
         profileImg: "",
@@ -18,6 +20,25 @@ export default class Profile extends Component {
         this.setState(stateToChange)
     }
 
+    constructor(props) {
+        super(props)
+        const src = ''
+        this.state = {
+            preview: null,
+            src
+        }
+        this.onCrop = this.onCrop.bind(this)
+        this.onClose = this.onClose.bind(this)
+    }
+
+    onClose() {
+        this.setState({ preview: null })
+    }
+
+    onCrop(preview) {
+        this.setState({ preview })
+    }
+
     constructNewProfile = evt => {
         evt.preventDefault()
         const credentials = JSON.parse(localStorage.getItem('credentials'))
@@ -31,15 +52,24 @@ export default class Profile extends Component {
             userId: credentials.id,
         }
         this.props.addProfile(profile)
-            .then(() => this.props.history.push("/"))
+            .then(() => this.props.history.push("/profile"))
     }
     render() {
 
         return (
             <div>
                 <div className="confirm">
-                    <i className='close'>×</i>
-                    <h1><i className="fa fa-check-circle fa-3x"></i>Boom! Profile Created</h1>
+                <label htmlFor="profileImg">Chose a profile image</label>
+                    <div>
+                        <Avatar
+                            width={390}
+                            height={295}
+                            onCrop={this.onCrop}
+                            onClose={this.onClose}
+                            src={this.state.src}
+                        />
+                        <img src={this.state.preview} alt="Preview" onSubmit={this.handleRegister} id="profileImg" />
+                    </div>
                 </div>
                 <form action="#" onSubmit={this.handleRegister}>
                     <h1>
@@ -60,7 +90,7 @@ export default class Profile extends Component {
                                 <option value="male">Male</option>
                                 <option value="Female">Female</option>
                             </select>
-                            <label  htmlFor="gender">Gender</label>
+                            <label htmlFor="gender">Gender</label>
                         </div>
 
                         <div className="float-label">
@@ -95,9 +125,9 @@ export default class Profile extends Component {
                             <label onChange={this.handleFieldChange} htmlFor="height">Height</label>
                         </div>
                         <div className="float-label">
-                        <input onChange={this.handleFieldChange} type="text" name="aboutMe" id="aboutMe" />
-                        <label htmlFor="aboutMe">About Me</label>
-                    </div>
+                            <input onChange={this.handleFieldChange} type="text" name="aboutMe" id="aboutMe" />
+                            <label htmlFor="aboutMe">About Me</label>
+                        </div>
                     </div>
                     <button onClick={this.constructNewProfile} className="btn" type="submit">Submit</button>
                     <button className="btn" id="clear" type="reset" value="Reset">Reset</button>
