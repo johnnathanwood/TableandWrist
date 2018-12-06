@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import DataManager from '../module/DataManager'
 import Login from "./login/LoginForm"
 import Register from "./login/RegisterForm"
+import Profile from './profile/makeProfileForm'
 
 export default class ApplicationViews extends Component {
     isAuthenticated = () => localStorage.getItem("credentials") !== null
@@ -20,6 +21,12 @@ export default class ApplicationViews extends Component {
             users: users
         }))
 
+    addProfile = profiles => DataManager.add("profiles", profiles)
+        .then(() => DataManager.getAll("profiles"))
+        .then(profiles => this.setState({
+            profiles: profiles
+        }))
+
 
     componentDidMount() {
         const newState = {}
@@ -28,6 +35,10 @@ export default class ApplicationViews extends Component {
             .then(allUsers => {
                 newState.users = allUsers
             })
+        DataManager.getAll("profiles")
+            .then(allProfiles => {
+                newState.profiles = allProfiles
+            })
             .then(() =>
                 this.setState(newState))
     }
@@ -35,12 +46,16 @@ export default class ApplicationViews extends Component {
     render() {
         return (
             <React.Fragment>
-                <Route exact path="/register" render={(props) => {
-                    return <Register {...props}
-                        addUser={this.addUser}
-                        users={this.state.users} />
-                }} />
-                <Route exact path="/login" component={Login} />
+                 <Route exact path="/register" render={(props) => {
+          return <Register {...props}
+          addUser={this.addUser}
+          users={this.state.users} />
+        }} />
+                 <Route exact path="/profile" render={(props) => {
+          return <Profile {...props}
+          addProfile={this.addUser} />
+        }} />
+        <Route exact path="/login" component={Login} />
             </React.Fragment>
         )
     }
