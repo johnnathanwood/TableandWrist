@@ -4,6 +4,7 @@ import DataManager from '../module/DataManager'
 import Login from "./login/LoginForm"
 import Register from "./login/RegisterForm"
 import CreateProfile from './profile/makeProfileForm'
+import Profile from "./profile/profilePage"
 
 export default class ApplicationViews extends Component {
     isAuthenticated = () => localStorage.getItem("credentials") !== null
@@ -35,27 +36,37 @@ export default class ApplicationViews extends Component {
             .then(allUsers => {
                 newState.users = allUsers
             })
-        DataManager.getAll("profiles")
+            DataManager.getAll("profiles")
             .then(allProfiles => {
-                newState.profiles = allProfiles
+              newState.news = allProfiles
             })
             .then(() =>
+            
                 this.setState(newState))
     }
 
     render() {
         return (
             <React.Fragment>
-                 <Route exact path="/register" render={(props) => {
-          return <Register {...props}
-          addUser={this.addUser}
-          users={this.state.users} />
-        }} />
-                 <Route exact path="/createProfile" render={(props) => {
-          return <CreateProfile {...props}
-          addProfile={this.addUser} />
-        }} />
-        <Route exact path="/login" component={Login} />
+                <Route exact path="/register" render={(props) => {
+                    return <Register {...props}
+                        addUser={this.addUser}
+                        users={this.state.users} />
+                }} />
+                <Route exact path="/createProfile" render={(props) => {
+                    return <CreateProfile {...props}
+                        addProfile={this.addProfile} />
+                }} />
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/profile" render={(props) => {
+                    if (this.isAuthenticated()) {
+                        return <Profile {...props}
+                            profiles={this.state.profiles}
+                        />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
+                }} />
             </React.Fragment>
         )
     }

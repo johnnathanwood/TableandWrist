@@ -57,6 +57,7 @@ export default class CreateProfile extends Component {
     render() {
 
         return (
+            <React.Fragment>
             <div>
                 <div className="confirm">
                 <label htmlFor="profileImg">Chose a profile image</label>
@@ -133,6 +134,7 @@ export default class CreateProfile extends Component {
                     <button className="btn" id="clear" type="reset" value="Reset">Reset</button>
                 </form>
             </div>
+            </React.Fragment>
         )
     }
 }

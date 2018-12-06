@@ -11,9 +11,24 @@
       "email": "johnnathanwood@gmail.com",
       "password": "1",
       "id": 2
+    },
+    {
+      "username": "Rich",
+      "email": "rich@gmail.com",
+      "password": "1",
+      "id": 3
     }
   ],
-  "profiles": [],
+  "profiles": [
+    {
+      "name": "John Wood",
+      "gender": "male",
+      "age": "25",
+      "aboutMe": "I am pretty cool",
+      "userId": 1,
+      "id": 1
+    }
+  ],
   "messages": [],
   "watches": [
     {
