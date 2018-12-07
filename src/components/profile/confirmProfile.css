@@ -9,8 +9,8 @@ body {
 	height: 100%;
 	font: normal 14px/1.618em "Hind", sans-serif;
 	-webkit-font-smoothing: antialiased;
-} */
-/* body:before {
+}
+body:before {
     content: "";
     height: 0px;
     padding: 0px;

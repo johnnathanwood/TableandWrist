@@ -37,33 +37,18 @@ export default class Confirm extends Component {
                     {
                         this.state.profiles.map(profiles =>
                             <aside className="profile-card">
-
                                 <header>
-
-                                    {/* <!-- here’s the avatar --> */}
                                     <a>
                                         <img src={profiles.uploadedFileCloudinaryUrl} />
                                     </a>
-                                    {/* <!-- the username --> */}
                                     <h1>{profiles.name}</h1>
-                                    {/* <!-- and role or location --> */}
                                     <h2>{profiles.gender},{profiles.age}</h2>
-
                                 </header>
-
-                                {/* <!-- bit of a bio; who are you? --> */}
                                 <div className="profile-bio">
-
                                     <p>{profiles.aboutMe}</p>
-
                                 </div>
-
-                                {/* <!-- some social links to show off --> */}
                             </aside>
-
-
                         )
-
                     }
                 </section>
             </React.Fragment>

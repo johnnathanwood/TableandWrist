@@ -14,6 +14,7 @@ export default class CreateProfile extends Component {
         gender: "",
         age: "",
         aboutMe: "",
+        profileId: ""
     }
     onImageDrop(files) {
         this.setState({
@@ -78,6 +79,9 @@ export default class CreateProfile extends Component {
             userId: credentials.id,
         }
         this.props.addProfile(profile)
+        this.setState({
+            profileId: "",
+        })
             .then(() => this.props.history.push("/profile"))
     }
     render() {
@@ -112,7 +116,7 @@ export default class CreateProfile extends Component {
                         <div>
                             {this.state.uploadedFileCloudinaryUrl === '' ? null :
                                 <div>
-                                    <p>{this.state.uploadedFile.name}</p>
+                                    <p>{this.state.uploadedFile}</p>
                                     <img src={this.state.uploadedFileCloudinaryUrl} />
                                 </div>}
                         </div>

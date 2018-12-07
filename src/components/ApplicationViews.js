@@ -4,8 +4,10 @@ import DataManager from '../module/DataManager'
 import Login from "./login/LoginForm"
 import Register from "./login/RegisterForm"
 import CreateProfile from './profile/makeProfileForm'
+import EditProfileForm from './profile/editProfileForm'
 import Confirm from './profile/confirmProfile';
 import ProfilePage from './profile/profilePage';
+import WatchCollection from './watchbox/watchCollection'
 
 
 export default class ApplicationViews extends Component {
@@ -31,6 +33,16 @@ export default class ApplicationViews extends Component {
             profiles: profiles
         }))
 
+    editProfile = (id, profiles) => {
+        console.log("profile", id, profiles)
+        DataManager.edit("profiles", id, profiles)
+            .then((profiles) => {console.log(profiles) 
+                 DataManager.getAll("profiles") .then(result => {console.log(result) 
+                    this.setState({
+                    profiles: result})
+            })})
+    }
+
 
     componentDidMount() {
         const newState = {}
@@ -39,12 +51,11 @@ export default class ApplicationViews extends Component {
             .then(allUsers => {
                 newState.users = allUsers
             })
-            DataManager.getAll("profiles")
+        DataManager.getAll("profiles")
             .then(allProfiles => {
-              newState.news = allProfiles
+                newState.profiles = allProfiles
             })
             .then(() =>
-            
                 this.setState(newState))
     }
 
@@ -60,23 +71,37 @@ export default class ApplicationViews extends Component {
                     return <CreateProfile {...props}
                         addProfile={this.addProfile} />
                 }} />
-                <Route exact path="/login" component={Login} 
+                <Route exact path="/login" component={Login}
                 />
                 <Route exact path="/confirm" render={(props) => {
                     return <Confirm {...props}
                         addProfile={this.addProfile} />
                 }} />
-                <Route exact path="/login" component={Login} 
+                <Route exact path="/login" component={Login}
                 />
                 <Route exact path="/profile" render={(props) => {
                     if (this.isAuthenticated()) {
                         return <ProfilePage {...props}
                             profiles={this.state.profiles}
                             users={this.state.users}
+                            editProfile={this.editProfile}
                         />
                     } else {
                         return <Redirect to="/login" />
                     }
+                }} />
+                <Route exact path="/profile/edit/:profileId(\d+)" render={(props) => {
+                    if (this.isAuthenticated()) {
+                        return <EditProfileForm {...props}
+                            editProfile={this.editProfile}
+                            profiles={this.state.profiles} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
+                }} />
+                <Route exact path="/watchbox" render={(props) => {
+                    return <WatchCollection {...props}
+                    />
                 }} />
             </React.Fragment>
         )
