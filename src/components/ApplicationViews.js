@@ -4,7 +4,9 @@ import DataManager from '../module/DataManager'
 import Login from "./login/LoginForm"
 import Register from "./login/RegisterForm"
 import CreateProfile from './profile/makeProfileForm'
+import Confirm from './profile/confirmProfile';
 import ProfilePage from './profile/profilePage';
+
 
 export default class ApplicationViews extends Component {
     isAuthenticated = () => localStorage.getItem("credentials") !== null
@@ -56,6 +58,12 @@ export default class ApplicationViews extends Component {
                 }} />
                 <Route exact path="/createProfile" render={(props) => {
                     return <CreateProfile {...props}
+                        addProfile={this.addProfile} />
+                }} />
+                <Route exact path="/login" component={Login} 
+                />
+                <Route exact path="/confirm" render={(props) => {
+                    return <Confirm {...props}
                         addProfile={this.addProfile} />
                 }} />
                 <Route exact path="/login" component={Login} 
