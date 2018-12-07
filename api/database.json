@@ -22,10 +22,10 @@
   "profiles": [
     {
       "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544161282/mtfrokjjozlkzucpirrp.png",
-      "name": "John ",
+      "name": "John Wood",
       "gender": "male",
       "age": "2",
-      "aboutMe": "",
+      "aboutMe": "Im awesome",
       "userId": 1,
       "id": 1
     }
@@ -33,70 +33,12 @@
   "messages": [],
   "watches": [
     {
-      "id": "",
-      "name": "",
-      "description": "",
-      "img": ""
-    },
-    {
-      "id": "",
-      "name": "",
-      "description": "",
-      "img": ""
-    },
-    {
-      "id": "",
-      "name": "",
-      "description": "",
-      "img": ""
-    },
-    {
-      "id": "",
-      "name": "",
-      "description": "",
-      "img": ""
-    },
-    {
-      "id": "",
-      "name": "",
-      "description": "",
-      "img": ""
-    },
-    {
-      "id": "",
-      "name": "",
-      "description": "",
-      "img": ""
-    },
-    {
-      "id": "",
-      "name": "",
-      "description": "",
-      "img": ""
-    },
-    {
-      "id": "",
-      "name": "",
-      "description": "",
-      "img": ""
-    },
-    {
-      "id": "",
-      "name": "",
-      "description": "",
-      "img": ""
-    },
-    {
-      "id": "",
-      "name": "",
-      "description": "",
-      "img": ""
-    },
-    {
-      "id": "",
-      "name": "",
-      "description": "",
-      "img": ""
+      "id": 1,
+      "brand": "Test",
+      "model": "Test",
+      "year": "test",
+      "price": "test",
+      "userId": 1
     }
   ]
 }

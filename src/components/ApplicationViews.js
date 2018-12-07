@@ -18,6 +18,7 @@ export default class ApplicationViews extends Component {
     state = {
         users: [],
         profiles: [],
+        watches:[],
         isLoaded: false
     }
 
@@ -32,17 +33,24 @@ export default class ApplicationViews extends Component {
         .then(profiles => this.setState({
             profiles: profiles
         }))
-
+    addWatch = watches => DataManager.add("watches", watches)
+        .then(() => DataManager.getAll("watches"))
+        .then(watches => this.setState({
+            watches: watches
+        }))
     editProfile = (id, profiles) => {
         console.log("profile", id, profiles)
         DataManager.edit("profiles", id, profiles)
-            .then((profiles) => {console.log(profiles) 
-                 DataManager.getAll("profiles") .then(result => {console.log(result) 
+            .then((profiles) => {
+                console.log(profiles)
+                DataManager.getAll("profiles").then(result => {
+                    console.log(result)
                     this.setState({
-                    profiles: result})
-            })})
+                        profiles: result
+                    })
+                })
+            })
     }
-
 
     componentDidMount() {
         const newState = {}
@@ -54,6 +62,10 @@ export default class ApplicationViews extends Component {
         DataManager.getAll("profiles")
             .then(allProfiles => {
                 newState.profiles = allProfiles
+            })
+        DataManager.getAll("watches")
+            .then(allWatches => {
+                newState.watches = allWatches
             })
             .then(() =>
                 this.setState(newState))
@@ -101,6 +113,9 @@ export default class ApplicationViews extends Component {
                 }} />
                 <Route exact path="/watchbox" render={(props) => {
                     return <WatchCollection {...props}
+                        users={this.state.users}
+                        watches={this.state.watches}
+                        addWatch={this.addWatch}
                     />
                 }} />
             </React.Fragment>
