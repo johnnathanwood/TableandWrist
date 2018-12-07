@@ -1,18 +1,45 @@
 import React, { Component } from "react"
-import Avatar from 'react-avatar-edit'
+// import Avatar from 'react-avatar-edit'
+import Dropzone from 'react-dropzone';
+import request from 'superagent';
 
 
-
+const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/tableandwrist/image/upload'
+const CLOUDINARY_UPLOAD_PRESET = 'tnsexefg'
 export default class CreateProfile extends Component {
 
     state = {
-        profileImg: "",
+        uploadedFileCloudinaryUrl: "",
         name: "",
         gender: "",
         age: "",
         aboutMe: "",
     }
+    onImageDrop(files) {
+        this.setState({
+            uploadedFile: files[0]
+        });
 
+        this.handleImageUpload(files[0]);
+    }
+
+    handleImageUpload(file) {
+        let upload = request.post(CLOUDINARY_UPLOAD_URL)
+            .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+            .field('file', file);
+
+        upload.end((err, response) => {
+            if (err) {
+                console.error(err);
+            }
+
+            if (response.body.secure_url !== '') {
+                this.setState({
+                    uploadedFileCloudinaryUrl: response.body.secure_url
+                });
+            }
+        });
+    }
     handleFieldChange = (evt) => {
         const stateToChange = {}
         stateToChange[evt.target.id] = evt.target.value
@@ -42,7 +69,7 @@ export default class CreateProfile extends Component {
         evt.preventDefault()
         const credentials = JSON.parse(localStorage.getItem('credentials'))
         const profile = {
-            profileImg: this.state.profileImg,
+            uploadedFileCloudinaryUrl: this.state.uploadedFileCloudinaryUrl,
             name: this.state.name,
             gender: this.state.gender,
             age: this.state.age,
@@ -57,18 +84,38 @@ export default class CreateProfile extends Component {
 
         return (
             <React.Fragment>
-            <div>
                 <div className="confirm">
-                <label htmlFor="profileImg">Chose a profile image</label>
-                    <div>
+                    <label htmlFor="profileImg">Chose a profile image</label>
+                    {/* <div>
                         <Avatar
                             width={390}
                             height={295}
                             onCrop={this.onCrop}
                             onClose={this.onClose}
-                            src={this.state.src}
+                            src={this.state.uploadedFileCloudinaryUrl}
                         />
-                        <img src={this.state.preview} alt="Preview" onSubmit={this.handleRegister} id="profileImg" />
+                        <img src={this.state.preview} alt="Preview" onSubmit={this.handleImageUpload} id="profileImg" />
+                    </div> */}
+                </div>
+                <div>
+                    <Dropzone
+                        multiple={false}
+                        accept="image/*"
+                        onDrop={this.onImageDrop.bind(this)}>
+                        <p>Drop an image or click to select a file to upload.</p>
+                    </Dropzone>
+                    <div>
+                        <div className="FileUpload">
+                            ...
+                        </div>
+
+                        <div>
+                            {this.state.uploadedFileCloudinaryUrl === '' ? null :
+                                <div>
+                                    <p>{this.state.uploadedFile.name}</p>
+                                    <img src={this.state.uploadedFileCloudinaryUrl} />
+                                </div>}
+                        </div>
                     </div>
                 </div>
                 <form action="#" onSubmit={this.handleRegister}>
@@ -132,7 +179,6 @@ export default class CreateProfile extends Component {
                     <button onClick={this.constructNewProfile} className="btn" type="submit">Submit</button>
                     <button className="btn" id="clear" type="reset" value="Reset">Reset</button>
                 </form>
-            </div>
             </React.Fragment>
         )
     }

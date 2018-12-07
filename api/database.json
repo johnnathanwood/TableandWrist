@@ -21,10 +21,11 @@
   ],
   "profiles": [
     {
+      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544161282/mtfrokjjozlkzucpirrp.png",
       "name": "John Wood",
-      "gender": "male",
-      "age": "25",
-      "aboutMe": "I am pretty cool",
+      "gender": "Female",
+      "age": "1",
+      "aboutMe": "xccxcxccxxcxccxxc",
       "userId": 1,
       "id": 1
     }

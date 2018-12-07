@@ -43,7 +43,7 @@ export default class ProfilePage extends Component {
                         <div className="eachProfile" key={profiles.id}>
                             <div id={`profile--${profiles.id}`} key={profiles.id} className="ProfileCard">
                                 <figure className="snip1515">
-                                    <div className="profile-image"><img src={profiles.profileImg} alt="sample47" /></div>
+                                    <div className="profile-image"><img src={profiles.uploadedFileCloudinaryUrl} alt="sample47" width="300" crop="scale" /></div>
                                     <figcaption>
                                         {/* <h3>Username:{this.findUserName(profiles)}</h3> */}
                                         <h3>Name:{profiles.name}</h3>
