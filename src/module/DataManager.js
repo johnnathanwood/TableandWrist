@@ -1,6 +1,7 @@
 const remoteURL = "http://localhost:5002"
 
 export default Object.create(null, {
+    
     get: {
         value: (resource, id) => {
             return fetch(`${remoteURL}/${resource}/${id}`)
