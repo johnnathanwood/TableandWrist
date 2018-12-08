@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import MessageForm from './messageForm'
+import Likes from './messageLike';
 import { Comment,Message, Header,Icon } from 'semantic-ui-react'
 
 export default class MessageList extends Component {
@@ -35,6 +36,7 @@ export default class MessageList extends Component {
                                             </Comment.Metadata>
                                             <Comment.Text>
                                                 <p>{messages.message}</p>
+                                                <Likes/>
                                             </Comment.Text>
                                             {
                                                  messages.userId === credentials.id ? (
