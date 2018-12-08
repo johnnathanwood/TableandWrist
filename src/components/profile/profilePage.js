@@ -4,6 +4,7 @@ import DataManager from "../../module/DataManager"
 import "./profilePage.css"
 import { Comment} from 'semantic-ui-react'
 import EditProfileModal from "./editProfileModal";
+import ProfileCollection from "../watchbox/showWatchesonProfile";
 
 
 
@@ -53,6 +54,7 @@ console.log(this.props.profiles)
                                         <EditProfileModal {...this.props} profileId={profiles.id} profiles={profiles} />           
                                     </Comment.Actions>
                                 </div>
+                            <ProfileCollection {...this.props}/>
                             </div>
 
                         )

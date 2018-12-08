@@ -97,6 +97,7 @@ export default class ApplicationViews extends Component {
                             profiles={this.state.profiles}
                             users={this.state.users}
                             editProfile={this.editProfile}
+                            watches={this.state.watches}
                         />
                     } else {
                         return <Redirect to="/login" />

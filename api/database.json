@@ -28,15 +28,6 @@
       "aboutMe": "Im awesome",
       "userId": 1,
       "id": 1
-    },
-    {
-      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544228880/avclommrfbaev8xrhcgi.jpg",
-      "name": "Jessicao",
-      "gender": "male",
-      "age": "59",
-      "aboutMe": "Watch",
-      "userId": 1,
-      "id": 2
     }
   ],
   "messages": [],
