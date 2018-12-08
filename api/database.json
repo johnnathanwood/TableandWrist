@@ -36,6 +36,12 @@
       "message": "Hey this is John",
       "date": "Today at 3:03 PM",
       "userId": 1
+    },
+    {
+      "id": 2,
+      "message": "I am so fucking excited",
+      "date": "Today at 4:08 PM",
+      "userId": 1
     }
   ],
   "watches": [

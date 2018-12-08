@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Icon } from 'semantic-ui-react'
+import { Button, Icon, Label } from 'semantic-ui-react'
+
 
 export default class Likes extends Component{
 
@@ -12,8 +13,14 @@ export default class Likes extends Component{
     }
     this.updateLikes = this.updateLikes.bind(this);
   }
+  
+  handleFieldChange = evt => {
+    const stateToChange = {}
+    stateToChange[evt.target.id] = evt.target.value
+    this.setState(stateToChange)
+}
 
-  updateLikes() {
+  updateLikes =() => { this.setState({ active: !this.state.active })
 
     if(!this.state.updated) {
       this.setState((prevState, props) => {
@@ -31,16 +38,22 @@ export default class Likes extends Component{
         };
       });
     }
-
-
+    
   }
 
   render(){
-
+    const { active } = this.state
     return(
       <div>
-        <Icon onClick={this.updateLikes} name='heart outline' />
-        <p>{this.state.likes}</p>
+        <Button as='div' labelPosition='right'>
+      <Button icon toggle active={active} onClick={this.updateLikes}>
+        <Icon name='heart' />
+        Like
+      </Button>
+      <Label as='a' basic pointing='left'>
+      {this.state.likes}
+      </Label>
+    </Button>
       </div>
     );
 
