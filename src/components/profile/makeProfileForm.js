@@ -1,11 +1,10 @@
 import React, { Component } from "react"
-// import Avatar from 'react-avatar-edit'
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
 
 
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/tableandwrist/image/upload'
-const CLOUDINARY_UPLOAD_PRESET = 'tnsexefg'
+const CLOUDINARY_UPLOAD_PRESET = 'zyoajlhe'
 export default class CreateProfile extends Component {
 
     state = {
@@ -79,9 +78,9 @@ export default class CreateProfile extends Component {
             userId: credentials.id,
         }
         this.props.addProfile(profile)
-        this.setState({
-            profileId: "",
-        })
+        // this.setState({
+        //     profileId: "",
+        // })
             .then(() => this.props.history.push("/profile"))
     }
     render() {
@@ -116,8 +115,8 @@ export default class CreateProfile extends Component {
                         <div>
                             {this.state.uploadedFileCloudinaryUrl === '' ? null :
                                 <div>
-                                    <p>{this.state.uploadedFile}</p>
-                                    <img src={this.state.uploadedFileCloudinaryUrl} />
+                                    <p src={this.state.uploadedFile}></p>
+                                    <img alt="profile" src={this.state.uploadedFileCloudinaryUrl} />
                                 </div>}
                         </div>
                     </div>

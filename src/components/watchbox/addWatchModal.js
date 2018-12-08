@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import {Modal, Header,Comment} from 'semantic-ui-react'
+import {Modal, Header,Comment,Image} from 'semantic-ui-react'
 import AddWatch from './addWatchform'
+import './watchmodal.css'
 
 
 export default class AddWatchModal extends Component {
@@ -16,8 +17,10 @@ export default class AddWatchModal extends Component {
             <Modal trigger={<Comment.Action onClick={this.show(true)}>Add Watch</Comment.Action>} dimmer={dimmer} open={open} onClose={this.close}  closeIcon
             >
                 <Header icon='archive' content='Add Watch' />
-                <Modal.Content>
-                    <AddWatch {...this.props} close={this.close}/>
+                <Modal.Content image scrolling>
+                <Image wrapped size='medium' wrapped>
+                    <AddWatch {...this.props} close={this.close} />
+                </Image>
                 </Modal.Content>
                 <Modal.Actions>
                 </Modal.Actions>

@@ -28,17 +28,27 @@
       "aboutMe": "Im awesome",
       "userId": 1,
       "id": 1
+    },
+    {
+      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544228880/avclommrfbaev8xrhcgi.jpg",
+      "name": "Jessicao",
+      "gender": "male",
+      "age": "59",
+      "aboutMe": "Watch",
+      "userId": 1,
+      "id": 2
     }
   ],
   "messages": [],
   "watches": [
     {
-      "id": 1,
-      "brand": "Test",
+      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544231660/o9rgds5uq5zqhtuunyb5.jpg",
+      "brand": "Watch Example",
       "model": "Test",
-      "year": "test",
-      "price": "test",
-      "userId": 1
+      "year": "2018",
+      "price": "300",
+      "userId": 1,
+      "id": 1
     }
   ]
 }
