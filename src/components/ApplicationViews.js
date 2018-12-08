@@ -51,6 +51,12 @@ export default class ApplicationViews extends Component {
                 })
             })
     }
+    editWatch = (id, watches) => DataManager.edit("watches", id, watches)
+        .then(() => DataManager.getAll("watches"))
+        .then(watches => this.setState({
+            watches:watches
+        }))
+
 
     componentDidMount() {
         const newState = {}
@@ -117,6 +123,7 @@ export default class ApplicationViews extends Component {
                         users={this.state.users}
                         watches={this.state.watches}
                         addWatch={this.addWatch}
+                        editWatch={this.editWatch}
                     />
                 }} />
             </React.Fragment>
