@@ -30,7 +30,14 @@
       "id": 1
     }
   ],
-  "messages": [],
+  "messages": [
+    {
+      "id": 1,
+      "message": "Hey this is John",
+      "date": "Today at 3:03 PM",
+      "userId": 1
+    }
+  ],
   "watches": [
     {
       "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544231660/o9rgds5uq5zqhtuunyb5.jpg",

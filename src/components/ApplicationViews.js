@@ -8,6 +8,8 @@ import EditProfileForm from './profile/editProfileForm'
 import Confirm from './profile/confirmProfile';
 import ProfilePage from './profile/profilePage';
 import WatchCollection from './watchbox/watchCollection'
+import MessageForm from './watchform/messageForm'
+import MessageList from './watchform/messageList'
 
 
 export default class ApplicationViews extends Component {
@@ -18,7 +20,8 @@ export default class ApplicationViews extends Component {
     state = {
         users: [],
         profiles: [],
-        watches:[],
+        watches: [],
+        messages: [],
         isLoaded: false
     }
 
@@ -38,6 +41,11 @@ export default class ApplicationViews extends Component {
         .then(watches => this.setState({
             watches: watches
         }))
+    addMessage = messages => DataManager.add("messages", messages)
+        .then(() => DataManager.getAll("messages"))
+        .then(messages => this.setState({
+            messages: messages
+        }))
     editProfile = (id, profiles) => {
         console.log("profile", id, profiles)
         DataManager.edit("profiles", id, profiles)
@@ -54,7 +62,7 @@ export default class ApplicationViews extends Component {
     editWatch = (id, watches) => DataManager.edit("watches", id, watches)
         .then(() => DataManager.getAll("watches"))
         .then(watches => this.setState({
-            watches:watches
+            watches: watches
         }))
 
 
@@ -72,6 +80,10 @@ export default class ApplicationViews extends Component {
         DataManager.getAll("watches")
             .then(allWatches => {
                 newState.watches = allWatches
+            })
+        DataManager.getAll("messages")
+            .then(allMessages => {
+                newState.messages = allMessages
             })
             .then(() =>
                 this.setState(newState))
@@ -126,6 +138,16 @@ export default class ApplicationViews extends Component {
                         editWatch={this.editWatch}
                     />
                 }} />
+                <Route exact path="/watchform" render={(props) => {
+          if (this.isAuthenticated()) {
+            return <MessageList {...props}
+              addMessage={this.addMessage}
+              users={this.state.users}
+              messages={this.state.messages} />
+          } else {
+            return <Redirect to="/" />
+          }
+        }} />
             </React.Fragment>
         )
     }
