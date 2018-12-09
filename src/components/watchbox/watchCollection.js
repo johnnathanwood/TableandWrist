@@ -3,6 +3,7 @@ import DataManager from "../../module/DataManager"
 import AddWatch from "./addWatchform";
 import { Comment,Message,Button} from 'semantic-ui-react'
 import AddWatchModal from "./addWatchModal";
+import EditWatchModal from "./editWatchModal";
 
 
 
@@ -45,6 +46,9 @@ export default class WatchCollection extends Component {
                                     </Comment>
                                 </Comment.Group>
                             </Message>
+                            <Comment.Actions>
+                                        <EditWatchModal {...this.props} watchId={watches.id} watches={watches} />           
+                            </Comment.Actions>
                         </div>
                     )
                 }

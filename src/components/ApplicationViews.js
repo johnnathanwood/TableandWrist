@@ -8,6 +8,7 @@ import EditProfileForm from './profile/editProfileForm'
 import Confirm from './profile/confirmProfile';
 import ProfilePage from './profile/profilePage';
 import WatchCollection from './watchbox/watchCollection'
+import EditWatchForm from './watchbox/editWatchform'
 import MessageForm from './watchform/messageForm'
 import MessageList from './watchform/messageList'
 
@@ -59,11 +60,17 @@ export default class ApplicationViews extends Component {
                 })
             })
     }
-    editWatch = (id, watches) => DataManager.edit("watches", id, watches)
-        .then(() => DataManager.getAll("watches"))
-        .then(watches => this.setState({
-            watches: watches
-        }))
+    editWatch = (id,watches) => {
+        DataManager.edit("watches", id, watches)
+            .then((watches) => {
+                console.log(watches)
+                DataManager.getAll("watches").then(result => {
+                    this.setState({
+                        watches: result
+                    })
+                })
+            })
+    }
 
 
     componentDidMount() {
@@ -137,6 +144,15 @@ export default class ApplicationViews extends Component {
                         addWatch={this.addWatch}
                         editWatch={this.editWatch}
                     />
+                }} />
+                <Route exact path="/watchbox/edit/:watchId(\d+)" render={(props) => {
+                    if (this.isAuthenticated()) {
+                        return <EditWatchForm {...props}
+                        editWatch={this.editWatch}
+                        watches={this.state.watches} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
                 }} />
                 <Route exact path="/watchform" render={(props) => {
           if (this.isAuthenticated()) {

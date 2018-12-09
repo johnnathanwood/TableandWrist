@@ -42,30 +42,6 @@ export default class EditProfileForm extends Component {
     render () {
         return (
         <React.Fragment>
-             {/* <div className="confirm">
-                    <label htmlFor="profileImg">Chose a profile image</label>
-                </div>
-                <div>
-                    <Dropzone
-                        multiple={false}
-                        accept="image/*"
-                        >
-                        <p>Drop an image or click to select a file to upload.</p>
-                    </Dropzone>
-                    <div>
-                        <div className="FileUpload">
-                            ...
-                        </div>
-
-                        <div>
-                            {this.props.profiles.uploadedFileCloudinaryUrl === '' ? null :
-                                <div>
-                                    <p>{this.state.uploadedFile}</p>
-                                    <img src={this.props.profiles.uploadedFileCloudinaryUrl} />
-                                </div>}
-                        </div>
-                    </div>
-                </div> */}
                 <form action="#" onSubmit={this.handleRegister}>
                     <h1>
                         Create User Profile

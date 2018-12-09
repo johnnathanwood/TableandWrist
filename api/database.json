@@ -23,7 +23,7 @@
     {
       "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544161282/mtfrokjjozlkzucpirrp.png",
       "name": "John Wood",
-      "gender": "male",
+      "gender": "Female",
       "age": "2",
       "aboutMe": "Im awesome",
       "userId": 1,
@@ -47,7 +47,7 @@
   "watches": [
     {
       "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544231660/o9rgds5uq5zqhtuunyb5.jpg",
-      "brand": "Watch Example",
+      "brand": "Timex Test",
       "model": "Test",
       "year": "2018",
       "price": "300",
