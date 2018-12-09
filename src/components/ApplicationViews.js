@@ -119,8 +119,6 @@ export default class ApplicationViews extends Component {
                     return <Confirm {...props}
                         addProfile={this.addProfile} />
                 }} />
-                <Route exact path="/login" component={Login}
-                />
                 <Route exact path="/profile" render={(props) => {
                     if (this.isAuthenticated()) {
                         return <ProfilePage {...props}

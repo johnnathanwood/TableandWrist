@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
-// import { Icon } from 'semantic-ui-react'
-import "bootstrap/dist/css/bootstrap.min.css"
+import { Icon, Button } from 'semantic-ui-react'
 import "./NavBar.css"
 
 export default class NavBar extends Component {
@@ -25,14 +24,27 @@ export default class NavBar extends Component {
           <li className="nav-item">
             <Link className="nav-link" to="/friends">Friends</Link>
           </li>
-
-          {/* <li className="nav-item">
-          <Link className="nav-link" to="/friends">Friends</Link>
-        </li> */}
-
         </ul>
         <p id="navTagline">Welcome to Table !</p>
-
+        <div className="logbtn">
+        <Button animated onClick={() => {
+          document.location.href = 'http://localhost:3000/login'
+        }}>
+          <Button.Content visible>Login</Button.Content>
+          <Button.Content hidden>
+            <Icon name='sign-in alternate' />
+          </Button.Content>
+        </Button>
+        <Button animated onClick={() => {
+          localStorage.clear("credentials")
+          document.location.href = 'http://localhost:3000'
+        }}>
+          <Button.Content visible>Logout</Button.Content>
+          <Button.Content hidden>
+            <Icon name='sign-out alternate' />
+          </Button.Content>
+        </Button>
+        </div>
       </nav>
     )
   }

@@ -22,15 +22,15 @@ export default class Register extends Component {
 
     handleButtonClick = () => {
         document.location.href = 'http://localhost:3000/createProfile'
-
         const users = {
             username: this.state.username,
             email: this.state.userEmail,
             password: this.state.userPassword,
         }
-
         this.props.addUser(users)
             .then(() => this.props.history.push("/createProfile"))
+            localStorage.setItem("credentials", JSON.stringify(users))
+            document.location.href = 'http://localhost:3000/createProfile'
 
     }
 
