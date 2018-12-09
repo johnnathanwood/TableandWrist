@@ -46,7 +46,7 @@ export default class Likes extends Component{
     return(
       <div>
         <Button as='div' labelPosition='right'>
-      <Button icon toggle active={active} onClick={this.updateLikes}>
+      <Button  size="mini" icon toggle active={active} onClick={this.updateLikes}>
         <Icon name='heart' />
         Like
       </Button>
