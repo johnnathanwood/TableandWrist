@@ -30,17 +30,17 @@ export default class WatchCollection extends Component {
                                             <Comment.Metadata>
                                             <div className="profile-image"><img src={watches.uploadedFileCloudinaryUrl} alt="sample47" width="300" crop="scale" /></div>
                                             </Comment.Metadata>
-                                            <Comment.Metadata>
-                                                <div>{watches.brand}</div>
-                                            </Comment.Metadata>
                                             <Comment.Text>
-                                                <p>{watches.model}</p>
+                                                <div>Brand: {watches.brand}</div>
                                             </Comment.Text>
                                             <Comment.Text>
-                                                <p>{watches.year}</p>
+                                                <p>Model: {watches.model}</p>
                                             </Comment.Text>
                                             <Comment.Text>
-                                                <p>{watches.price}</p>
+                                                <p>Year: {watches.year}</p>
+                                            </Comment.Text>
+                                            <Comment.Text>
+                                                <p>Price: ${watches.price}</p>
                                             </Comment.Text>
                                         </Comment.Content>
                                     </Comment>

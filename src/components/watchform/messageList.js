@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import MessageForm from './messageForm'
 import Likes from './messageLike';
-import { Comment,Message, Header,Icon } from 'semantic-ui-react'
+import EditMessageModal from './editMessageModal'
+import { Comment, Message, Header, Icon } from 'semantic-ui-react'
 
 export default class MessageList extends Component {
 
@@ -19,9 +20,9 @@ export default class MessageList extends Component {
         return (
             <React.Fragment>
                 <Header color="blue" as='h2' icon textAlign='center'>
-          <Icon name='comments outline' />
-          <Header.Content>Watch Form</Header.Content>
-        </Header> 
+                    <Icon name='comments outline' />
+                    <Header.Content>Watch Form</Header.Content>
+                </Header>
                 {
                     this.props.messages.map(messages =>
                         <div id={`message--${messages.id}`} key={messages.id} className="MessageCard">
@@ -36,20 +37,19 @@ export default class MessageList extends Component {
                                             </Comment.Metadata>
                                             <Comment.Text>
                                                 <p>{messages.message}</p>
-                                                <Likes/>
+                                                <Likes />
                                             </Comment.Text>
                                             {
-                                                 messages.userId === credentials.id ? (
-                                                     <React.Fragment >
-                                                         <div className="container">
-                                                <Comment.Actions>
-                                                </Comment.Actions>
-                                                <Comment.Actions>
-                                                </Comment.Actions>
-                                                </div>
-                                                </React.Fragment>
-                                                 ): ""
-                                    }
+                                                messages.userId === credentials.id ? (
+                                                    <React.Fragment >
+                                                        <div className="container">
+                                                            <Comment.Actions>
+                                                            <EditMessageModal {...this.props} messageId={messages.id} messages={messages} />
+                                                            </Comment.Actions>
+                                                        </div>
+                                                    </React.Fragment>
+                                                ) : ""
+                                            }
 
 
                                         </Comment.Content>

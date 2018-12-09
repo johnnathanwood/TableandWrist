@@ -9,8 +9,8 @@ import Confirm from './profile/confirmProfile';
 import ProfilePage from './profile/profilePage';
 import WatchCollection from './watchbox/watchCollection'
 import EditWatchForm from './watchbox/editWatchform'
-import MessageForm from './watchform/messageForm'
 import MessageList from './watchform/messageList'
+import EditMessageForm from './watchform/editMessageForm'
 
 
 export default class ApplicationViews extends Component {
@@ -60,7 +60,7 @@ export default class ApplicationViews extends Component {
                 })
             })
     }
-    editWatch = (id,watches) => {
+    editWatch = (id, watches) => {
         DataManager.edit("watches", id, watches)
             .then((watches) => {
                 console.log(watches)
@@ -71,6 +71,11 @@ export default class ApplicationViews extends Component {
                 })
             })
     }
+    editMessage = (id, messages) => DataManager.edit("messages", id, messages)
+    .then(() => DataManager.getAll("messages"))
+    .then(messages => this.setState({
+      messages: messages
+    }))
 
 
     componentDidMount() {
@@ -148,20 +153,28 @@ export default class ApplicationViews extends Component {
                 <Route exact path="/watchbox/edit/:watchId(\d+)" render={(props) => {
                     if (this.isAuthenticated()) {
                         return <EditWatchForm {...props}
-                        editWatch={this.editWatch}
-                        watches={this.state.watches} />
+                            editWatch={this.editWatch}
+                            watches={this.state.watches} />
                     } else {
                         return <Redirect to="/login" />
                     }
                 }} />
                 <Route exact path="/watchform" render={(props) => {
+                    if (this.isAuthenticated()) {
+                        return <MessageList {...props}
+                            addMessage={this.addMessage}
+                            editMessage={this.editMessage}
+                            users={this.state.users}
+                            messages={this.state.messages} />
+                    } else {
+                        return <Redirect to="/" />
+                    }
+                }} />
+                 <Route exact path="/watchform/edit/:messageId(\d+)" render={(props) => {
           if (this.isAuthenticated()) {
-            return <MessageList {...props}
-              addMessage={this.addMessage}
-              users={this.state.users}
-              messages={this.state.messages} />
+            return <EditMessageForm {...props} editMessage={this.editMessage} message={this.state.messages} />
           } else {
-            return <Redirect to="/" />
+            return <Redirect to="/login" />
           }
         }} />
             </React.Fragment>

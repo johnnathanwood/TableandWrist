@@ -3,7 +3,6 @@ import { Button, Form} from 'semantic-ui-react'
 import moment from 'moment';
 
 
-
 export default class MessageForm extends Component {
 
     state = {
@@ -26,7 +25,7 @@ export default class MessageForm extends Component {
         const messages = {
             id: this.state.messageId,
             message: this.state.message,
-            date: moment().calendar(),
+            date: moment().fromNow(),
             userId: credentials.id
         }
         console.log(this.props)

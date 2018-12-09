@@ -23,7 +23,7 @@
     {
       "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544161282/mtfrokjjozlkzucpirrp.png",
       "name": "John Wood",
-      "gender": "Female",
+      "gender": "male",
       "age": "2",
       "aboutMe": "Im awesome",
       "userId": 1,
@@ -33,7 +33,7 @@
   "messages": [
     {
       "id": 1,
-      "message": "Hey this is John",
+      "message": "Hey this is John!!!!!!",
       "date": "Today at 3:03 PM",
       "userId": 1
     },
@@ -41,6 +41,18 @@
       "id": 2,
       "message": "I am so fucking excited",
       "date": "Today at 4:08 PM",
+      "userId": 1
+    },
+    {
+      "id": 3,
+      "message": "Hey dude",
+      "date": "a few seconds ago",
+      "userId": 1
+    },
+    {
+      "id": 4,
+      "message": "hey",
+      "date": "a few seconds",
       "userId": 1
     }
   ],
