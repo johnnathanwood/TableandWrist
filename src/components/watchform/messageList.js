@@ -44,7 +44,12 @@ export default class MessageList extends Component {
                                                     <React.Fragment >
                                                         <div className="container">
                                                             <Comment.Actions>
-                                                            <EditMessageModal {...this.props} messageId={messages.id} messages={messages} />
+                                                                <Comment.Action
+                                                                    onClick={() => this.props.deleteMessage(messages.id)
+                                                                        .then(() => this.props.history.push("/watchform"))}
+                                                                >delete
+                                                    </Comment.Action>
+                                                                <EditMessageModal {...this.props} messageId={messages.id} messages={messages} />
                                                             </Comment.Actions>
                                                         </div>
                                                     </React.Fragment>

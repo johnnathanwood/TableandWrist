@@ -76,6 +76,11 @@ export default class ApplicationViews extends Component {
     .then(watches => this.setState({
       watches: watches
     }))
+    deleteMessage = id => DataManager.delete("messages", id)
+    .then(() => DataManager.getAll("messages"))
+    .then(messages => this.setState({
+      messages: messages
+    }))
     editMessage = (id, messages) => DataManager.edit("messages", id, messages)
         .then(() => DataManager.getAll("messages"))
         .then(messages => this.setState({
@@ -171,6 +176,7 @@ export default class ApplicationViews extends Component {
                         return <MessageList {...props}
                             addMessage={this.addMessage}
                             editMessage={this.editMessage}
+                            deleteMessage={this.deleteMessage}
                             users={this.state.users}
                             messages={this.state.messages} />
                     } else {
