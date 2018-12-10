@@ -24,6 +24,9 @@ export default class NavBar extends Component {
           <li className="nav-item">
             <Link className="nav-link" to="/friends">Friends</Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/community">Community</Link>
+          </li>
         </ul>
         <p id="navTagline">Welcome to Table !</p>
         <div className="logbtn">

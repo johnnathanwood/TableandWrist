@@ -4,24 +4,23 @@
       "username": "Johnny",
       "email": "johnnathanwood@gmail.com",
       "password": "1",
-      "id": 1
+      "id": 1,
+      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544477131/biqett3bct5mnik4r5k8.jpg",
+      "name": "Jake",
+      "gender": "Female",
+      "age": "4",
+      "aboutMe": "Test"
     },
     {
       "username": "Jeff",
-      "email": "Jeff@gmail.com",
+      "email": "johnnathanwood@gmail.com",
       "password": "1",
-      "id": 2
-    }
-  ],
-  "profiles": [
-    {
-      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544385025/fcbnd3his0lisocyaizt.png",
-      "name": "John Nathan Wood",
+      "id": 2,
+      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544475857/iubulohe3nrwfahhdpub.png",
+      "name": "Jeff",
       "gender": "male",
       "age": "26",
-      "aboutMe": "I love watches",
-      "userId": 1,
-      "id": 1
+      "aboutMe": "Test"
     }
   ],
   "messages": [
@@ -43,5 +42,11 @@
       "id": 1
     }
   ],
-  "favorites": []
+  "relationships": [
+    {
+      "userId": 1,
+      "friendId": 2,
+      "id": 1
+    }
+  ]
 }

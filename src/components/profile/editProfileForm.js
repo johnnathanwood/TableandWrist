@@ -16,7 +16,7 @@ export default class EditProfileForm extends Component {
 
     componentDidMount() {
         // const message = this.props.messages.find(a => a.id === this.props.messageId)
-        this.setState(this.props.profiles)
+        this.setState(this.props.users)
     }
 
     updateProfile = (evt) => {
@@ -31,11 +31,11 @@ export default class EditProfileForm extends Component {
             aboutMe: this.state.aboutMe,
             userId: credentials.id,
         } 
-        this.setState({profiles:updatedProfile})
+        this.setState({users:updatedProfile})
         console.log(updatedProfile)
-        this.props.editProfile(this.props.profileId, updatedProfile)
+        this.props.editUser(this.props.userId, updatedProfile)
         this.props.close()
-        console.log(this.props.profile)
+        console.log(this.props.users)
         
     }
 
@@ -50,13 +50,13 @@ export default class EditProfileForm extends Component {
                     </h1>
 
                     <div className="float-label">
-                        <input onChange={this.handleFieldChange} type="text" name="name" id="name" defaultValue={this.props.profiles.name}/>
+                        <input onChange={this.handleFieldChange} type="text" name="name" id="name" defaultValue={this.props.users.name}/>
                         <label htmlFor="name">Name</label>
                     </div>
                     <div className='row'>
                         <div className="float-label">
                             <i className="fa fa-caret-down"></i>
-                            <select onChange={this.handleFieldChange} defaultValue={this.props.profiles.gender} name="gender" id="gender">
+                            <select onChange={this.handleFieldChange} defaultValue={this.props.users.gender} name="gender" id="gender">
                                 <option value=""></option>
                                 <option value="male">Male</option>
                                 <option value="Female">Female</option>
@@ -65,11 +65,11 @@ export default class EditProfileForm extends Component {
                         </div>
 
                         <div className="float-label">
-                            <input onChange={this.handleFieldChange} defaultValue={this.props.profiles.age} type="number" name="age" id="age" maxLength="2" />
+                            <input onChange={this.handleFieldChange} defaultValue={this.props.users.age} type="number" name="age" id="age" maxLength="2" />
                             <label htmlFor="age">Age</label>
                         </div>
                         <div className="float-label">
-                            <input onChange={this.handleFieldChange} defaultValue={this.props.profiles.aboutMe} type="text" name="aboutMe" id="aboutMe" />
+                            <input onChange={this.handleFieldChange} defaultValue={this.props.users.aboutMe} type="text" name="aboutMe" id="aboutMe" />
                             <label htmlFor="aboutMe">About Me</label>
                         </div>
                     </div>

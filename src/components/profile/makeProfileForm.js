@@ -74,9 +74,8 @@ export default class CreateProfile extends Component {
             age: this.state.age,
             height: this.state.height,
             aboutMe: this.state.aboutMe,
-            userId: credentials.id,
         }
-        this.props.addProfile(profile)
+        this.props.addUserProfile(profile, credentials.id)
             .then(() => this.props.history.push("/profile"))
     }
     render() {

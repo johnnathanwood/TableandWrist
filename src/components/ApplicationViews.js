@@ -11,6 +11,8 @@ import WatchCollection from './watchbox/watchCollection'
 import EditWatchForm from './watchbox/editWatchform'
 import MessageList from './watchform/messageList'
 import EditMessageForm from './watchform/editMessageForm'
+import Community from './community/communityList';
+import FriendsList from './friends/friendsList'
 
 
 
@@ -20,10 +22,11 @@ export default class ApplicationViews extends Component {
     credentials = { id: 1 }
     state = {
         users: [],
-        profiles: [],
         watches: [],
         messages: [],
         favorites: [],
+        relationships: [],
+        friendsArray: [],
         isLoaded: false
     }
 
@@ -32,10 +35,10 @@ export default class ApplicationViews extends Component {
         .then(users => this.setState({
             users: users
         }))
-    addProfile = profiles => DataManager.add("profiles", profiles)
-        .then(() => DataManager.getAllByUser("profiles",this.credentials.id))
-        .then(profiles => this.setState({
-            profiles: profiles
+    addUserProfile = (obj, id) => DataManager.edit("users", id, obj)
+        .then(() => DataManager.getAllByUser("users", this.credentials.id))
+        .then(users => this.setState({
+            users: users
         }))
     addWatch = watches => DataManager.add("watches", watches)
         .then(() => DataManager.getAll("watches"))
@@ -47,15 +50,15 @@ export default class ApplicationViews extends Component {
         .then(messages => this.setState({
             messages: messages
         }))
-    editProfile = (id, profiles) => {
-        console.log("profile", id, profiles)
-        DataManager.edit("profiles", id, profiles)
-            .then((profiles) => {
-                console.log(profiles)
-                DataManager.getAll("profiles").then(result => {
+    editUser = (id, users) => {
+        // console.log("profile", id, profiles)
+        DataManager.edit("users", id, users)
+            .then((users) => {
+                console.log(users)
+                DataManager.getAll("users").then(result => {
                     console.log(result)
                     this.setState({
-                        profiles: result
+                        users: result
                     })
                 })
             })
@@ -72,20 +75,47 @@ export default class ApplicationViews extends Component {
             })
     }
     deleteWatch = id => DataManager.delete("watches", id)
-    .then(() => DataManager.getAll("watches"))
-    .then(watches => this.setState({
-      watches: watches
-    }))
+        .then(() => DataManager.getAll("watches"))
+        .then(watches => this.setState({
+            watches: watches
+        }))
     deleteMessage = id => DataManager.delete("messages", id)
-    .then(() => DataManager.getAll("messages"))
-    .then(messages => this.setState({
-      messages: messages
-    }))
+        .then(() => DataManager.getAll("messages"))
+        .then(messages => this.setState({
+            messages: messages
+        }))
     editMessage = (id, messages) => DataManager.edit("messages", id, messages)
         .then(() => DataManager.getAll("messages"))
         .then(messages => this.setState({
             messages: messages
         }))
+    getRelationships = () => {
+        return DataManager.getData("relationships")
+            .then(relationships => this.setState({ relationships: relationships }))
+    }
+
+    findRelationships = (currentUserId) => {
+        return this.getUsers().then(() => this.getRelationships())
+            .then(() => {
+                return this.state.relationships.filter((relationship) => relationship.userId === currentUserId  )
+                
+            })
+    }
+
+    findFriends = (currentUserId) => {
+        return this.findRelationships(currentUserId)
+            .then((relationships) => {
+                let friendsArray = []
+                relationships.forEach((relationship) => {
+                    friendsArray.push(this.state.users.find(users => users.id === relationship.friendId))
+                })
+                this.setState({ friendsArray: friendsArray })
+            })
+    }
+    getUsers = () => {
+        return DataManager.getData("users")
+            .then((users) => this.setState({ users: users }))
+    }
 
 
     componentDidMount() {
@@ -95,10 +125,6 @@ export default class ApplicationViews extends Component {
             .then(allUsers => {
                 newState.users = allUsers
             })
-        DataManager.getAll("profiles")
-            .then(allProfiles => {
-                newState.profiles = allProfiles
-            })
         DataManager.getAll("watches")
             .then(allWatches => {
                 newState.watches = allWatches
@@ -107,9 +133,10 @@ export default class ApplicationViews extends Component {
             .then(allMessages => {
                 newState.messages = allMessages
             })
-        DataManager.getAll("favorites")
-            .then(allFavorites => {
-                newState.favorites = allFavorites
+        DataManager.getData("relationships")
+            .then(allRelationships => {
+                newState.relationships = allRelationships
+                console.log(allRelationships)
             })
             .then(() =>
                 this.setState(newState))
@@ -125,19 +152,19 @@ export default class ApplicationViews extends Component {
                 }} />
                 <Route exact path="/createProfile" render={(props) => {
                     return <CreateProfile {...props}
-                        addProfile={this.addProfile} />
+                        addUserProfile={this.addUserProfile} />
                 }} />
                 <Route exact path="/login" component={Login}
                 />
                 <Route exact path="/confirm" render={(props) => {
                     return <Confirm {...props}
-                        addProfile={this.addProfile} />
+                        addUser={this.addUser} />
                 }} />
                 <Route exact path="/profile" render={(props) => {
                     if (this.isAuthenticated()) {
                         return <ProfilePage {...props}
-                            profiles={this.state.profiles}
-                            editProfile={this.editProfile}
+                            users={this.state.users}
+                            editUser={this.editUser}
                             watches={this.state.watches}
                         />
                     } else {
@@ -147,8 +174,8 @@ export default class ApplicationViews extends Component {
                 <Route exact path="/profile/edit/:profileId(\d+)" render={(props) => {
                     if (this.isAuthenticated()) {
                         return <EditProfileForm {...props}
-                            editProfile={this.editProfile}
-                            profiles={this.state.profiles} />
+                            editUser={this.editUser}
+                            users={this.state.users} />
                     } else {
                         return <Redirect to="/login" />
                     }
@@ -189,6 +216,26 @@ export default class ApplicationViews extends Component {
                     } else {
                         return <Redirect to="/login" />
                     }
+                }} />
+                <Route exact path="/community" render={(props) => {
+                    if (this.isAuthenticated()) {
+                        return <Community {...props}
+                            relationships={this.state.relationships}
+                            friendsArray={this.state.friendsArray}
+                            findFriends={this.findFriends}
+                            addRelationship={this.addRelationship}
+                            users={this.state.users} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
+                }} />
+                <Route path="/friends" render={(props) => {
+                    return <FriendsList {...props}
+                        relationships={this.state.relationships}
+                        friendsArray={this.state.friendsArray}
+                        findFriends={this.findFriends}
+                        addRelationship={this.addRelationship}
+                        users={this.state.users} />
                 }} />
             </React.Fragment>
         )

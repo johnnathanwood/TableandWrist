@@ -1,38 +1,47 @@
-
 import React, { Component } from "react"
 import DataManager from "../../module/DataManager"
-import "./profilePage.css"
-import { Comment} from 'semantic-ui-react'
-import EditProfileModal from "./editProfileModal";
-import ProfileCollection from "../watchbox/showWatchesonProfile";
 
-export default class ProfilePage extends Component {
+export default class CommunityProfiles extends Component {
     credentials = JSON.parse(localStorage.getItem('credentials'))
 
     state = {
-        users: []
     }
-    
+
     componentDidMount() {
         const newState = {}
-        DataManager.getAllByUser("users", this.credentials.id)
+        DataManager.getAll("users")
       .then(allUsers => {
         newState.users = allUsers
+        this.props.findFriends(this.credentials)
       })
       .then(() =>
         this.setState(newState))
   }
 
-    render() {
-    console.log(this.props.users)
+
+  addRelationship = (taco) => {
+    let currentUserId = this.credentials
+    console.log("currentUserId",currentUserId)
+    let userIdArray = []
+    userIdArray.push(this.props.users.forEach(users => users.id === taco))
+    // console.log("userIdArray",userIdArray)
+    console.log(userIdArray)
+    let object = {
+        userId: currentUserId.id,
+        friendId: taco
+      } 
+      console.log("object",object)
+    return DataManager.saveData("relationships", object)
+  }
+
+  render() {
         return (
             <React.Fragment>
-                <h1>Hello</h1>
                 <div className="profile-list">
-                <section className="users">
+                <section className="profiles">
                     {this.props.users.map(users =>
-                            <div className="eachProfile" key={users.id}>
-                                <div id={`profile--${users.id}`} key={users.id} className="ProfileCard">
+                            <div className="eachProfile" key={users.id} id={users.id}>
+                                <div  key={users.id} className="ProfileCard">
                                     <figure className="snip1515">
                                         <div className="profile-image"><img src={users.uploadedFileCloudinaryUrl} alt="sample47" width="300" crop="scale" /></div>
                                         <figcaption>
@@ -41,18 +50,14 @@ export default class ProfilePage extends Component {
                                             <h4>Age: {users.age}</h4>
                                             <p>About Me: {users.aboutMe}</p>
                                         </figcaption>
+                                        <button type="submit" onClick={() => {this.addRelationship(users.id)}} className="btn btn-primary">Submit</button>
                                     </figure>
-                                    <Comment.Actions>
-                                        <EditProfileModal {...this.props} userId={users.id} users={users} />           
-                                    </Comment.Actions>
                                 </div>
-                            <ProfileCollection {...this.props}/>
                             </div>
-
                         )
                     }
                 </section>
-                    </div>
+                    </div> 
             </React.Fragment>
         )
     }

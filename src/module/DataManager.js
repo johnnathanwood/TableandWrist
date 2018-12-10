@@ -31,17 +31,31 @@ export default Object.create(null, {
                 .then(result => result.json())
         }
     },
+    getData: {
+        value: (resource) => {
+          return fetch(`${remoteURL}/${resource}`)
+            .then(response => response.json())
+        }
+      },
+      saveData: {
+        value: (resource, entryObject) => {
+          return fetch(`${remoteURL}/${resource}`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(entryObject)
+    
+          })
+            .then(result => result.json())
+        }
+      },
+    
+      
     getAllByUser: {
         value: (resource, credentials) => {
             return fetch(`${remoteURL}/${resource}?userId=${credentials}`)
                 .then(result => result.json())
-        }
-    },
-    getAllFavorites: {
-        value: (userId) => {
-            return fetch(`http://localhost:5002/favorites?userId=${userId}`)
-                .then(e => e.json())
-               
         }
     },
     getAllfilter: {
@@ -81,17 +95,12 @@ export default Object.create(null, {
                 .then(result => result.json())
         }
     },
-    favorite: {
-        value: (resource, id, item) => {
-            return fetch(`${remoteURL}/${resource}/${id}`, {
-                method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(item)
-            })
-                .then(result => result.json())
+    searchUsername: {
+        value: function (username) {
+          return fetch(`${remoteURL}/users?username=${username}`).then(e =>
+            e.json()
+          )
         }
-    }
-
+      },
+    
 })
