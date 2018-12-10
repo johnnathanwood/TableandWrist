@@ -62,6 +62,7 @@ export default class AddWatch extends Component {
       const src = ''
       this.state = {
           preview: null,
+          value:'',
           src
       }
       this.onCrop = this.onCrop.bind(this)
@@ -123,7 +124,7 @@ export default class AddWatch extends Component {
                             {this.state.uploadedFileCloudinaryUrl === '' ? null :
                                 <div>
                                     <aside className="watchImg" src={this.state.uploadedFile}></aside>
-                                    <img src={this.state.uploadedFileCloudinaryUrl} />
+                                    <img src={this.state.uploadedFileCloudinaryUrl} alt=""/>
                                 </div>}
                                 </div>
                         </div>

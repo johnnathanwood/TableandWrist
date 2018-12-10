@@ -6,39 +6,31 @@ import { Comment} from 'semantic-ui-react'
 import EditProfileModal from "./editProfileModal";
 import ProfileCollection from "../watchbox/showWatchesonProfile";
 
-
-
-
 export default class ProfilePage extends Component {
     credentials = JSON.parse(localStorage.getItem('credentials'))
 
     state = {
         profiles: []
     }
-
-    findUserId = () => {
-        return localStorage.getItem("credentials")
-    }
-
+    
     componentDidMount() {
         const newState = {}
-        DataManager.getAllByUser("profiles", this.credentials.id)
-            .then(allProfiles => {
-                newState.profiles = allProfiles
-                console.log(allProfiles)
-            })
-            .then(() =>
-                this.setState(newState))
-    }
+        DataManager.getAll("profiles", this.credentials.id)
+      .then(allProfiles => {
+        newState.profiles = allProfiles
+      })
+      .then(() =>
+        this.setState(newState))
+  }
 
     render() {
-console.log(this.props.profiles)
+    console.log(this.props.profiles)
         return (
             <React.Fragment>
                 <h1>Hello</h1>
+                <div className="profile-list">
                 <section className="profiles">
-                    {
-                        this.props.profiles.map(profiles =>
+                    {this.props.profiles.map(profiles =>
                             <div className="eachProfile" key={profiles.id}>
                                 <div id={`profile--${profiles.id}`} key={profiles.id} className="ProfileCard">
                                     <figure className="snip1515">
@@ -58,28 +50,9 @@ console.log(this.props.profiles)
                             </div>
 
                         )
-
                     }
                 </section>
-                {/* <section className="profiles">
-                    {
-                        this.state.profiles.map(profiles =>
-                            <aside className="profilecard">
-                                <header>
-                                    <a>
-                                        <img src={profiles.uploadedFileCloudinaryUrl} />
-                                    </a>
-                                    <h1>{profiles.name}</h1>
-                                    <h2>{profiles.gender},{profiles.age}</h2>
-                                </header>
-                                <div className="profilebio">
-                                    <p>{profiles.aboutMe}</p>
-                                </div>
-                            </aside>
-                        )
-
-                    }
-                </section> */}
+                    </div>
             </React.Fragment>
         )
     }

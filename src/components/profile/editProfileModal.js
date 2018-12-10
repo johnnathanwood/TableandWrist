@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import EditProfileForm from './editProfileForm'
-import { Button,Modal, Header,Comment} from 'semantic-ui-react'
+import { Modal, Header,Comment} from 'semantic-ui-react'
 
 
 export default class EditProfileModal extends Component {

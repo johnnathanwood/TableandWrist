@@ -13,16 +13,17 @@ import MessageList from './watchform/messageList'
 import EditMessageForm from './watchform/editMessageForm'
 
 
+
 export default class ApplicationViews extends Component {
     isAuthenticated = () => localStorage.getItem("credentials") !== null
     credentials = JSON.parse(localStorage.getItem('credentials'))
     credentials = { id: 1 }
-
     state = {
         users: [],
         profiles: [],
         watches: [],
         messages: [],
+        favorites: [],
         isLoaded: false
     }
 
@@ -31,9 +32,8 @@ export default class ApplicationViews extends Component {
         .then(users => this.setState({
             users: users
         }))
-
     addProfile = profiles => DataManager.add("profiles", profiles)
-        .then(() => DataManager.getAll("profiles"))
+        .then(() => DataManager.getAllByUser("profiles",this.credentials.id))
         .then(profiles => this.setState({
             profiles: profiles
         }))
@@ -72,10 +72,10 @@ export default class ApplicationViews extends Component {
             })
     }
     editMessage = (id, messages) => DataManager.edit("messages", id, messages)
-    .then(() => DataManager.getAll("messages"))
-    .then(messages => this.setState({
-      messages: messages
-    }))
+        .then(() => DataManager.getAll("messages"))
+        .then(messages => this.setState({
+            messages: messages
+        }))
 
 
     componentDidMount() {
@@ -96,6 +96,10 @@ export default class ApplicationViews extends Component {
         DataManager.getAll("messages")
             .then(allMessages => {
                 newState.messages = allMessages
+            })
+        DataManager.getAll("favorites")
+            .then(allFavorites => {
+                newState.favorites = allFavorites
             })
             .then(() =>
                 this.setState(newState))
@@ -123,7 +127,6 @@ export default class ApplicationViews extends Component {
                     if (this.isAuthenticated()) {
                         return <ProfilePage {...props}
                             profiles={this.state.profiles}
-                            users={this.state.users}
                             editProfile={this.editProfile}
                             watches={this.state.watches}
                         />
@@ -168,13 +171,13 @@ export default class ApplicationViews extends Component {
                         return <Redirect to="/" />
                     }
                 }} />
-                 <Route exact path="/watchform/edit/:messageId(\d+)" render={(props) => {
-          if (this.isAuthenticated()) {
-            return <EditMessageForm {...props} editMessage={this.editMessage} message={this.state.messages} />
-          } else {
-            return <Redirect to="/login" />
-          }
-        }} />
+                <Route exact path="/watchform/edit/:messageId(\d+)" render={(props) => {
+                    if (this.isAuthenticated()) {
+                        return <EditMessageForm {...props} editMessage={this.editMessage} message={this.state.messages} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
+                }} />
             </React.Fragment>
         )
     }

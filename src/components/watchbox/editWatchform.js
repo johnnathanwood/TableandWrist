@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import { Button, Form} from 'semantic-ui-react'
-import Dropzone from 'react-dropzone';
 
 export default class EditWatchForm extends Component {
 
@@ -32,11 +31,8 @@ export default class EditWatchForm extends Component {
             userId: credentials.id
         }
         this.setState({watches:updatedWatch})
-        console.log(updatedWatch)
         this.props.editWatch(this.props.watchId, updatedWatch)
-        this.props.close()
-        console.log(this.props.watch)
-        
+        this.props.close() 
     }
 
     render () {
@@ -52,7 +48,7 @@ export default class EditWatchForm extends Component {
                             {this.props.watches.uploadedFileCloudinaryUrl === '' ? null :
                                 <div>
                                     <aside className="watchImg" src={this.state.uploadedFile}></aside>
-                                    <img src={this.state.uploadedFileCloudinaryUrl} />
+                                    <img src={this.state.uploadedFileCloudinaryUrl} alt=""/>
                                 </div>}
                                 </div>
                         </div>

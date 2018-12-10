@@ -18,7 +18,7 @@ export default class AddWatchModal extends Component {
             >
                 <Header icon='archive' content='Add Watch' />
                 <Modal.Content image scrolling>
-                <Image wrapped size='medium' wrapped>
+                <Image wrapped size='medium'>
                     <AddWatch {...this.props} close={this.close} />
                 </Image>
                 </Modal.Content>

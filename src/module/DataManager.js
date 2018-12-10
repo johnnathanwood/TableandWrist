@@ -37,6 +37,13 @@ export default Object.create(null, {
                 .then(result => result.json())
         }
     },
+    getAllFavorites: {
+        value: (userId) => {
+            return fetch(`http://localhost:5002/favorites?userId=${userId}`)
+                .then(e => e.json())
+               
+        }
+    },
     getAllfilter: {
         value: (resource, watchId) => {
             return fetch(`${remoteURL}/${resource}/?watchId`)
@@ -63,6 +70,18 @@ export default Object.create(null, {
         }
     },
     edit: {
+        value: (resource, id, item) => {
+            return fetch(`${remoteURL}/${resource}/${id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(item)
+            })
+                .then(result => result.json())
+        }
+    },
+    favorite: {
         value: (resource, id, item) => {
             return fetch(`${remoteURL}/${resource}/${id}`, {
                 method: "PATCH",

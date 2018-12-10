@@ -13,7 +13,6 @@ export default class CreateProfile extends Component {
         gender: "",
         age: "",
         aboutMe: "",
-        profileId: ""
     }
     onImageDrop(files) {
         this.setState({
@@ -78,9 +77,6 @@ export default class CreateProfile extends Component {
             userId: credentials.id,
         }
         this.props.addProfile(profile)
-        // this.setState({
-        //     profileId: "",
-        // })
             .then(() => this.props.history.push("/profile"))
     }
     render() {
@@ -89,16 +85,6 @@ export default class CreateProfile extends Component {
             <React.Fragment>
                 <div className="confirm">
                     <label htmlFor="profileImg">Chose a profile image</label>
-                    {/* <div>
-                        <Avatar
-                            width={390}
-                            height={295}
-                            onCrop={this.onCrop}
-                            onClose={this.onClose}
-                            src={this.state.uploadedFileCloudinaryUrl}
-                        />
-                        <img src={this.state.preview} alt="Preview" onSubmit={this.handleImageUpload} id="profileImg" />
-                    </div> */}
                 </div>
                 <div>
                     <Dropzone

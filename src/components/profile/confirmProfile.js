@@ -38,9 +38,9 @@ export default class Confirm extends Component {
                         this.state.profiles.map(profiles =>
                             <aside className="profile-card">
                                 <header>
-                                    <a>
-                                        <img src={profiles.uploadedFileCloudinaryUrl} />
-                                    </a>
+                                    <p>
+                                        <img src={profiles.uploadedFileCloudinaryUrl} alt="" />
+                                    </p>
                                     <h1>{profiles.name}</h1>
                                     <h2>{profiles.gender},{profiles.age}</h2>
                                 </header>

@@ -18,20 +18,16 @@ export default class Register extends Component {
 
     handleRegister = (e) => {
         e.preventDefault()
-    }
-
-    handleButtonClick = () => {
-        document.location.href = 'http://localhost:3000/createProfile'
         const users = {
             username: this.state.username,
             email: this.state.userEmail,
             password: this.state.userPassword,
         }
+        localStorage.setItem("credentials", JSON.stringify(users))
         this.props.addUser(users)
-            .then(() => this.props.history.push("/createProfile"))
-            localStorage.setItem("credentials", JSON.stringify(users))
-            document.location.href = 'http://localhost:3000/createProfile'
+            .then(() => this.props.history.push("/login"))
 
+        
     }
 
     render() {
@@ -63,7 +59,7 @@ export default class Register extends Component {
                             id="userPassword"
                             placeholder="Password"
                             required="" />
-                        <button type="submit" onClick={this.handleButtonClick} className="btn btn-primary">
+                        <button type="submit" onClick={this.handleRegister} className="btn btn-primary">
                             Register
                         </button>
                     </form>

@@ -1,105 +1,47 @@
 {
   "users": [
     {
-      "username": "JohnnyIsland",
+      "username": "Johnny",
       "email": "johnnathanwood@gmail.com",
       "password": "1",
       "id": 1
     },
     {
-      "username": "Johnny",
-      "email": "johnnathanwood@gmail.com",
+      "username": "Jeff",
+      "email": "Jeff@gmail.com",
       "password": "1",
       "id": 2
-    },
-    {
-      "username": "Rich",
-      "email": "rich@gmail.com",
-      "password": "1",
-      "id": 3
-    },
-    {
-      "username": "Jessica",
-      "email": "jessica@gmail.com",
-      "password": "1",
-      "id": 4
-    },
-    {
-      "username": "Rich",
-      "email": "rich@gmail.com",
-      "password": "1",
-      "id": 5
     }
   ],
   "profiles": [
     {
-      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544161282/mtfrokjjozlkzucpirrp.png",
-      "name": "John Wood",
+      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544385025/fcbnd3his0lisocyaizt.png",
+      "name": "John Nathan Wood",
       "gender": "male",
-      "age": "2",
-      "aboutMe": "Im awesome",
+      "age": "25",
+      "aboutMe": "I love watches",
       "userId": 1,
       "id": 1
-    },
-    {
-      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544382886/svisyvop9b38y9vjymri.png",
-      "name": "Jessica Wood",
-      "gender": "Female",
-      "age": "28",
-      "aboutMe": "my wife",
-      "userId": 4,
-      "id": 2
-    },
-    {
-      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544383241/fwewpzcwlazqhyrpfupn.jpg",
-      "name": "Test",
-      "gender": "male",
-      "age": "30",
-      "aboutMe": "Test",
-      "id": 3
     }
   ],
   "messages": [
     {
       "id": 1,
-      "message": "Hey this is John!!!!!!",
-      "date": "Today at 3:03 PM",
-      "userId": 1
-    },
-    {
-      "id": 2,
-      "message": "I am so fucking excited",
-      "date": "Today at 4:08 PM",
-      "userId": 1
-    },
-    {
-      "id": 3,
-      "message": "Hey dude",
+      "message": "Hey its John",
       "date": "a few seconds ago",
       "userId": 1
-    },
-    {
-      "id": 4,
-      "message": "hey",
-      "date": "a few seconds",
-      "userId": 1
-    },
-    {
-      "id": 5,
-      "message": "Hey Baby",
-      "date": "a few seconds ago",
-      "userId": 4
     }
   ],
   "watches": [
     {
-      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544231660/o9rgds5uq5zqhtuunyb5.jpg",
-      "brand": "Timex Test",
-      "model": "Test",
-      "year": "2018",
-      "price": "300",
+      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544389683/f53g5mzkupzhll4mmv6q.jpg",
+      "brand": "Timex",
+      "model": "Marlin",
+      "year": "2017",
+      "price": "250",
       "userId": 1,
       "id": 1
     }
-  ]
+  ],
+  "favorites": []
 }

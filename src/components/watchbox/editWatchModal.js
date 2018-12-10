@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import EditWatchForm from './editWatchform'
-import { Button,Modal, Header,Comment} from 'semantic-ui-react'
+import { Modal, Header,Comment} from 'semantic-ui-react'
 
 
 export default class EditWatchModal extends Component {
