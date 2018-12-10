@@ -71,6 +71,11 @@ export default class ApplicationViews extends Component {
                 })
             })
     }
+    deleteWatch = id => DataManager.delete("watches", id)
+    .then(() => DataManager.getAll("watches"))
+    .then(watches => this.setState({
+      watches: watches
+    }))
     editMessage = (id, messages) => DataManager.edit("messages", id, messages)
         .then(() => DataManager.getAll("messages"))
         .then(messages => this.setState({
@@ -149,6 +154,7 @@ export default class ApplicationViews extends Component {
                         watches={this.state.watches}
                         addWatch={this.addWatch}
                         editWatch={this.editWatch}
+                        deleteWatch={this.deleteWatch}
                     />
                 }} />
                 <Route exact path="/watchbox/edit/:watchId(\d+)" render={(props) => {

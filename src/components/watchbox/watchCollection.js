@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Comment,Message,Button} from 'semantic-ui-react'
+import { Comment, Message, Button } from 'semantic-ui-react'
 import AddWatchModal from "./addWatchModal";
 import EditWatchModal from "./editWatchModal";
 
@@ -16,9 +16,9 @@ export default class WatchCollection extends Component {
     render() {
         return (
             <React.Fragment>
-                <Button> <AddWatchModal {...this.props}/></Button> 
-            {
-                
+                <Button> <AddWatchModal {...this.props} /></Button>
+                {
+
                     this.props.watches.map(watches =>
                         <div id={`watches--${watches.id}`} key={watches.id} className="MessageCard">
                             <Message floating>
@@ -26,7 +26,7 @@ export default class WatchCollection extends Component {
                                     <Comment>
                                         <Comment.Content>
                                             <Comment.Metadata>
-                                            <div className="profile-image"><img src={watches.uploadedFileCloudinaryUrl} alt="sample47" width="300" crop="scale" /></div>
+                                                <div className="profile-image"><img src={watches.uploadedFileCloudinaryUrl} alt="sample47" width="300" crop="scale" /></div>
                                             </Comment.Metadata>
                                             <Comment.Text>
                                                 <div>Brand: {watches.brand}</div>
@@ -42,8 +42,13 @@ export default class WatchCollection extends Component {
                                             </Comment.Text>
                                         </Comment.Content>
                                     </Comment>
+                                    <Comment.Action
+                                        onClick={() => this.props.deleteWatch(watches.id)
+                                            .then(() => this.props.history.push("/watchbox"))}
+                                    >delete
+                                                    </Comment.Action>
                                 </Comment.Group>
-                                <EditWatchModal {...this.props} watchId={watches.id} watches={watches} />   
+                                <EditWatchModal {...this.props} watchId={watches.id} watches={watches} />
                             </Message>
                         </div>
                     )

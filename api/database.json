@@ -18,7 +18,7 @@
       "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544385025/fcbnd3his0lisocyaizt.png",
       "name": "John Nathan Wood",
       "gender": "male",
-      "age": "25",
+      "age": "26",
       "aboutMe": "I love watches",
       "userId": 1,
       "id": 1
@@ -27,14 +27,14 @@
   "messages": [
     {
       "id": 1,
-      "message": "Hey its John",
+      "message": "Hey its John Wood",
       "date": "a few seconds ago",
       "userId": 1
     }
   ],
   "watches": [
     {
-      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544389683/f53g5mzkupzhll4mmv6q.jpg",
+      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544409854/hynk28e0gfpyj15l5hur.jpg",
       "brand": "Timex",
       "model": "Marlin",
       "year": "2017",
