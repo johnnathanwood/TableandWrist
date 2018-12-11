@@ -58,9 +58,13 @@ export default class ApplicationViews extends Component {
                 console.log(users)
                 DataManager.getAll("users").then(result => {
                     console.log(result)
-                    this.setState({
-                        users: result
-                    })
+                    let newState = {};
+                    newState.users = result;
+                    DataManager.getAllByUser("users", parseInt(this.credentials.id))
+                        .then(user => {
+                            newState.userProfile = user
+                            this.setState(newState)
+                        })
                 })
             })
     }
@@ -212,7 +216,7 @@ export default class ApplicationViews extends Component {
                     if (this.isAuthenticated()) {
                         return <EditProfileForm {...props}
                             editUser={this.editUser}
-                            users={this.state.users} />
+                            user={this.state.userProfile} />
                     } else {
                         return <Redirect to="/login" />
                     }
