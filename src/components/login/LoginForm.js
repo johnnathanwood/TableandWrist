@@ -24,6 +24,7 @@ export default class Login extends Component {
                 return user.email === this.state.email && user.password === this.state.password
             })
             if (users) {
+                this.props.refreshData()
                 localStorage.setItem("credentials", JSON.stringify(users))
                 document.location.href = 'http://localhost:3000/createProfile'
             } else {

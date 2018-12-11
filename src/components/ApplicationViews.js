@@ -119,27 +119,49 @@ export default class ApplicationViews extends Component {
 
 
     componentDidMount() {
-        const newState = {}
+    
+        this.refreshData()
+        
+    }
 
-        DataManager.getAll("users")
-            .then(allUsers => {
-                newState.users = allUsers
-            })
-        DataManager.getAll("watches")
-            .then(allWatches => {
-                newState.watches = allWatches
-            })
-        DataManager.getAll("messages")
-            .then(allMessages => {
-                newState.messages = allMessages
-            })
+    refreshData = () => {
+        const newState = {}
+    DataManager.getAll("users")
+        .then(allUsers => {
+            newState.users = allUsers
+        })
+    DataManager.getAll("watches")
+        .then(allWatches => {
+            newState.watches = allWatches
+        })
+    DataManager.getAll("messages")
+        .then(allMessages => {
+            newState.messages = allMessages
+        })
+        .then(() =>
+        this.setState(newState))
+
+    }
+
+    grabFriends = () => {
+        let temp = this.state.users
+        console.log(temp)
         DataManager.getData("relationships")
             .then(allRelationships => {
-                newState.relationships = allRelationships
                 console.log(allRelationships)
+                let friends = []
+                allRelationships.forEach(person => {
+                    temp.forEach(user => {
+                        if (user.id === person.friendId){
+                            friends.push(user)
+                        }
+                    })
+                })
+                console.log(friends)
+                return friends
             })
-            .then(() =>
-                this.setState(newState))
+            .then((friends) =>
+                this.setState({relationships:friends}))
     }
 
     render() {
@@ -154,7 +176,11 @@ export default class ApplicationViews extends Component {
                     return <CreateProfile {...props}
                         addUserProfile={this.addUserProfile} />
                 }} />
-                <Route exact path="/login" component={Login}
+                <Route exact path="/login" render={(props) => {
+                    return <Login {...props}
+                    refreshData={this.refreshData} />
+                }}
+                    
                 />
                 <Route exact path="/confirm" render={(props) => {
                     return <Confirm {...props}
@@ -235,7 +261,8 @@ export default class ApplicationViews extends Component {
                         friendsArray={this.state.friendsArray}
                         findFriends={this.findFriends}
                         addRelationship={this.addRelationship}
-                        users={this.state.users} />
+                        users={this.state.users} 
+                        grabFriends={this.grabFriends}/>
                 }} />
             </React.Fragment>
         )

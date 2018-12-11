@@ -6,21 +6,21 @@
       "password": "1",
       "id": 1,
       "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544477131/biqett3bct5mnik4r5k8.jpg",
-      "name": "Jake",
-      "gender": "Female",
-      "age": "4",
+      "name": "John Wood",
+      "gender": "Male",
+      "age": "40",
       "aboutMe": "Test"
     },
     {
       "username": "Jeff",
-      "email": "johnnathanwood@gmail.com",
+      "email": "Jeff@gmail.com",
       "password": "1",
       "id": 2,
-      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544475857/iubulohe3nrwfahhdpub.png",
-      "name": "Jeff",
+      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544545580/em4pl5p6wt8fhwhhwnjo.png",
+      "name": "Jeff Wagner",
       "gender": "male",
-      "age": "26",
-      "aboutMe": "Test"
+      "age": "30",
+      "aboutMe": "I love money"
     }
   ],
   "messages": [

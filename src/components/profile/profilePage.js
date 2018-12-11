@@ -15,7 +15,7 @@ export default class ProfilePage extends Component {
     
     componentDidMount() {
         const newState = {}
-        DataManager.getAllByUser("users", this.credentials.id)
+        DataManager.getAllByUser("users", this.credentials)
       .then(allUsers => {
         newState.users = allUsers
       })
