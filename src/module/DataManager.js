@@ -52,12 +52,13 @@ export default Object.create(null, {
       },
     
       
-    getAllByUser: {
-        value: (resource, credentials) => {
-            return fetch(`${remoteURL}/${resource}?users.id=${credentials}`)
-                .then(result => result.json())
+      getAllByUser: {
+        value: (resource, id) => {
+            console.log(`${remoteURL}/${resource}/${id}`)
+          return fetch(`${remoteURL}/${resource}/${id}`)
+            .then(result => result.json())
         }
-    },
+      },
     getAllfilter: {
         value: (resource, watchId) => {
             return fetch(`${remoteURL}/${resource}/?watchId`)

@@ -6,10 +6,11 @@
       "password": "1",
       "id": 1,
       "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544477131/biqett3bct5mnik4r5k8.jpg",
-      "name": "John Wood",
-      "gender": "Male",
-      "age": "40",
-      "aboutMe": "Test"
+      "name": "John Nathan Wood",
+      "gender": "Female",
+      "age": "42",
+      "aboutMe": "Test",
+      "userId": 1
     },
     {
       "username": "Jeff",
@@ -17,7 +18,7 @@
       "password": "1",
       "id": 2,
       "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544545580/em4pl5p6wt8fhwhhwnjo.png",
-      "name": "Jeff Wagner",
+      "name": "Jeff Wagner!!",
       "gender": "male",
       "age": "30",
       "aboutMe": "I love money"
@@ -46,6 +47,15 @@
       "price": "250",
       "userId": 1,
       "id": 1
+    },
+    {
+      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544409854/hynk28e0gfpyj15l5hur.jpg",
+      "brand": "Rolex",
+      "model": "Daytona",
+      "year": "1960's",
+      "price": "14,000,000",
+      "userId": 2,
+      "id": 2
     }
   ],
   "relationships": [

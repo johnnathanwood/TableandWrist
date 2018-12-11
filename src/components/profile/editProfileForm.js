@@ -57,7 +57,6 @@ export default class EditProfileForm extends Component {
                         <div className="float-label">
                             <i className="fa fa-caret-down"></i>
                             <select onChange={this.handleFieldChange} defaultValue={this.props.users.gender} name="gender" id="gender">
-                                <option value=""></option>
                                 <option value="male">Male</option>
                                 <option value="Female">Female</option>
                             </select>

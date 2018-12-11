@@ -7,7 +7,16 @@ export default class Community extends Component {
     state = {
     }
 
+    findUserName = messages => {
+        return this.props.users.find(user => user.id === messages.userId).username
+    }
+
+    findUserId = () => {
+        return localStorage.getItem("credentials")
+    }
+
     render() {
+        const credentials = JSON.parse(localStorage.getItem('credentials'))
         return (
             <React.Fragment>
                 <div>

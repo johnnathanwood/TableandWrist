@@ -18,7 +18,6 @@ export default class WatchCollection extends Component {
             <React.Fragment>
                 <Button> <AddWatchModal {...this.props} /></Button>
                 {
-
                     this.props.watches.map(watches =>
                         <div id={`watches--${watches.id}`} key={watches.id} className="MessageCard">
                             <Message floating>
