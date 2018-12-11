@@ -25,7 +25,7 @@ export default class MessageForm extends Component {
         const messages = {
             id: this.state.messageId,
             message: this.state.message,
-            date: moment().fromNow(),
+            date: new Date (),
             userId: credentials.id
         }
         console.log(this.props)
@@ -33,7 +33,7 @@ export default class MessageForm extends Component {
         this.setState({
             messageId: "",
             message: "",
-            date: ""
+            date: moment().fromNow()
         })
     }
 

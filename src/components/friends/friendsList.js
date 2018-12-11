@@ -40,37 +40,7 @@ export default class FriendsList extends Component {
   render() {
     return (
       <React.Fragment>
-        <section className="friendList">
-          <p>Friend List:</p>
-          {
-            this.props.friendsArray.map(friend => {
-              return (<div className="friend-Group" key={friend.id}>
-                <div>
-                  <p>{friend.email}</p>
-                </div>
-              </div>
-              )
-            })
-          }
-        </section>
-        <section className="addFriend">
-          <p>Add a friend:</p>
-          <input
-            onChange={this.handleFieldChange}
-            className="showInput"
-            type="text"
-            id="addFriend" />
-          <button type="submit" onClick={this.addRelationship} className="btn btn-primary">Submit</button>
-        </section>
-        <section className="removeFriend">
-          <p>Remove a friend:</p>
-          <input
-            onChange={this.handleFieldChange}
-            className="showInput"
-            type="text"
-            id="friend" />
-          <button type="submit" onClick={this.removeRelationship} className="btn btn-primary">Submit</button>
-        </section>
+       
       </React.Fragment>
     )
   }

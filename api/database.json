@@ -25,9 +25,15 @@
   ],
   "messages": [
     {
-      "id": 1,
-      "message": "Hey its John Wood",
-      "date": "a few seconds ago",
+      "id": 2,
+      "message": "Test",
+      "date": "2018-12-11T14:26:48.510Z",
+      "userId": 1
+    },
+    {
+      "id": 3,
+      "message": "Hey this is a test",
+      "date": "2018-12-11T14:29:08.610Z",
       "userId": 1
     }
   ],

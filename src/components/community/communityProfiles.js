@@ -50,7 +50,7 @@ export default class CommunityProfiles extends Component {
                                             <h4>Age: {users.age}</h4>
                                             <p>About Me: {users.aboutMe}</p>
                                         </figcaption>
-                                        <button type="submit" onClick={() => {this.addRelationship(users.id)}} className="btn btn-primary">Submit</button>
+                                        <button type="submit" onClick={() => {this.addRelationship(users.id)}} className="btn btn-primary">Add Friend</button>
                                     </figure>
                                 </div>
                             </div>

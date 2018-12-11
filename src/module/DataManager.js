@@ -54,7 +54,7 @@ export default Object.create(null, {
       
     getAllByUser: {
         value: (resource, credentials) => {
-            return fetch(`${remoteURL}/${resource}?userId=${credentials}`)
+            return fetch(`${remoteURL}/${resource}?users.id=${credentials}`)
                 .then(result => result.json())
         }
     },

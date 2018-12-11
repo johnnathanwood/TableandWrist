@@ -3,6 +3,7 @@ import MessageForm from './messageForm'
 import Likes from './messageLike';
 import EditMessageModal from './editMessageModal'
 import { Comment, Message, Header, Icon } from 'semantic-ui-react'
+import moment from 'moment';
 
 export default class MessageList extends Component {
 
@@ -33,7 +34,7 @@ export default class MessageList extends Component {
                                         <Comment.Content>
                                             <Comment.Author>{this.findUserName(messages)}</Comment.Author>
                                             <Comment.Metadata>
-                                                <div>{messages.date}</div>
+                                                <div>{moment(messages.date).fromNow()}</div>
                                             </Comment.Metadata>
                                             <Comment.Text>
                                                 <p>{messages.message}</p>
