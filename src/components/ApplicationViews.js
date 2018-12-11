@@ -23,6 +23,7 @@ export default class ApplicationViews extends Component {
     state = {
         users: [],
         watches: [],
+        userWatches:[],
         messages: [],
         favorites: [],
         relationships: [],
@@ -137,9 +138,9 @@ export default class ApplicationViews extends Component {
                 newState.users = allUsers
             })
             .then(() =>
-                DataManager.getAll("watches")
+                DataManager.getAllByUser("watches", parseInt(this.credentials.id))
                     .then(allWatches => {
-                        newState.watches = allWatches
+                        newState.userWatches = allWatches
                     }))
             .then(() =>
                 DataManager.getAll("messages")
@@ -207,6 +208,7 @@ export default class ApplicationViews extends Component {
                             editUser={this.editUser}
                             watches={this.state.watches}
                             user={this.state.userProfile}
+                            watch={this.state.userWatches}
                         />
                     } else {
                         return <Redirect to="/login" />
@@ -228,6 +230,7 @@ export default class ApplicationViews extends Component {
                         addWatch={this.addWatch}
                         editWatch={this.editWatch}
                         deleteWatch={this.deleteWatch}
+                        watch={this.state.userWatches}
                     />
                 }} />
                 <Route exact path="/watchbox/edit/:watchId(\d+)" render={(props) => {

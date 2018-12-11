@@ -11,7 +11,6 @@ export default class ProfileCollection extends Component {
         return localStorage.getItem("credentials")
     }
 
-
     render() {
         return (
             <React.Fragment>

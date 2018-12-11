@@ -17,7 +17,6 @@ export default class ProfilePage extends Component {
                 {console.log(this.credentials.id)}
                 <div className="profile-list">
                 <section className="users">
-                    
                             <div className="eachProfile" key={this.props.user.id}>
                                 <div id={`profile--${this.props.user.id}`} key={this.props.user.id} className="ProfileCard">
                                     <figure className="snip1515">
