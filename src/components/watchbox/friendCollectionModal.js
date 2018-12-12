@@ -21,6 +21,7 @@ export default class CollectionModal extends Component {
         const { open, dimmer } = this.state
 
         return (
+            <div>
             <Modal trigger={<Comment.Action onClick={this.show(true)}>Show Collection</Comment.Action>} dimmer={dimmer} open={open} onClose={this.close}  closeIcon
             >
                 <Header icon='archive' content='Edit Watch' />
@@ -33,6 +34,7 @@ export default class CollectionModal extends Component {
                 <Modal.Actions>
                 </Modal.Actions>
             </Modal>
+            </div>
         )
     }
 }

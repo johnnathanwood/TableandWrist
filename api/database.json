@@ -55,13 +55,19 @@
       "message": "Hey Buddy",
       "date": "2018-12-11T23:43:14.930Z",
       "userId": 2
+    },
+    {
+      "id": 5,
+      "message": "Test",
+      "date": "2018-12-12T21:19:41.194Z",
+      "userId": 1
     }
   ],
   "watches": [
     {
       "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544409854/hynk28e0gfpyj15l5hur.jpg",
       "brand": "Johnny",
-      "model": "Marlin",
+      "model": "Timex",
       "year": "2017",
       "price": "250",
       "userId": 1,

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Button, Form} from 'semantic-ui-react'
+import { Button, Form, Modal} from 'semantic-ui-react'
 
 export default class EditWatchForm extends Component {
 
@@ -38,6 +38,7 @@ export default class EditWatchForm extends Component {
     render () {
         return (
             <React.Fragment>
+                <Modal.Content image>
                 <Form className="watchForm">
                 <div className="photo">
                     <div>
@@ -70,6 +71,7 @@ export default class EditWatchForm extends Component {
                     </Form.Field>
                     <Button icon='save' size='mini' onClick={this.updateWatch}/>
                 </Form>
+                </Modal.Content>
             </React.Fragment>
         )
     }
