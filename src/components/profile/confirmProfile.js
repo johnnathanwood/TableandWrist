@@ -7,7 +7,7 @@ export default class Confirm extends Component {
     credentials = JSON.parse(localStorage.getItem('credentials'))
 
     state = {
-        profiles: []
+        user: []
     }
 
     // findUserName = profiles => {
@@ -20,10 +20,10 @@ export default class Confirm extends Component {
 
     componentDidMount() {
         const newState = {}
-        DataManager.getAllByUser("profiles", this.credentials.id)
-            .then(allProfiles => {
-                newState.profiles = allProfiles
-                console.log(allProfiles)
+        DataManager.getAllByUser("users", this.credentials.id)
+            .then(allUsers => {
+                newState.user = allUsers
+                console.log(allUsers)
             })
             .then(() =>
                 this.setState(newState))
@@ -34,18 +34,17 @@ export default class Confirm extends Component {
         return (
             <React.Fragment>
                 <section className="profiles">
-                    {
-                        this.state.profiles.map(profiles =>
+                    
                             <aside className="profile-card">
                                 <header>
                                     <p>
-                                        <img src={profiles.uploadedFileCloudinaryUrl} alt="" />
+                                        <img src="" alt="" />
                                     </p>
-                                    <h1>{profiles.name}</h1>
-                                    <h2>{profiles.gender},{profiles.age}</h2>
+                                    <h1>{this.props.user.name}</h1>
+                                    <h2>{this.props.user.gender},{this.props.user.age}</h2>
                                 </header>
                                 <div className="profile-bio">
-                                    <p>{profiles.aboutMe}</p>
+                                    <p>{this.props.user.aboutMe}</p>
                                 </div>
                             </aside>
                         )

@@ -19,7 +19,7 @@ import FriendsList from './friends/friendsList'
 export default class ApplicationViews extends Component {
     isAuthenticated = () => localStorage.getItem("credentials") !== null
     credentials = JSON.parse(localStorage.getItem('credentials'))
-    credentials = { id: 1 }
+
     state = {
         users: [],
         watches: [],
@@ -31,12 +31,17 @@ export default class ApplicationViews extends Component {
         userProfile: [],
         isLoaded: false
     }
-
-    addUser = (users, item) => DataManager.add(users, item)
-        .then(() => DataManager.getAllByUser("users", this.credentials.id))
+    addUser = users => DataManager.add("users", users)
+        .then(() => DataManager.getAll("users"))
         .then(users => this.setState({
             users: users
         }))
+
+    // addUser = (users, item) => DataManager.add(users, item)
+    //     .then(() => DataManager.getAllByUser("users", this.credentials.id))
+    //     .then(users => this.setState({
+    //         users: users
+    //     }))
     addUserProfile = (obj, id) => DataManager.edit("users", id, obj)
         .then(() => DataManager.getAllByUser("users", this.credentials.id))
         .then(users => this.setState({
@@ -125,20 +130,26 @@ export default class ApplicationViews extends Component {
 
 
     componentDidMount() {
-
+        if (this.isAuthenticated()) {
         this.refreshData().then(() => this.grabFriends())
-
-
-    }
+    }}
 
     refreshData = () => {
         const newState = {}
+        if (this.isAuthenticated()) {
         return DataManager.getAll("users")
             .then(allUsers => {
+                console.log(allUsers)
                 newState.users = allUsers
             })
             .then(() =>
-                DataManager.getAllByUser("watches", parseInt(this.credentials.id))
+                DataManager.getAll("watches")
+                .then(allWatches => {
+                    console.log("watches",allWatches)
+                    newState.watches = allWatches
+                }))
+            .then(() =>
+                DataManager.getAllByUser("watches", parseInt(this.credentials.id)) 
                     .then(allWatches => {
                         newState.userWatches = allWatches
                     }))
@@ -156,7 +167,7 @@ export default class ApplicationViews extends Component {
             .then(() =>
                 this.setState(newState))
 
-    }
+    }}
 
     grabFriends = () => {
         let temp = this.state.users
@@ -166,11 +177,14 @@ export default class ApplicationViews extends Component {
                 console.log(allRelationships)
                 let friends = []
                 allRelationships.forEach(person => {
-                    temp.forEach(user => {
-                        if (user.id === person.friendId) {
-                            friends.push(user)
+                        if (this.credentials.id === person.userId) {
+                            temp.map(user => {
+                                if (person.friendId === user.id) {
+                                    friends.push(user)
+                                }
+                            })   
                         }
-                    })
+                    
                 })
                 console.log(friends)
                 return friends
@@ -199,7 +213,8 @@ export default class ApplicationViews extends Component {
                 />
                 <Route exact path="/confirm" render={(props) => {
                     return <Confirm {...props}
-                        addUser={this.addUser} />
+                        addUser={this.addUser}
+                        user={this.state.userProfile} />
                 }} />
                 <Route exact path="/profile" render={(props) => {
                     if (this.isAuthenticated()) {

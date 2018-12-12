@@ -17,11 +17,9 @@ componentDidMount(){
       console.log(this.props.relationships)
     return (
         <React.Fragment>
-            {/* <button onClick={() => this.props.grabFriends()}></button> */}
             {
                this.props.relationships.map(friend => 
                 <div className="eachProfile" key={friend.id}>
-                                <div id={`profile--${friend.id}`} key={friend.id} className="ProfileCard">
                                     <figure className="snip1515">
                                         <div className="profile-image"><img src={friend.uploadedFileCloudinaryUrl} alt="sample47" width="300" crop="scale" /></div>
                                         <figcaption>
@@ -33,7 +31,7 @@ componentDidMount(){
                                             <button onClick={() => console.log("clicked")}>Remove Friend</button>
                                     </figure>
                                 </div>
-                            </div>                   
+                                           
                 )
             }
     </React.Fragment>

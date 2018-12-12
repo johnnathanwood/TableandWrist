@@ -18,7 +18,6 @@ export default class Login extends Component {
 
     handleLogin = (e) => {
         e.preventDefault()
-
         DataManager.getAll("users").then((user) => {
             const users = user.find(user => {
                 return user.email === this.state.email && user.password === this.state.password

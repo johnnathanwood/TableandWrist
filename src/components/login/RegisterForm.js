@@ -6,8 +6,8 @@ export default class Register extends Component {
 
     state = {
         username: "",
-        userEmail: "",
-        userPassword: "",
+        email: "",
+        password: "",
     }
 
     handleFieldChange = (evt) => {
@@ -18,17 +18,17 @@ export default class Register extends Component {
 
     handleRegister = (e) => {
         e.preventDefault()
-        const users = {
-            username: this.state.username,
-            email: this.state.userEmail,
-            password: this.state.userPassword,
-        }
-        localStorage.setItem("credentials", JSON.stringify(users))
-        this.props.addUser(users)
-            .then(() => this.props.history.push("/login"))
-
-        
     }
+    handleButtonClick = () => {
+        document.location.href = 'http://localhost:3000/login'
+         const users = {
+            username: this.state.username,
+            email: this.state.email,
+            password: this.state.password,
+        }
+         this.props.addUser(users)
+            .then(() => this.props.history.push("/login"))
+     }
 
     render() {
 
@@ -45,21 +45,21 @@ export default class Register extends Component {
                             id="username"
                             placeholder="Username"
                             required="" autoFocus="" />
-                        <label htmlFor="userEmail">
+                        <label htmlFor="email">
                             Email address
                         </label>
                         <input onChange={this.handleFieldChange} type="email"
-                            id="userEmail"
+                            id="email"
                             placeholder="Email address"
                             required="" autoFocus="" />
-                        <label htmlFor="userPassword">
+                        <label htmlFor="password">
                             Password
                         </label>
                         <input onChange={this.handleFieldChange} type="password"
-                            id="userPassword"
+                            id="password"
                             placeholder="Password"
                             required="" />
-                        <button type="submit" onClick={this.handleRegister} className="btn btn-primary">
+                        <button type="submit" onClick={this.handleButtonClick} className="btn btn-primary">
                             Register
                         </button>
                     </form>

@@ -15,6 +15,7 @@ export default class WatchCollection extends Component {
         return (
             <React.Fragment>
                 <Button> <AddWatchModal {...this.props} /></Button>
+                <h1>{credentials.username}'s watch collection</h1>
                         <div id={`watch--${this.props.watch.id}`} key={this.props.watch.id} className="MessageCard">
                             <Message floating>
                                 <Comment.Group size='large'>

@@ -8,13 +8,13 @@ import ProfileCollection from "../watchbox/showWatchesonProfile";
 
 export default class ProfilePage extends Component {
     credentials = JSON.parse(localStorage.getItem('credentials'))
+    
 
     render() {
         const credentials = JSON.parse(localStorage.getItem('credentials'))  
         return (
             <React.Fragment>
                 <h1>Hello {credentials.username}</h1>
-                {console.log(this.credentials.id)}
                 <div className="profile-list">
                 <section className="users">
                             <div className="eachProfile" key={this.props.user.id}>

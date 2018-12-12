@@ -17,11 +17,23 @@
       "email": "Jeff@gmail.com",
       "password": "1",
       "id": 2,
-      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544545580/em4pl5p6wt8fhwhhwnjo.png",
-      "name": "Jeff Wagner!!",
+      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544571184/bybp95ageslvhau59arl.png",
+      "name": "Jeff Wagner",
       "gender": "male",
       "age": "30",
-      "aboutMe": "I love money"
+      "aboutMe": "I love money",
+      "userId": 2
+    },
+    {
+      "username": "Scotty",
+      "email": "scott@gmail.com",
+      "password": "1",
+      "id": 3,
+      "name": "Scott Wood",
+      "gender": "male",
+      "age": "50",
+      "aboutMe": "I love my family",
+      "userId": 3
     }
   ],
   "messages": [
@@ -36,6 +48,12 @@
       "message": "Hey this is a test",
       "date": "2018-12-11T14:29:08.610Z",
       "userId": 1
+    },
+    {
+      "id": 4,
+      "message": "Hey Buddy",
+      "date": "2018-12-11T23:43:14.930Z",
+      "userId": 2
     }
   ],
   "watches": [
@@ -50,9 +68,9 @@
     },
     {
       "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544409854/hynk28e0gfpyj15l5hur.jpg",
-      "brand": "Jeff",
+      "brand": "Rolex",
       "model": "Daytona",
-      "year": "1960's",
+      "year": "2017",
       "price": "14,000,000",
       "userId": 2,
       "id": 2
@@ -63,6 +81,11 @@
       "userId": 1,
       "friendId": 2,
       "id": 1
+    },
+    {
+      "userId": 1,
+      "friendId": 3,
+      "id": 2
     }
   ]
 }
