@@ -29,6 +29,7 @@
       "email": "scott@gmail.com",
       "password": "1",
       "id": 3,
+      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544571184/bybp95ageslvhau59arl.png",
       "name": "Scott Wood",
       "gender": "male",
       "age": "50",
