@@ -75,6 +75,15 @@
       "price": "14,000,000",
       "userId": 2,
       "id": 2
+    },
+    {
+      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544409854/hynk28e0gfpyj15l5hur.jpg",
+      "brand": "Test",
+      "model": "Daytona",
+      "year": "2017",
+      "price": "14",
+      "userId": 3,
+      "id": 3
     }
   ],
   "relationships": [

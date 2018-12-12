@@ -8,6 +8,13 @@ export default Object.create(null, {
                 .then(result => result.json())
         }
     },
+    getFriendWatches: {
+        value: (resource, id) => {
+            console.log("test",`${remoteURL}/${resource}?userId=${id}`)
+            return fetch(`${remoteURL}/${resource}?userId=${id}`)
+                .then(result => result.json())
+        }
+    },
 
     getAllAscend: {
         value: (resource) => {

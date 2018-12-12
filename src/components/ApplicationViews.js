@@ -246,13 +246,21 @@ export default class ApplicationViews extends Component {
                         editWatch={this.editWatch}
                         deleteWatch={this.deleteWatch}
                         watch={this.state.userWatches}
+                        relationships={this.state.relationships}
+                        friendsArray={this.state.friendsArray}
+                        findFriends={this.findFriends}
+                        addRelationship={this.addRelationship}
+                        grabFriends={this.grabFriends} 
+                        user={this.state.userProfile}
+                        
                     />
                 }} />
                 <Route exact path="/watchbox/edit/:watchId(\d+)" render={(props) => {
                     if (this.isAuthenticated()) {
                         return <EditWatchForm {...props}
                             editWatch={this.editWatch}
-                            watches={this.state.watches} />
+                            watches={this.state.watches} 
+                            />
                     } else {
                         return <Redirect to="/login" />
                     }
@@ -295,7 +303,10 @@ export default class ApplicationViews extends Component {
                         findFriends={this.findFriends}
                         addRelationship={this.addRelationship}
                         users={this.state.users}
-                        grabFriends={this.grabFriends} />
+                        grabFriends={this.grabFriends} 
+                        watches={this.state.watches}
+                        user={this.state.userProfile}
+                        watch={this.state.userWatches}/>
                 }} />
             </React.Fragment>
         )
