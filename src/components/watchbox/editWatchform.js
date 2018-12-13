@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Button, Form, Modal} from 'semantic-ui-react'
+import { Button, Form, Modal, Image, Grid} from 'semantic-ui-react'
 
 export default class EditWatchForm extends Component {
 
@@ -37,23 +37,15 @@ export default class EditWatchForm extends Component {
 
     render () {
         return (
+                <Grid centered divided='vertically'>
             <React.Fragment>
-                <Modal.Content image>
+                <Modal.Content>
                 <Form className="watchForm">
-                <div className="photo">
-                    <div>
-                        <div className="FileUpload">
-                        <br/>
-                    </div>
-                        <div>
                             {this.props.watches.uploadedFileCloudinaryUrl === '' ? null :
                                 <div>
                                     <aside className="watchImg" src={this.state.uploadedFile}></aside>
-                                    <img src={this.state.uploadedFileCloudinaryUrl} alt=""/>
+                                    <Image src={this.state.uploadedFileCloudinaryUrl} alt="" size='small'/>
                                 </div>}
-                                </div>
-                        </div>
-                    </div>
                     <Form.Field>
                         <label htmlFor="watchId"></label>
                     </Form.Field>
@@ -67,12 +59,14 @@ export default class EditWatchForm extends Component {
                         <input onChange={this.handleFieldChange}
                             id="price" type="number" defaultValue={this.props.watches.price}/>
                     </Form.Field>
-                    <Form.Field>
-                    </Form.Field>
-                    <Button icon='save' size='mini' onClick={this.updateWatch}/>
+                    <br></br>
                 </Form>
                 </Modal.Content>
+                <Modal.Actions>
+                    <Button icon='save' size='mini' onClick={this.updateWatch}/>
+                </Modal.Actions>
             </React.Fragment>
+                </Grid>
         )
     }
 }

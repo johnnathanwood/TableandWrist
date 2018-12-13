@@ -13,7 +13,7 @@ export default class EditProfileModal extends Component {
         const { open, dimmer } = this.state
 
         return (
-            <Modal trigger={<Comment.Action onClick={this.show(true)}>edit</Comment.Action>} dimmer={dimmer} open={open} onClose={this.close}  closeIcon
+            <Modal  centered={false} trigger={<Comment.Action onClick={this.show(true)}>edit</Comment.Action>} dimmer={dimmer} open={open} onClose={this.close}  closeIcon
             >
                 <Header icon='archive' content='Edit Profile' />
                 <Modal.Content>

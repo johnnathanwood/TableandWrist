@@ -6,6 +6,7 @@ export default class CommunityProfiles extends Component {
     credentials = JSON.parse(localStorage.getItem('credentials'))
 
     state = {
+        
     }
 
     componentDidMount() {

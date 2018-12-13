@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import FriendCollection from './showFriendCollection'
 import DataManager from '../../module/DataManager'
-import { Modal, Header,Comment} from 'semantic-ui-react'
+import { Modal, Header,Comment, Grid} from 'semantic-ui-react'
 
 
 export default class CollectionModal extends Component {
@@ -21,8 +21,8 @@ export default class CollectionModal extends Component {
         const { open, dimmer } = this.state
 
         return (
-            <div>
-            <Modal trigger={<Comment.Action onClick={this.show(true)}>Show Collection</Comment.Action>} dimmer={dimmer} open={open} onClose={this.close}  closeIcon
+            <Grid wrapped size='medium'>
+            <Modal basic size='small' centered={false} trigger={<Comment.Action onClick={this.show('blurring')}>Show Collection</Comment.Action>} dimmer={dimmer} open={open} onClose={this.close}  closeIcon
             >
                 <Header icon='archive'>{this.props.friendName}'s watch collection</Header>
                 <Modal.Content image scrolling>
@@ -34,7 +34,7 @@ export default class CollectionModal extends Component {
                 <Modal.Actions>
                 </Modal.Actions>
             </Modal>
-            </div>
+            </Grid>
         )
     }
 }
