@@ -24,7 +24,7 @@ export default class Community extends Component {
                 <br></br>
                 <br></br>
                 <div>
-                <Grid divided='vertically' padded>
+                <Grid divided='vertically' centered padded>
                 <Card.Group itemsPerRow={3}>
                 <CommunityProfiles {...this.props} />
                 </Card.Group>

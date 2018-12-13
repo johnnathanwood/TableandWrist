@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import CollectionModal from "../watchbox/friendCollectionModal"
+import { Image, Card, Button, Grid} from 'semantic-ui-react'
 
 
 
@@ -21,26 +22,50 @@ componentDidMount(){
       console.log(this.props.relationships)
     return (
         <React.Fragment>
+            <Grid relaxed ='very' centered>
             {
                this.props.relationships.map(friend => 
                 <div className="eachProfile" key={friend.id}>
-                                    <figure className="snip1515">
-                                        <div className="profile-image"><img src={friend.uploadedFileCloudinaryUrl} alt="sample47" width="300" crop="scale" /></div>
-                                        <figcaption>
-                                            <h3>Name:{friend.name}</h3>
-                                            <h4>Gender: {friend.gender}</h4>
-                                            <h4>Age: {friend.age}</h4>
-                                            <p>About Me: {friend.aboutMe}</p>
-                                            </figcaption>
-                                             <CollectionModal {...this.props} friendName={friend.name} friend={friend.id}  />
-                                            <button onClick={() => console.log("clicked")}>Remove Friend</button>
-                                    </figure>
-                                </div>
+                <br></br>
+                <br></br>
+                <br></br>
+            <Grid.Column padded>
+           <Card.Group>
+           <Card raised>
+             <Card.Content>
+               <Image floated='right' size='mini' src={friend.uploadedFileCloudinaryUrl} />
+               <Card.Header>{friend.name}</Card.Header>
+               <Card.Meta>{friend.gender}, {friend.age}</Card.Meta>
+               <Card.Description>
+               {friend.aboutMe}
+               </Card.Description>
+             </Card.Content>
+             <Card.Content extra>
+               <div className='ui two buttons'>
+               <Button basic color='green'>
+               <CollectionModal {...this.props} friendName={friend.name} friend={friend.id}  />
+               </Button>
+                 <Button basic color='red' onClick={() => console.log("clicked")}>
+                   Remove Friend
+                 </Button>
+               </div>
+             </Card.Content>
+           </Card>
+           </Card.Group>
+           </Grid.Column>
+
+
+          
+
+    </div> 
                                            
                 )
             }
+            </Grid>
     </React.Fragment>
 
     )
   }
 }
+
+
