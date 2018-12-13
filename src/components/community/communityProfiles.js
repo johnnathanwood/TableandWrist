@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import DataManager from "../../module/DataManager"
+import { Image, Card, Button, Grid} from 'semantic-ui-react'
 
 export default class CommunityProfiles extends Component {
     credentials = JSON.parse(localStorage.getItem('credentials'))
@@ -37,30 +38,36 @@ export default class CommunityProfiles extends Component {
   render() {
         return (
             <React.Fragment>
+                    {this.props.users.map(users =>
                 <div className="profile-list">
                 <section className="profiles">
-                    {this.props.users.map(users =>
-                            <div className="eachProfile" key={users.id} id={users.id}>
-                                <div  key={users.id} className="ProfileCard">
-                                    <figure className="snip1515">
-                                        <div className="profile-image"><img src={users.uploadedFileCloudinaryUrl} alt="sample47" width="300" crop="scale" /></div>
-                                        <figcaption>
-                                            <h3>Name:{users.name}</h3>
-                                            <h4>Gender: {users.gender}</h4>
-                                            <h4>Age: {users.age}</h4>
-                                            <p>About Me: {users.aboutMe}</p>
-                                        </figcaption>
-                                        <button type="submit" onClick={() => {this.addRelationship(users.id)}} className="btn btn-primary">Add Friend</button>
-                                    </figure>
-                                </div>
-                            </div>
-                        )
-                    }
+                <Grid padded>
+                           <Card.Group >
+                           <Card raised>
+                             <Card.Content>
+                               <Image floated='right' size='mini' src={users.uploadedFileCloudinaryUrl} />
+                               <Card.Header>{users.name}</Card.Header>
+                               <Card.Meta>{users.gender}, {users.age}</Card.Meta>
+                               <Card.Description>
+                               {users.aboutMe}
+                               </Card.Description>
+                             </Card.Content>
+                             <Card.Content extra>
+                               <div className='ui two buttons'>
+                                 <Button basic color='green' onClick={() => {this.addRelationship(users.id)}}>
+                                   Add Friend
+                                 </Button>
+                               </div>
+                             </Card.Content>
+                           </Card>
+                           </Card.Group>
+                           </Grid>
                 </section>
                     </div> 
+                        )
+                    }
             </React.Fragment>
         )
     }
-
-
 }
+

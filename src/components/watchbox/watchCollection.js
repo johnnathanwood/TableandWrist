@@ -14,11 +14,11 @@ export default class WatchCollection extends Component {
         const credentials = JSON.parse(localStorage.getItem('credentials'))
         return (
             <React.Fragment>
-                <Button> <AddWatchModal {...this.props} /></Button>
                 <h1>{credentials.username}'s watch collection</h1>
-                <div id={`watch--${this.props.watch.id}`} key={this.props.watch.id} className="MessageCard">
+                <Button> <AddWatchModal {...this.props} /></Button>
                     <Grid divided='vertically'>
                         <Grid.Column>
+                <div id={`watch--${this.props.watch.id}`} key={this.props.watch.id} className="MessageCard">
                             <Card>
                                 <Image src={this.props.watch.uploadedFileCloudinaryUrl} alt="watch" size="medium" />
                                 <Card.Content>
@@ -43,9 +43,9 @@ export default class WatchCollection extends Component {
                                     </Button>
                                 </Card.Content>
                             </Card>
+                </div>
                         </Grid.Column>
                     </Grid>
-                </div>
             </React.Fragment>
 
         )

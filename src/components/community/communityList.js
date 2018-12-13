@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import CommunityProfiles from "./communityProfiles";
+import { Card, Grid} from 'semantic-ui-react'
 
 export default class Community extends Component {
     credentials = JSON.parse(localStorage.getItem('credentials'))
@@ -19,8 +20,15 @@ export default class Community extends Component {
         const credentials = JSON.parse(localStorage.getItem('credentials'))
         return (
             <React.Fragment>
+                <br></br>
+                <br></br>
+                <br></br>
                 <div>
+                <Grid divided='vertically' padded>
+                <Card.Group itemsPerRow={3}>
                 <CommunityProfiles {...this.props} />
+                </Card.Group>
+                </Grid>
                 </div>
             </React.Fragment>
         )
