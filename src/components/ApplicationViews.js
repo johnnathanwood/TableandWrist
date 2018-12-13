@@ -169,7 +169,7 @@ export default class ApplicationViews extends Component {
             })
             .then(allWatches => {
                 newState.userWatches = allWatches
-                return DataManager.getAllByUser("watches", parseInt(this.credentials.id))
+                return DataManager.getUserWatches("watches", parseInt(this.credentials.id))
             })
             .then(userWatches => {
                 console.log("userWatches",userWatches)
