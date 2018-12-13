@@ -69,7 +69,7 @@
       "brand": "Johnny",
       "model": "Timex",
       "year": "2017",
-      "price": "250",
+      "price": "300",
       "userId": 1,
       "id": 1
     },
@@ -90,6 +90,24 @@
       "price": "14",
       "userId": 3,
       "id": 3
+    },
+    {
+      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544658790/rdsszeyvzr7cni8ianms.jpg",
+      "brand": "Johnny",
+      "model": "Test",
+      "year": "2018",
+      "price": "3000",
+      "userId": 1,
+      "id": 4
+    },
+    {
+      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544658790/rdsszeyvzr7cni8ianms.jpg",
+      "brand": "Scotty",
+      "model": "Test",
+      "year": "2018",
+      "price": "3000",
+      "userId": 3,
+      "id": 5
     }
   ],
   "relationships": [
@@ -102,6 +120,11 @@
       "userId": 1,
       "friendId": 3,
       "id": 2
+    },
+    {
+      "userId": 1,
+      "friendId": 1,
+      "id": 3
     }
   ]
 }

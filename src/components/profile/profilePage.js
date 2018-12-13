@@ -2,7 +2,7 @@
 import React, { Component } from "react"
 import DataManager from "../../module/DataManager"
 import "./profilePage.css"
-import { Comment} from 'semantic-ui-react'
+import { Comment, Image} from 'semantic-ui-react'
 import EditProfileModal from "./editProfileModal";
 import ProfileCollection from "../watchbox/showWatchesonProfile";
 
@@ -20,7 +20,7 @@ export default class ProfilePage extends Component {
                             <div className="eachProfile" key={this.props.user.id}>
                                 <div id={`profile--${this.props.user.id}`} key={this.props.user.id} className="ProfileCard">
                                     <figure className="snip1515">
-                                        <div className="profile-image"><img src={this.props.user.uploadedFileCloudinaryUrl} alt="sample47" width="300" crop="scale" /></div>
+                                        <div className="profile-image"><Image src={this.props.user.uploadedFileCloudinaryUrl} alt="sample47" width="300" crop="scale" /></div>
                                         <figcaption>
                                             <h3>Name:{this.props.user.name}</h3>
                                             <h4>Gender: {this.props.user.gender}</h4>

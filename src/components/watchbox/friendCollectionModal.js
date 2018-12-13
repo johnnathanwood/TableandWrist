@@ -24,8 +24,8 @@ export default class CollectionModal extends Component {
             <div>
             <Modal trigger={<Comment.Action onClick={this.show(true)}>Show Collection</Comment.Action>} dimmer={dimmer} open={open} onClose={this.close}  closeIcon
             >
-                <Header icon='archive' content='Edit Watch' />
-                <Modal.Content>
+                <Header icon='archive'>{this.props.friendName}'s watch collection</Header>
+                <Modal.Content image scrolling>
                     {
                         this.state.watches.map(watch => <FriendCollection {...this.props} close={this.close} friendWatch={watch}/>)
 

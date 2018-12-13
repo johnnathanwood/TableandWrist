@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Comment,Message} from 'semantic-ui-react'
+import { Comment,Message,Card, Image, Icon, Grid } from 'semantic-ui-react'
 import DataManager from "../../module/DataManager";
 
 
@@ -16,34 +16,32 @@ export default class ProfileCollection extends Component {
         const credentials = JSON.parse(localStorage.getItem('credentials'))  
         return (
             <React.Fragment>
-                <h1>{this.props.friendName}'s watch collection</h1>
                         <div id={`watch--${this.props.friendWatch.id}`} key={this.props.friendWatch.id} className="MessageCard">
-                            <Message floating>
-                                <Comment.Group size='large'>
-                                    <Comment>
-                                        <Comment.Content>
-                                            <Comment.Metadata>
-                                                <div className="profile-image"><img src={this.props.friendWatch.uploadedFileCloudinaryUrl} alt="sample47" width="300" crop="scale" /></div>
-                                            </Comment.Metadata>
-                                            <Comment.Text>
-                                                <div>Brand: {this.props.friendWatch.brand}</div>
-                                            </Comment.Text>
-                                            <Comment.Text>
-                                                <p>Model: {this.props.friendWatch.model}</p>
-                                            </Comment.Text>
-                                            <Comment.Text>
-                                                <p>Year: {this.props.friendWatch.year}</p>
-                                            </Comment.Text>
-                                            <Comment.Text>
-                                                <p>Price: ${this.props.friendWatch.price}</p>
-                                            </Comment.Text>
-                                        </Comment.Content>
-                                    </Comment> 
-                                </Comment.Group>
-                            </Message>
+            <Grid divided='vertically'>
+                <Grid.Column width={10}>
+                    <Card>
+                        <Image src={this.props.friendWatch.uploadedFileCloudinaryUrl} alt="watch" size="medium"/>
+                        <Card.Content>
+                            <Card.Header>{this.props.friendWatch.brand}</Card.Header>
+                            <Card.Meta>
+                                <span className='date'>{this.props.friendWatch.model}</span>
+                            </Card.Meta>
+                            <Card.Description>{this.props.friendWatch.year}</Card.Description>
+                        </Card.Content>
+                        <Card.Content extra>
+                            <p>
+                                <Icon name='user' />
+                                ${this.props.friendWatch.price}
+                            </p>
+                        </Card.Content>
+                    </Card>
+                    </Grid.Column>
+                    </Grid>
                         </div>
             </React.Fragment>
 
         )
     }
 }
+
+

@@ -27,8 +27,8 @@ export default class MessageList extends Component {
                 {
                     this.props.messages.map(messages =>
                         <div id={`message--${messages.id}`} key={messages.id} className="MessageCard">
-                            <Message floating>
-                                <Comment.Group size='large'>
+                            <Message size='small'floating>
+                                <Comment.Group size='small'>
                                     <Comment>
                                         <Comment.Avatar as='a' src='https://react.semantic-ui.com/images/avatar/small/elliot.jpg' />
                                         <Comment.Content>
