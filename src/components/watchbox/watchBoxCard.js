@@ -18,8 +18,6 @@ export default class WatchBoxCard extends Component {
         const credentials = JSON.parse(localStorage.getItem('credentials'))  
         return (
             <React.Fragment>
-            <h1>{credentials.username}'s watch collection</h1>
-            <Button> <AddWatchModal {...this.props} /></Button>
             <Grid centered column={3} relaxed padded="true">
             <Grid.Column padded='vertically'>
             <div id={`watch--${this.props.watch.id}`} key={this.props.watch.id} className="MessageCard">

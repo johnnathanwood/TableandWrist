@@ -90,14 +90,6 @@
       "price": "123",
       "userId": 3,
       "id": 4
-    },
-    {
-      "brand": "Test",
-      "model": "Test",
-      "year": "200",
-      "price": "1111",
-      "userId": 3,
-      "id": 5
     }
   ],
   "relationships": [

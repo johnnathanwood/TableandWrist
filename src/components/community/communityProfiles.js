@@ -37,6 +37,7 @@ export default class CommunityProfiles extends Component {
   }
 
   render() {
+    const credentials = JSON.parse(localStorage.getItem('credentials'))
         return (
             <React.Fragment>
                     {this.props.users.map(users =>
@@ -53,13 +54,22 @@ export default class CommunityProfiles extends Component {
                                {users.aboutMe}
                                </Card.Description>
                              </Card.Content>
-                             <Card.Content extra>
+                             {
+    users.userId === credentials.id ? (
+        <React.Fragment>
+    <Card.Content extra>
+    <Button basic color='green'>This is me!</Button>
+    </Card.Content>
+    </React.Fragment>
+       ): <Card.Content extra>
                                <div className='ui two buttons'>
                                  <Button basic color='green' onClick={() => {this.addRelationship(users.id)}}>
                                    Add Friend
                                  </Button>
                                </div>
                              </Card.Content>
+
+}
                            </Card>
                            </Card.Group>
                            </Grid>
@@ -71,4 +81,5 @@ export default class CommunityProfiles extends Component {
         )
     }
 }
+
 
