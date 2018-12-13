@@ -14,10 +14,10 @@ export default class ProfileCollection extends Component {
         const credentials = JSON.parse(localStorage.getItem('credentials'))
         return (
             <React.Fragment>
-                <h1>{credentials.username}'s watch collection</h1>
+            {/* <h1>{credentials.username}'s watch collection</h1> */}
                 <div id={`watch--${this.props.watch.id}`} key={this.props.watch.id} className="MessageCard">
-                <Grid divided='vertically'>
-                <Grid.Column>
+                <Grid divided='vertically' padded>
+                <Grid.Column floated='left'>
                     <Card>
                         <Image src={this.props.watch.uploadedFileCloudinaryUrl} alt="watch" size="medium"/>
                         <Card.Content>

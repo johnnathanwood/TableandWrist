@@ -16,8 +16,8 @@ export default class WatchCollection extends Component {
             <React.Fragment>
                 <h1>{credentials.username}'s watch collection</h1>
                 <Button> <AddWatchModal {...this.props} /></Button>
-                    <Grid divided='vertically'>
-                        <Grid.Column>
+                <Grid centered column={3} relaxed padded>
+                <Grid.Column padded='vertically'>
                 <div id={`watch--${this.props.watch.id}`} key={this.props.watch.id} className="MessageCard">
                             <Card>
                                 <Image src={this.props.watch.uploadedFileCloudinaryUrl} alt="watch" size="medium" />

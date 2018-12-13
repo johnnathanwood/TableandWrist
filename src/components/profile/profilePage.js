@@ -1,8 +1,7 @@
 
 import React, { Component } from "react"
-import DataManager from "../../module/DataManager"
 import "./profilePage.css"
-import { Comment, Image, Card, Icon } from 'semantic-ui-react'
+import { Comment, Image, Card, Icon, Grid } from 'semantic-ui-react'
 import EditProfileModal from "./editProfileModal";
 import ProfileCollection from "../watchbox/showWatchesonProfile";
 
@@ -41,7 +40,11 @@ export default class ProfilePage extends Component {
                         </a>
                     </Card.Content>
                 </Card>
+                <Grid centered column={3} relaxed padded>
+                <Grid.Column padded='vertically'>
                 <ProfileCollection {...this.props} />
+                </Grid.Column>
+                </Grid>
             </React.Fragment>
         )
     }
