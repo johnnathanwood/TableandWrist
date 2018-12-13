@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Comment, Card, Image, Icon, Grid } from 'semantic-ui-react'
+import DataManager from "../../module/DataManager";
 
 
 
@@ -10,8 +11,10 @@ export default class ProfileCollection extends Component {
     findUserId = () => {
         return localStorage.getItem("credentials")
     }
+
     render() {
         const credentials = JSON.parse(localStorage.getItem('credentials'))
+        console.log("watch",this.props.watch)
         return (
             <React.Fragment>
             {/* <h1>{credentials.username}'s watch collection</h1> */}
@@ -19,7 +22,7 @@ export default class ProfileCollection extends Component {
                 <Grid divided='vertically' padded>
                 <Grid.Column floated='left'>
                     <Card>
-                        <Image src={this.props.watch.uploadedFileCloudinaryUrl} alt="watch" size="medium"/>
+                        <Image src={this.props.watch.uploadedFileCloudinaryUrl} alt="this.props.watch" size="medium"/>
                         <Card.Content>
                             <Card.Header>{this.props.watch.brand}</Card.Header>
                             <Card.Meta>

@@ -4,11 +4,25 @@ import "./profilePage.css"
 import { Comment, Image, Card, Icon, Grid } from 'semantic-ui-react'
 import EditProfileModal from "./editProfileModal";
 import ProfileCollection from "../watchbox/showWatchesonProfile";
+import DataManager from "../../module/DataManager";
 
 export default class ProfilePage extends Component {
     credentials = JSON.parse(localStorage.getItem('credentials'))
+ state = {
+    watches: []
+
+ }
+
+    componentDidMount() {
+        console.log("TEST",this.props.user)
+        DataManager.getUserWatches("watches",this.props.user.userId)
+            .then(watches => {console.log("watches",watches)
+            this.setState({watches: watches})}
+            )
+}
 
     render() {
+        console.log("Jase",this.props.user)
         const credentials = JSON.parse(localStorage.getItem('credentials'))
         return (
             <React.Fragment>
@@ -42,7 +56,10 @@ export default class ProfilePage extends Component {
                 </Card>
                 <Grid centered column={3} relaxed padded>
                 <Grid.Column padded='vertically'>
-                <ProfileCollection {...this.props} />
+                {
+                this.state.watches.map(watch => {console.log("look", watch)
+                return <ProfileCollection {...this.props} watch={watch} key={watch.id} />})
+                }
                 </Grid.Column>
                 </Grid>
             </React.Fragment>

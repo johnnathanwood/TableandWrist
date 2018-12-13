@@ -37,11 +37,6 @@ export default class ApplicationViews extends Component {
             users: users
         }))
 
-    // addUser = (users, item) => DataManager.add(users, item)
-    //     .then(() => DataManager.getAllByUser("users", this.credentials.id))
-    //     .then(users => this.setState({
-    //         users: users
-    //     }))
     addUserProfile = (obj, id) => DataManager.edit("users", id, obj)
         .then(() => DataManager.getAllByUser("users", this.credentials.id))
         .then(users => this.setState({
@@ -137,35 +132,59 @@ export default class ApplicationViews extends Component {
     refreshData = () => {
         const newState = {}
         if (this.isAuthenticated()) {
+        // return DataManager.getAll("users")
+        //     .then(allUsers => {
+        //         console.log(allUsers)
+        //         newState.users = allUsers
+        //     })
+        //     .then(() =>
+        //         DataManager.getAll("watches")
+        //         .then(allWatches => {
+        //             console.log("watches",allWatches)
+        //             newState.watches = allWatches
+        //         }))
+        //     .then(() =>
+        //         DataManager.getAllByUser("watches", parseInt(this.credentials.id)) 
+        //             .then(allWatches => {
+        //                 newState.userWatches = allWatches
+        //             }))
+        //     .then(() =>
+        //         DataManager.getAll("messages")
+        //             .then(allMessages => {
+        //                 newState.messages = allMessages
+        //             }))
+        //     .then(() =>
+        //         DataManager.getAllByUser("users", parseInt(this.credentials.id))
+        //             .then(allUsers => {
+        //                 console.log("p", allUsers)
+        //                 newState.userProfile = allUsers
+        //             }))
+        //     .then(() =>
+        //         this.setState(newState))
+
         return DataManager.getAll("users")
             .then(allUsers => {
-                console.log(allUsers)
-                newState.users = allUsers
+                newState.users=allUsers
+                return DataManager.getAll("watches")
             })
-            .then(() =>
-                DataManager.getAll("watches")
-                .then(allWatches => {
-                    console.log("watches",allWatches)
-                    newState.watches = allWatches
-                }))
-            .then(() =>
-                DataManager.getAllByUser("watches", parseInt(this.credentials.id)) 
-                    .then(allWatches => {
-                        newState.userWatches = allWatches
-                    }))
-            .then(() =>
-                DataManager.getAll("messages")
-                    .then(allMessages => {
-                        newState.messages = allMessages
-                    }))
-            .then(() =>
-                DataManager.getAllByUser("users", parseInt(this.credentials.id))
-                    .then(allUsers => {
-                        console.log("p", allUsers)
-                        newState.userProfile = allUsers
-                    }))
-            .then(() =>
-                this.setState(newState))
+            .then(allWatches => {
+                newState.userWatches = allWatches
+                return DataManager.getAllByUser("watches", parseInt(this.credentials.id))
+            })
+            .then(userWatches => {
+                console.log("userWatches",userWatches)
+                newState.userWatches = userWatches
+                return DataManager.getAll("messages")
+            })
+            .then(allMessages => {
+                newState.messages = allMessages
+                return DataManager.getAllByUser("users", parseInt(this.credentials.id))
+            })
+            .then(userProfile => {
+                newState.userProfile = userProfile
+                newState.isLoaded = true
+                this.setState(newState)
+            })
 
     }}
 
@@ -194,6 +213,8 @@ export default class ApplicationViews extends Component {
     }
 
     render() {
+        if (this.state.isLoaded){
+        console.log("j", this.state.userProfile)
         return (
             <React.Fragment>
                 <Route exact path="/register" render={(props) => {
@@ -310,5 +331,8 @@ export default class ApplicationViews extends Component {
                 }} />
             </React.Fragment>
         )
+    }else{
+      return  <p>Page Loading</p>
+    }
     }
 }

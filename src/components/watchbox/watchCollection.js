@@ -9,14 +9,14 @@ import EditWatchModal from "./editWatchModal";
 export default class WatchCollection extends Component {
     credentials = JSON.parse(localStorage.getItem('credentials'))
 
-
     render() {
         const credentials = JSON.parse(localStorage.getItem('credentials'))
+        console.log("watchbox",this.props.watch)
         return (
             <React.Fragment>
                 <h1>{credentials.username}'s watch collection</h1>
                 <Button> <AddWatchModal {...this.props} /></Button>
-                <Grid centered column={3} relaxed padded>
+                <Grid centered column={3} relaxed padded="true">
                 <Grid.Column padded='vertically'>
                 <div id={`watch--${this.props.watch.id}`} key={this.props.watch.id} className="MessageCard">
                             <Card>

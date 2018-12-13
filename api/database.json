@@ -84,75 +84,29 @@
     },
     {
       "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544409854/hynk28e0gfpyj15l5hur.jpg",
-      "brand": "Test",
+      "brand": "This is a test",
       "model": "Daytona",
       "year": "2017",
-      "price": "14",
+      "price": "1",
       "userId": 3,
       "id": 3
     },
     {
-      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544658790/rdsszeyvzr7cni8ianms.jpg",
-      "brand": "Johnny",
+      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544720619/artsrli9uwlvtdejrdeq.jpg",
+      "brand": "This is Scotty's Watch",
       "model": "Test",
-      "year": "2018",
-      "price": "3000",
-      "userId": 1,
+      "year": "200",
+      "price": "123",
+      "userId": 3,
       "id": 4
     },
     {
-      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544658790/rdsszeyvzr7cni8ianms.jpg",
-      "brand": "Scotty",
+      "brand": "Test",
       "model": "Test",
-      "year": "2018",
-      "price": "3000",
+      "year": "200",
+      "price": "1111",
       "userId": 3,
       "id": 5
-    },
-    {
-      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544658790/rdsszeyvzr7cni8ianms.jpg",
-      "brand": "Scotty",
-      "model": "Test",
-      "year": "2018",
-      "price": "3000",
-      "userId": 3,
-      "id": 6
-    },
-    {
-      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544658790/rdsszeyvzr7cni8ianms.jpg",
-      "brand": "Scotty",
-      "model": "Test",
-      "year": "2018",
-      "price": "3000",
-      "userId": 3,
-      "id": 7
-    },
-    {
-      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544658790/rdsszeyvzr7cni8ianms.jpg",
-      "brand": "Scotty",
-      "model": "Test",
-      "year": "2018",
-      "price": "3000",
-      "userId": 3,
-      "id": 8
-    },
-    {
-      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544658790/rdsszeyvzr7cni8ianms.jpg",
-      "brand": "Scotty",
-      "model": "Test",
-      "year": "2018",
-      "price": "3000",
-      "userId": 3,
-      "id": 9
-    },
-    {
-      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544658790/rdsszeyvzr7cni8ianms.jpg",
-      "brand": "Scotty",
-      "model": "Test",
-      "year": "2018",
-      "price": "3000",
-      "userId": 3,
-      "id": 10
     }
   ],
   "relationships": [
@@ -170,6 +124,21 @@
       "userId": 1,
       "friendId": 1,
       "id": 3
+    },
+    {
+      "userId": 3,
+      "friendId": 1,
+      "id": 4
+    },
+    {
+      "userId": 3,
+      "friendId": 2,
+      "id": 5
+    },
+    {
+      "userId": 3,
+      "friendId": 3,
+      "id": 6
     }
   ]
 }

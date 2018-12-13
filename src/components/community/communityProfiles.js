@@ -40,7 +40,7 @@ export default class CommunityProfiles extends Component {
         return (
             <React.Fragment>
                     {this.props.users.map(users =>
-                <div className="profile-list">
+                <div className="profile-list" key={users.id}>
                 <section className="profiles">
                 <Grid padded>
                            <Card.Group >
