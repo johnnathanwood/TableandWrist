@@ -37,8 +37,11 @@ export default class WatchBoxCard extends Component {
                                     ${this.props.watch.price}
                                 </p>
                                 <Button
-                                    onClick={() => this.props.deleteWatch(this.props.watch.id)
-                                        .then(() => this.props.history.push("/watchbox"))}
+                                    onClick={() => {
+                                        this.props.deleteWatch(this.props.watch.id)
+                                        this.props.refreshData()
+                                        .then(() => this.props.history.push("/watchbox"))
+                                    }}
                                 >delete
                         </Button>
                                 <Button>

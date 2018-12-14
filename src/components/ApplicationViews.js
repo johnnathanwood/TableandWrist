@@ -232,6 +232,7 @@ export default class ApplicationViews extends Component {
                 }} />
                 <Route exact path="/watchbox" render={(props) => {
                     return <WatchCollection {...props}
+                        refreshData={this.refreshData}
                         users={this.state.users}
                         watches={this.state.watches}
                         addWatch={this.addWatch}
@@ -252,6 +253,7 @@ export default class ApplicationViews extends Component {
                         return <EditWatchForm {...props}
                             editWatch={this.editWatch}
                             watches={this.state.watches} 
+                            refreshData={this.refreshData}
                             />
                     } else {
                         return <Redirect to="/login" />

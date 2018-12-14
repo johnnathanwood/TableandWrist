@@ -33,7 +33,7 @@ export default class Login extends Component {
           alert(`username ${this.state.username} already exits!`)
         } else if (!users.length) {
           DataManager.add("users", user).then(user =>{
-            sessionStorage.setItem("credentials", JSON.stringify(user))
+            sessionStorage.setItem("credentials", JSON.stringify(user[0]))
             this.props.setAuth()
           }
           )
@@ -53,7 +53,7 @@ export default class Login extends Component {
           if (!user.length) {
             alert("Wrong username or password!")
           } else if (user.length) {
-            sessionStorage.setItem("credentials", JSON.stringify(user))
+            sessionStorage.setItem("credentials", JSON.stringify(user[0]))
             this.props.setAuth()
           }
         }

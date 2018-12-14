@@ -32,6 +32,7 @@ export default class EditWatchForm extends Component {
         }
         this.setState({watches:updatedWatch})
         this.props.editWatch(this.props.watchId, updatedWatch)
+        this.props.refreshData()
         this.props.close() 
     }
 

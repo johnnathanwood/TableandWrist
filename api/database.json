@@ -7,7 +7,7 @@
       "id": 1,
       "uploadedFileCloudinaryUrl": "https://cdn.hodinkee.com/assets/watch101/watch101-dial-side-3814eb60d9e46a74f19539835cbed785eae9f73f5b02bee89a4b1ce169f93687.gif",
       "name": "John Nathan Wood",
-      "gender": "male",
+      "gender": "Female",
       "age": "44",
       "aboutMe": "Test",
       "userId": 1
@@ -37,14 +37,7 @@
       "userId": 3
     }
   ],
-  "messages": [
-    {
-      "id": 1,
-      "message": "Test",
-      "date": "2018-12-14T19:14:40.666Z",
-      "userId": 1
-    }
-  ],
+  "messages": [],
   "watches": [
     {
       "uploadedFileCloudinaryUrl": "https://hodinkee.imgix.net/uploads/images/1526532023123-z4j9hpvdsor-82f5305f4c21b58a0bfd033393affa76/Bell-Ross-BR-V2-93-GMT-hero.jpg?ixlib=rails-1.1.0&fit=crop&ch=Width%2CDPR%2CSave-Data&alt=&fm=jpg&q=55&auto=format&usm=12&s=a7ec0aa1fb46f057427f1eb0748259f6",
@@ -113,7 +106,7 @@
       "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544765356/nx4xs2gh9z9smguaynf9.jpg",
       "brand": "Grand Seiko",
       "model": "SBGW231G",
-      "year": "2018",
+      "year": "2020",
       "price": "4,300",
       "userId": 1,
       "id": 5
