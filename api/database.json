@@ -5,7 +5,7 @@
       "email": "johnnathanwood@gmail.com",
       "password": "1",
       "id": 1,
-      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544477131/biqett3bct5mnik4r5k8.jpg",
+      "uploadedFileCloudinaryUrl": "https://cdn.hodinkee.com/assets/watch101/watch101-dial-side-3814eb60d9e46a74f19539835cbed785eae9f73f5b02bee89a4b1ce169f93687.gif",
       "name": "John Nathan Wood",
       "gender": "Female",
       "age": "44",
@@ -17,7 +17,7 @@
       "email": "Jeff@gmail.com",
       "password": "1",
       "id": 2,
-      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544571184/bybp95ageslvhau59arl.png",
+      "uploadedFileCloudinaryUrl": "https://cdn.hodinkee.com/assets/watch101/watch101-movement-interior-ed351fdb74c070916019116b4d181629634f4a0847270e96172469f20c059275.gif",
       "name": "Jeff Wagner",
       "gender": "male",
       "age": "30",
@@ -29,36 +29,12 @@
       "email": "scott@gmail.com",
       "password": "1",
       "id": 3,
-      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544571184/bybp95ageslvhau59arl.png",
+      "uploadedFileCloudinaryUrl": "https://cdn.hodinkee.com/assets/watch101/watch101-movement-5660985b817ee530ddfdf232ede6fefef3d162ea58f45af3df4b8c3ffeaa071b.gif",
       "name": "Scott Wood",
       "gender": "male",
       "age": "50",
       "aboutMe": "I love my family",
       "userId": 3
-    },
-    {
-      "username": "Test",
-      "email": "Test@gmail.com",
-      "password": "1",
-      "id": 4,
-      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544571184/bybp95ageslvhau59arl.png",
-      "name": "Test",
-      "gender": "male",
-      "age": "50",
-      "aboutMe": "I love my family",
-      "userId": 4
-    },
-    {
-      "username": "FUCK ",
-      "email": "fuck@gmail.com",
-      "password": "1",
-      "id": 5,
-      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544748514/glgshmjr0tenqn4nazhc.png",
-      "name": "fuck damn",
-      "gender": "male",
-      "age": "3000",
-      "aboutMe": "Fuck this better work",
-      "userId": 5
     }
   ],
   "messages": [
@@ -94,40 +70,103 @@
   ],
   "watches": [
     {
-      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544409854/hynk28e0gfpyj15l5hur.jpg",
-      "brand": "Johnny",
-      "model": "Timex",
-      "year": "2017",
-      "price": "300",
-      "userId": 1,
-      "id": 1
-    },
-    {
-      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544409854/hynk28e0gfpyj15l5hur.jpg",
-      "brand": "Rolex",
-      "model": "Daytona",
-      "year": "2017",
-      "price": "14,000,000",
+      "uploadedFileCloudinaryUrl": "https://hodinkee.imgix.net/uploads/images/1526532023123-z4j9hpvdsor-82f5305f4c21b58a0bfd033393affa76/Bell-Ross-BR-V2-93-GMT-hero.jpg?ixlib=rails-1.1.0&fit=crop&ch=Width%2CDPR%2CSave-Data&alt=&fm=jpg&q=55&auto=format&usm=12&s=a7ec0aa1fb46f057427f1eb0748259f6",
+      "brand": "Bell & Ross",
+      "model": "BR V2-93 GMT",
+      "year": "2018",
+      "price": "3,250",
       "userId": 2,
       "id": 2
     },
     {
-      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544720619/artsrli9uwlvtdejrdeq.jpg",
-      "brand": "This is Scotty's Watch",
-      "model": "Test",
-      "year": "200",
-      "price": "123",
-      "userId": 3,
-      "id": 4
+      "uploadedFileCloudinaryUrl": "https://hodinkee.imgix.net/uploads/images/1527051108500-nsrcr2oci5l-169444ea855c8eede5680e5da5331b77/Raymond-Weil-Maestro-Moonphase-hero.jpg?ixlib=rails-1.1.0&fit=crop&ch=Width%2CDPR%2CSave-Data&alt=&fm=jpg&q=55&auto=format&usm=12&s=45bd3f82f0389f8f7e74b81d3aab85d1",
+      "brand": "Raymond Weil M ",
+      "model": "2239 Moon Phase",
+      "year": "2018",
+      "price": "1,495",
+      "userId": 2,
+      "id": 3
     },
     {
-      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544748664/bn9fvr9qtbdxvuz0m04q.jpg",
-      "brand": "Fuck",
-      "model": "Fuck",
-      "year": "300000",
-      "price": "400000",
-      "userId": 5,
+      "uploadedFileCloudinaryUrl": "https://hodinkee.imgix.net/uploads/images/1522091331836-umhdq5h7i4m-72ab191349bfeef3807398d159155f4c/hero.jpg?ixlib=rails-1.1.0&fit=crop&ch=Width%2CDPR%2CSave-Data&alt=&fm=jpg&q=55&auto=format&usm=12&s=7a99355acec4d2541592082cfe48ed1b",
+      "brand": "Rolex ",
+      "model": "2239 Moon Phase",
+      "year": "2018",
+      "price": "1,495",
+      "userId": 2,
+      "id": 3
+    },
+    {
+      "uploadedFileCloudinaryUrl": "https://hodinkee.imgix.net/uploads/images/1522091331836-umhdq5h7i4m-72ab191349bfeef3807398d159155f4c/hero.jpg?ixlib=rails-1.1.0&fit=crop&ch=Width%2CDPR%2CSave-Data&alt=&fm=jpg&q=55&auto=format&usm=12&s=7a99355acec4d2541592082cfe48ed1b",
+      "brand": "Rolex",
+      "model": "GMT-Master II ",
+      "year": "2018",
+      "price": "12,000",
+      "userId": 3,
+      "id": 8
+    },
+    {
+      "uploadedFileCloudinaryUrl": "https://hodinkee.imgix.net/uploads/images/1521050434210-0zkgc8rg18e-cbd2cf23e1c7526df4cd028fb0ddee1f/Oris-65-bronze-bezel-3.jpg?ixlib=rails-1.1.0&fit=crop&ch=Width%2CDPR%2CSave-Data&alt=&fm=jpg&q=55&auto=format&usm=12&s=723c1ac4137990fdd1b77dba15d27a5e",
+      "brand": "Oris",
+      "model": "Automatic ",
+      "year": "2018",
+      "price": "11,000",
+      "userId": 3,
+      "id": 9
+    },
+    {
+      "uploadedFileCloudinaryUrl": "https://hodinkee.imgix.net/uploads/images/1521630868553-yd69wwzbqmq-e90d5ce5931b62f69d410e617fb9a446/hero.jpg?ixlib=rails-1.1.0&fit=crop&ch=Width%2CDPR%2CSave-Data&alt=&fm=jpg&q=55&auto=format&usm=12&s=868d3d0877a6a6e3100cc73418c5439e",
+      "brand": "Bulgari Octo",
+      "model": "Tourbillon Automatic",
+      "year": "2018",
+      "price": "118,000",
+      "userId": 3,
+      "id": 10
+    },
+    {
+      "uploadedFileCloudinaryUrl": "https://hodinkee.imgix.net/uploads/images/1522867788008-85yfu5zu13g-6c5fbb921423de25afcb66dc49a68f8f/hero.jpg?ixlib=rails-1.1.0&fit=crop&ch=Width%2CDPR%2CSave-Data&alt=&fm=jpg&q=55&auto=format&usm=12&s=dee7d34067b7ef12e56215c5377e9cab",
+      "brand": "Rolex",
+      "model": "Rainbow Daytona",
+      "year": "2018",
+      "price": "96,900",
+      "userId": 3,
+      "id": 11
+    },
+    {
+      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544765356/nx4xs2gh9z9smguaynf9.jpg",
+      "brand": "Grand Seiko",
+      "model": "SBGW231G",
+      "year": "2018",
+      "price": "4,300",
+      "userId": 1,
       "id": 5
+    },
+    {
+      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544765706/mnimr49trtbyk7pqelty.jpg",
+      "brand": "Cartier",
+      "model": "Tank",
+      "year": "2017",
+      "price": "3,600",
+      "userId": 1,
+      "id": 6
+    },
+    {
+      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544765901/dmjchfpgndzt9oarqxxg.jpg",
+      "brand": "Jaeger-LeCoultre",
+      "model": "Reverso Tribute Tourbillon Duoface",
+      "year": "2018",
+      "price": "125,000",
+      "userId": 1,
+      "id": 7
+    },
+    {
+      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544808742/sg0ccaoibvdbw4jsxlfc.jpg",
+      "brand": "Cartier",
+      "model": "Tank",
+      "year": "2005",
+      "price": "1300",
+      "userId": 1,
+      "id": 12
     }
   ],
   "relationships": [
@@ -140,30 +179,6 @@
       "userId": 1,
       "friendId": 3,
       "id": 2
-    },
-    {
-      "userId": 1,
-      "friendId": 1,
-      "id": 3
-    },
-    {
-      "userId": 3,
-      "friendId": 1,
-      "id": 4
-    },
-    {
-      "userId": 3,
-      "friendId": 2,
-      "id": 5
-    },
-    {
-      "userId": 3,
-      "friendId": 3,
-      "id": 6
-    },
-    {
-      "friendId": 3,
-      "id": 7
     }
   ]
 }

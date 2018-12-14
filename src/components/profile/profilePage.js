@@ -26,6 +26,7 @@ export default class ProfilePage extends Component {
         const credentials = JSON.parse(sessionStorage.getItem('credentials'))
         return (
             <React.Fragment>
+                <div  className="profile">
                 <h1>Hello {credentials.username}</h1>
                 <Card>
                     <Image src={this.props.user.uploadedFileCloudinaryUrl} />
@@ -41,7 +42,7 @@ export default class ProfilePage extends Component {
                             {
                                 this.props.user.id === credentials.id ? (
                                     <React.Fragment >
-                                        <div className="container">
+                                        <div>
                                             <Comment.Actions>
                                                 <Comment.Actions>
                                                     <Icon name='user' />   <EditProfileModal {...this.props} userId={this.props.user.id} users={this.props.user} />
@@ -62,6 +63,7 @@ export default class ProfilePage extends Component {
                 }
                 </Grid.Column>
                 </Grid>
+                </div>
             </React.Fragment>
         )
     }

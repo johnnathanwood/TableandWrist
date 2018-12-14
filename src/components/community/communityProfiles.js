@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import DataManager from "../../module/DataManager"
 import { Image, Card, Button, Grid} from 'semantic-ui-react'
 
+
 export default class CommunityProfiles extends Component {
     credentials = JSON.parse(sessionStorage.getItem('credentials'))
 
@@ -41,13 +42,13 @@ export default class CommunityProfiles extends Component {
         return (
             <React.Fragment>
                     {this.props.users.map(users =>
-                <div className="profile-list" key={users.id}>
+                <div className="community" key={users.id}>
                 <section className="profiles">
                 <Grid padded>
                            <Card.Group >
-                           <Card raised>
+                           <Card raised color="brown">
                              <Card.Content>
-                               <Image floated='right' size='mini' src={users.uploadedFileCloudinaryUrl} />
+                               <Image floated='right' size='medium' src={users.uploadedFileCloudinaryUrl} />
                                <Card.Header>{users.name}</Card.Header>
                                <Card.Meta>{users.gender}, {users.age}</Card.Meta>
                                <Card.Description>

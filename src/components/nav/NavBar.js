@@ -4,7 +4,11 @@ import { Icon, Button } from 'semantic-ui-react'
 import "./NavBar.css"
 
 export default class NavBar extends Component {
+  state = { activeItem: 'bio' }
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
   render() {
+    const { activeItem } = this.state
     return (
       <nav className="navbar navbar-light light-blue flex-md-nowrap shadow">
         <ul className="nav nav-pills">
@@ -52,3 +56,5 @@ export default class NavBar extends Component {
     )
   }
 }
+
+

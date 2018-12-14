@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Comment, Message, Button, Card, Icon, Grid, Image } from 'semantic-ui-react'
+import { Comment, Message, Button, Card, Icon, Grid, Image, Segment, Divider} from 'semantic-ui-react'
 import AddWatchModal from "./addWatchModal";
 import EditWatchModal from "./editWatchModal";
 
@@ -18,10 +18,11 @@ export default class WatchBoxCard extends Component {
         const credentials = JSON.parse(sessionStorage.getItem('credentials'))  
         return (
             <React.Fragment>
+
             <Grid centered column={3} relaxed padded="true">
             <Grid.Column padded='vertically'>
             <div id={`watch--${this.props.watch.id}`} key={this.props.watch.id} className="MessageCard">
-                        <Card>
+                        <Card color='brown'>
                             <Image src={this.props.watch.uploadedFileCloudinaryUrl} alt="watch" size="medium" />
                             <Card.Content>
                                 <Card.Header>{this.props.watch.brand}</Card.Header>
@@ -48,6 +49,7 @@ export default class WatchBoxCard extends Component {
             </div>
                     </Grid.Column>
                 </Grid>
+
         </React.Fragment>
 
 

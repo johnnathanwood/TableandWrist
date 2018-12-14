@@ -39,7 +39,7 @@ export default class ApplicationViews extends Component {
         }))
 
     addUserProfile = (obj, id) => DataManager.edit("users", id, obj)
-        .then(() => DataManager.getAllByUser("users", this.credentials.id))
+        .then(() => DataManager.getAllByUser("users", this.credentials.user.id))
         .then(users => this.setState({
             users: users
         }))
