@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
+import DataManager from '../../module/DataManager'
 
 
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/tableandwrist/image/upload'
@@ -21,6 +22,11 @@ export default class CreateProfile extends Component {
 
         this.handleImageUpload(files[0]);
     }
+    addUserProfile = (obj, id) => DataManager.edit("users", id, obj)
+        .then(() => DataManager.getAllByUser("users", this.credentials.users.id))
+        .then(users => this.setState({
+            users: users
+        }))
 
     handleImageUpload(file) {
         let upload = request.post(CLOUDINARY_UPLOAD_URL)
@@ -66,8 +72,8 @@ export default class CreateProfile extends Component {
 
     constructNewProfile = evt => {
         evt.preventDefault()
-        const credentials = JSON.parse(localStorage.getItem('credentials'))
-        const profile = {
+        const credentials = JSON.parse(sessionStorage.getItem('credentials'))
+        const users = {
             uploadedFileCloudinaryUrl: this.state.uploadedFileCloudinaryUrl,
             name: this.state.name,
             gender: this.state.gender,
@@ -76,8 +82,9 @@ export default class CreateProfile extends Component {
             aboutMe: this.state.aboutMe,
             userId: credentials.id,
         }
-        this.props.addUserProfile(profile, credentials.id)
-            .then(() => this.props.history.push("/profile"))
+        this.addUserProfile(users, credentials.id)
+        .then(() => this.props.history.push("/login"))
+            
     }
     render() {
 

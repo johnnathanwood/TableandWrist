@@ -12,11 +12,11 @@ export default class MessageList extends Component {
     }
 
     findUserId = () => {
-        return localStorage.getItem("credentials")
+        return sessionStorage.getItem("credentials")
     }
 
     render() {
-        const credentials = JSON.parse(localStorage.getItem('credentials'))
+        const credentials = JSON.parse(sessionStorage.getItem('credentials'))
         console.log(credentials)
         return (
             <React.Fragment>

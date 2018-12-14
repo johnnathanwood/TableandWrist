@@ -4,7 +4,7 @@ import DataManager from "../../module/DataManager"
 import "./confirmProfile.css"
 
 export default class Confirm extends Component {
-    credentials = JSON.parse(localStorage.getItem('credentials'))
+    credentials = JSON.parse(sessionStorage.getItem('credentials'))
 
     state = {
         user: []
@@ -15,7 +15,7 @@ export default class Confirm extends Component {
     // }
 
     findUserId = () => {
-        return localStorage.getItem("credentials")
+        return sessionStorage.getItem("credentials")
     }
 
     componentDidMount() {

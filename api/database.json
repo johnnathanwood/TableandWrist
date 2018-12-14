@@ -35,6 +35,30 @@
       "age": "50",
       "aboutMe": "I love my family",
       "userId": 3
+    },
+    {
+      "username": "Test",
+      "email": "Test@gmail.com",
+      "password": "1",
+      "id": 4,
+      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544571184/bybp95ageslvhau59arl.png",
+      "name": "Test",
+      "gender": "male",
+      "age": "50",
+      "aboutMe": "I love my family",
+      "userId": 4
+    },
+    {
+      "username": "FUCK ",
+      "email": "fuck@gmail.com",
+      "password": "1",
+      "id": 5,
+      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544748514/glgshmjr0tenqn4nazhc.png",
+      "name": "fuck damn",
+      "gender": "male",
+      "age": "3000",
+      "aboutMe": "Fuck this better work",
+      "userId": 5
     }
   ],
   "messages": [
@@ -61,6 +85,11 @@
       "message": "Test",
       "date": "2018-12-12T21:19:41.194Z",
       "userId": 1
+    },
+    {
+      "id": 6,
+      "message": "Hello",
+      "date": "2018-12-14T00:21:13.196Z"
     }
   ],
   "watches": [
@@ -90,6 +119,15 @@
       "price": "123",
       "userId": 3,
       "id": 4
+    },
+    {
+      "uploadedFileCloudinaryUrl": "https://res.cloudinary.com/tableandwrist/image/upload/v1544748664/bn9fvr9qtbdxvuz0m04q.jpg",
+      "brand": "Fuck",
+      "model": "Fuck",
+      "year": "300000",
+      "price": "400000",
+      "userId": 5,
+      "id": 5
     }
   ],
   "relationships": [
@@ -122,6 +160,10 @@
       "userId": 3,
       "friendId": 3,
       "id": 6
+    },
+    {
+      "friendId": 3,
+      "id": 7
     }
   ]
 }

@@ -7,7 +7,7 @@ import ProfileCollection from "../watchbox/showWatchesonProfile";
 import DataManager from "../../module/DataManager";
 
 export default class ProfilePage extends Component {
-    credentials = JSON.parse(localStorage.getItem('credentials'))
+    credentials = JSON.parse(sessionStorage.getItem('credentials'))
  state = {
     watches: []
 
@@ -23,7 +23,7 @@ export default class ProfilePage extends Component {
 
     render() {
         console.log("Jase",this.props.user)
-        const credentials = JSON.parse(localStorage.getItem('credentials'))
+        const credentials = JSON.parse(sessionStorage.getItem('credentials'))
         return (
             <React.Fragment>
                 <h1>Hello {credentials.username}</h1>

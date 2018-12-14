@@ -3,7 +3,7 @@ import DataManager from "../../module/DataManager"
 import { Image, Card, Button, Grid} from 'semantic-ui-react'
 
 export default class CommunityProfiles extends Component {
-    credentials = JSON.parse(localStorage.getItem('credentials'))
+    credentials = JSON.parse(sessionStorage.getItem('credentials'))
 
     state = {
         
@@ -37,7 +37,7 @@ export default class CommunityProfiles extends Component {
   }
 
   render() {
-    const credentials = JSON.parse(localStorage.getItem('credentials'))
+    const credentials = JSON.parse(sessionStorage.getItem('credentials'))
         return (
             <React.Fragment>
                     {this.props.users.map(users =>

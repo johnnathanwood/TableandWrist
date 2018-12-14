@@ -3,7 +3,7 @@ import CommunityProfiles from "./communityProfiles";
 import { Card, Grid} from 'semantic-ui-react'
 
 export default class Community extends Component {
-    credentials = JSON.parse(localStorage.getItem('credentials'))
+    credentials = JSON.parse(sessionStorage.getItem('credentials'))
 
     state = {
 
@@ -16,7 +16,7 @@ export default class Community extends Component {
     }
 
     findUserId = () => {
-        return localStorage.getItem("credentials")
+        return sessionStorage.getItem("credentials")
     }
 
     render() {

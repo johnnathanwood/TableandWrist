@@ -24,7 +24,7 @@ export default class Login extends Component {
             })
             if (users) {
                 this.props.refreshData()
-                localStorage.setItem("credentials", JSON.stringify(users))
+                sessionStorage.setItem("credentials", JSON.stringify(users))
                 document.location.href = 'http://localhost:3000/createProfile'
             } else {
                 alert("Please register before trying to login")

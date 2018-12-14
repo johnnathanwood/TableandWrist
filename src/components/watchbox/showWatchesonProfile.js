@@ -6,14 +6,14 @@ import DataManager from "../../module/DataManager";
 
 
 export default class ProfileCollection extends Component {
-    credentials = JSON.parse(localStorage.getItem('credentials'))
+    credentials = JSON.parse(sessionStorage.getItem('credentials'))
 
     findUserId = () => {
-        return localStorage.getItem("credentials")
+        return sessionStorage.getItem("credentials")
     }
 
     render() {
-        const credentials = JSON.parse(localStorage.getItem('credentials'))
+        const credentials = JSON.parse(sessionStorage.getItem('credentials'))
         console.log("watch",this.props.watch)
         return (
             <React.Fragment>

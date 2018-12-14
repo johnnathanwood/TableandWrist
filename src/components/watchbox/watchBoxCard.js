@@ -8,14 +8,14 @@ import EditWatchModal from "./editWatchModal";
 
 
 export default class WatchBoxCard extends Component {
-    credentials = JSON.parse(localStorage.getItem('credentials'))
+    credentials = JSON.parse(sessionStorage.getItem('credentials'))
 
 
     findUserId = () => {
-        return localStorage.getItem("credentials")
+        return sessionStorage.getItem("credentials")
     }
     render() {
-        const credentials = JSON.parse(localStorage.getItem('credentials'))  
+        const credentials = JSON.parse(sessionStorage.getItem('credentials'))  
         return (
             <React.Fragment>
             <Grid centered column={3} relaxed padded="true">

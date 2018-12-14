@@ -39,7 +39,7 @@ export default class NavBar extends Component {
           </Button.Content>
         </Button>
         <Button animated onClick={() => {
-          localStorage.clear("credentials")
+          sessionStorage.clear("credentials")
           document.location.href = 'http://localhost:3000'
         }}>
           <Button.Content visible>Logout</Button.Content>

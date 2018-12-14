@@ -8,11 +8,11 @@ import AddWatchModal from "./addWatchModal";
 
 
 export default class WatchCollection extends Component {
-    credentials = JSON.parse(localStorage.getItem('credentials'))
+    credentials = JSON.parse(sessionStorage.getItem('credentials'))
 
 
     render() {
-        const credentials = JSON.parse(localStorage.getItem('credentials'))
+        const credentials = JSON.parse(sessionStorage.getItem('credentials'))
         console.log("watchbox",this.props.watch)
         return (
             <React.Fragment>
