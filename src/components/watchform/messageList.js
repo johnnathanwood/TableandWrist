@@ -8,7 +8,11 @@ import moment from 'moment';
 export default class MessageList extends Component {
 
     findUserName = messages => {
-        return this.props.users.find(user => user.id === messages.userId).username
+        let temp = this.props.users.find(user => user.id === messages.userId).username
+        console.log("temp",temp)
+        if (temp !== undefined){
+        return temp
+    }
     }
 
     findUserId = () => {

@@ -19,7 +19,7 @@ export default class WatchCollection extends Component {
             <React.Fragment>
                 <div className="watchbox">
                 (
-  <Image src='https://cdn.hodinkee.com/assets/watch101/watch101-dial-side-3814eb60d9e46a74f19539835cbed785eae9f73f5b02bee89a4b1ce169f93687.gif' size='medium' bordered />
+                <Image src='https://cdn.hodinkee.com/assets/watch101/watch101-dial-side-3814eb60d9e46a74f19539835cbed785eae9f73f5b02bee89a4b1ce169f93687.gif' size='medium' bordered />
 )
 
                 <h1>{credentials.username}'s watch collection</h1>
