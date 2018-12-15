@@ -6,7 +6,6 @@ import EditProfileModal from "./editProfileModal";
 import ProfileCollection from "../watchbox/showWatchesonProfile";
 import DataManager from "../../module/DataManager";
 
-import Video from "./video.mp4"
 
 export default class ProfilePage extends Component {
     credentials = JSON.parse(sessionStorage.getItem('credentials'))
