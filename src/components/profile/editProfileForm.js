@@ -21,7 +21,7 @@ export default class EditProfileForm extends Component {
 
     updateProfile = (evt) => {
         evt.preventDefault()
-        const credentials = JSON.parse(localStorage.getItem('credentials'))
+        const credentials = JSON.parse(sessionStorage.getItem('credentials'))
         let updatedProfile = {
             uploadedFileCloudinaryUrl: this.state.uploadedFileCloudinaryUrl,
             name: this.state.name,

@@ -1,51 +1,38 @@
 import React, { Component } from "react"
-import { Comment, Message, Button, Card, Icon, Grid, Image } from 'semantic-ui-react'
-import AddWatchModal from "./addWatchModal";
 import EditWatchModal from "./editWatchModal";
+import { Button, Divider, Grid, Image} from 'semantic-ui-react'
+import WatchBoxCard from "./watchBoxCard";
+import AddWatchModal from "./addWatchModal";
+import './watchbox.css'
 
 
 
 
 export default class WatchCollection extends Component {
-    credentials = JSON.parse(localStorage.getItem('credentials'))
+    credentials = JSON.parse(sessionStorage.getItem('credentials'))
 
 
     render() {
-        const credentials = JSON.parse(localStorage.getItem('credentials'))
+        const credentials = JSON.parse(sessionStorage.getItem('credentials'))
+        console.log("watchbox",this.props.watch)
         return (
             <React.Fragment>
+                <div className="watchbox">
+                (
+                <Image src='https://cdn.hodinkee.com/assets/watch101/watch101-dial-side-3814eb60d9e46a74f19539835cbed785eae9f73f5b02bee89a4b1ce169f93687.gif' size='medium' bordered />
+)
+
                 <h1>{credentials.username}'s watch collection</h1>
                 <Button> <AddWatchModal {...this.props} /></Button>
-                <Grid centered column={3} relaxed padded>
-                <Grid.Column padded='vertically'>
-                <div id={`watch--${this.props.watch.id}`} key={this.props.watch.id} className="MessageCard">
-                            <Card>
-                                <Image src={this.props.watch.uploadedFileCloudinaryUrl} alt="watch" size="medium" />
-                                <Card.Content>
-                                    <Card.Header>{this.props.watch.brand}</Card.Header>
-                                    <Card.Meta>
-                                        <span className='date'>{this.props.watch.model}</span>
-                                    </Card.Meta>
-                                    <Card.Description>{this.props.watch.year}</Card.Description>
-                                </Card.Content>
-                                <Card.Content extra>
-                                    <p>
-                                        <Icon name='user' />
-                                        ${this.props.watch.price}
-                                    </p>
-                                    <Button
-                                        onClick={() => this.props.deleteWatch(this.props.watch.id)
-                                            .then(() => this.props.history.push("/watchbox"))}
-                                    >delete
-                            </Button>
-                                    <Button>
-                                        <EditWatchModal {...this.props} watchId={this.props.watch.id} watches={this.props.watch} />
-                                    </Button>
-                                </Card.Content>
-                            </Card>
+                <Grid columns={2} relaxed='very'>
+                <Grid.Column>
+                {
+                this.props.watch.map(watch => <WatchBoxCard {...this.props} watch={watch} key={watch.id}/>
+                )
+                }
+                 </Grid.Column>
+                 </Grid>
                 </div>
-                        </Grid.Column>
-                    </Grid>
             </React.Fragment>
 
         )

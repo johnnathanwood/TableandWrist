@@ -17,8 +17,9 @@ import FriendsList from './friends/friendsList'
 
 
 export default class ApplicationViews extends Component {
-    isAuthenticated = () => localStorage.getItem("credentials") !== null
-    credentials = JSON.parse(localStorage.getItem('credentials'))
+    isAuthenticated = () => sessionStorage.getItem("credentials") !== null
+    credentials = JSON.parse(sessionStorage.getItem('credentials'))
+    // credentials = {id:1}
 
     state = {
         users: [],
@@ -37,13 +38,8 @@ export default class ApplicationViews extends Component {
             users: users
         }))
 
-    // addUser = (users, item) => DataManager.add(users, item)
-    //     .then(() => DataManager.getAllByUser("users", this.credentials.id))
-    //     .then(users => this.setState({
-    //         users: users
-    //     }))
     addUserProfile = (obj, id) => DataManager.edit("users", id, obj)
-        .then(() => DataManager.getAllByUser("users", this.credentials.id))
+        .then(() => DataManager.getAllByUser("users", this.credentials.user.id))
         .then(users => this.setState({
             users: users
         }))
@@ -139,33 +135,27 @@ export default class ApplicationViews extends Component {
         if (this.isAuthenticated()) {
         return DataManager.getAll("users")
             .then(allUsers => {
-                console.log(allUsers)
-                newState.users = allUsers
+                newState.users=allUsers
+                return DataManager.getAll("watches")
             })
-            .then(() =>
-                DataManager.getAll("watches")
-                .then(allWatches => {
-                    console.log("watches",allWatches)
-                    newState.watches = allWatches
-                }))
-            .then(() =>
-                DataManager.getAllByUser("watches", parseInt(this.credentials.id)) 
-                    .then(allWatches => {
-                        newState.userWatches = allWatches
-                    }))
-            .then(() =>
-                DataManager.getAll("messages")
-                    .then(allMessages => {
-                        newState.messages = allMessages
-                    }))
-            .then(() =>
-                DataManager.getAllByUser("users", parseInt(this.credentials.id))
-                    .then(allUsers => {
-                        console.log("p", allUsers)
-                        newState.userProfile = allUsers
-                    }))
-            .then(() =>
-                this.setState(newState))
+            .then(allWatches => {
+                newState.userWatches = allWatches
+                return DataManager.getUserWatches("watches", parseInt(this.credentials.id))
+            })
+            .then(userWatches => {
+                console.log("userWatches",userWatches)
+                newState.userWatches = userWatches
+                return DataManager.getAll("messages")
+            })
+            .then(allMessages => {
+                newState.messages = allMessages
+                return DataManager.getAllByUser("users", parseInt(this.credentials.id))
+            })
+            .then(userProfile => {
+                newState.userProfile = userProfile
+                newState.isLoaded = true
+                this.setState(newState)
+            })
 
     }}
 
@@ -194,6 +184,8 @@ export default class ApplicationViews extends Component {
     }
 
     render() {
+        if (this.state.isLoaded){
+        console.log("j", this.state.userProfile)
         return (
             <React.Fragment>
                 <Route exact path="/register" render={(props) => {
@@ -240,6 +232,7 @@ export default class ApplicationViews extends Component {
                 }} />
                 <Route exact path="/watchbox" render={(props) => {
                     return <WatchCollection {...props}
+                        refreshData={this.refreshData}
                         users={this.state.users}
                         watches={this.state.watches}
                         addWatch={this.addWatch}
@@ -260,6 +253,7 @@ export default class ApplicationViews extends Component {
                         return <EditWatchForm {...props}
                             editWatch={this.editWatch}
                             watches={this.state.watches} 
+                            refreshData={this.refreshData}
                             />
                     } else {
                         return <Redirect to="/login" />
@@ -310,5 +304,8 @@ export default class ApplicationViews extends Component {
                 }} />
             </React.Fragment>
         )
+    }else{
+      return  <p>Page Loading</p>
+    }
     }
 }

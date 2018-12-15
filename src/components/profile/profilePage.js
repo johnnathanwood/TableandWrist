@@ -4,14 +4,29 @@ import "./profilePage.css"
 import { Comment, Image, Card, Icon, Grid } from 'semantic-ui-react'
 import EditProfileModal from "./editProfileModal";
 import ProfileCollection from "../watchbox/showWatchesonProfile";
+import DataManager from "../../module/DataManager";
 
 export default class ProfilePage extends Component {
-    credentials = JSON.parse(localStorage.getItem('credentials'))
+    credentials = JSON.parse(sessionStorage.getItem('credentials'))
+ state = {
+    watches: []
+
+ }
+
+    componentDidMount() {
+        console.log("TEST",this.props.user)
+        DataManager.getUserWatches("watches",this.props.user.userId)
+            .then(watches => {console.log("watches",watches)
+            this.setState({watches: watches})}
+            )
+}
 
     render() {
-        const credentials = JSON.parse(localStorage.getItem('credentials'))
+        console.log("Jase",this.props.user)
+        const credentials = JSON.parse(sessionStorage.getItem('credentials'))
         return (
             <React.Fragment>
+                <div  className="profile">
                 <h1>Hello {credentials.username}</h1>
                 <Card>
                     <Image src={this.props.user.uploadedFileCloudinaryUrl} />
@@ -27,7 +42,7 @@ export default class ProfilePage extends Component {
                             {
                                 this.props.user.id === credentials.id ? (
                                     <React.Fragment >
-                                        <div className="container">
+                                        <div>
                                             <Comment.Actions>
                                                 <Comment.Actions>
                                                     <Icon name='user' />   <EditProfileModal {...this.props} userId={this.props.user.id} users={this.props.user} />
@@ -42,9 +57,13 @@ export default class ProfilePage extends Component {
                 </Card>
                 <Grid centered column={3} relaxed padded>
                 <Grid.Column padded='vertically'>
-                <ProfileCollection {...this.props} />
+                {
+                this.state.watches.map(watch => {console.log("look", watch)
+                return <ProfileCollection {...this.props} watch={watch} key={watch.id} />})
+                }
                 </Grid.Column>
                 </Grid>
+                </div>
             </React.Fragment>
         )
     }

@@ -21,13 +21,13 @@ export default class CollectionModal extends Component {
         const { open, dimmer } = this.state
 
         return (
-            <Grid wrapped size='medium'>
+            <Grid wrapped="true" size='medium'>
             <Modal basic size='small' centered={false} trigger={<Comment.Action onClick={this.show('blurring')}>Show Collection</Comment.Action>} dimmer={dimmer} open={open} onClose={this.close}  closeIcon
             >
                 <Header icon='archive'>{this.props.friendName}'s watch collection</Header>
                 <Modal.Content image scrolling>
                     {
-                        this.state.watches.map(watch => <FriendCollection {...this.props} close={this.close} friendWatch={watch}/>)
+                        this.state.watches.map(watch => <FriendCollection {...this.props} close={this.close} friendWatch={watch} key={watch.id}/>)
 
                     }
                 </Modal.Content>

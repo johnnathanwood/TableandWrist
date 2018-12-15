@@ -1,9 +1,10 @@
 import React, { Component } from "react"
 import CommunityProfiles from "./communityProfiles";
-import { Card, Grid} from 'semantic-ui-react'
+import { Card, Grid, Container} from 'semantic-ui-react'
+import "./communityList.css"
 
 export default class Community extends Component {
-    credentials = JSON.parse(localStorage.getItem('credentials'))
+    credentials = JSON.parse(sessionStorage.getItem('credentials'))
 
     state = {
 
@@ -16,13 +17,14 @@ export default class Community extends Component {
     }
 
     findUserId = () => {
-        return localStorage.getItem("credentials")
+        return sessionStorage.getItem("credentials")
     }
 
     render() {
         
         return (
             <React.Fragment>
+                <div className="community-list">
                 <br></br>
                 <br></br>
                 <br></br>
@@ -32,6 +34,7 @@ export default class Community extends Component {
                 <CommunityProfiles {...this.props} />
                 </Card.Group>
                 </Grid>
+                </div>
                 </div>
             </React.Fragment>
         )

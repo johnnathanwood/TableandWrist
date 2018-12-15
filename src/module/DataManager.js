@@ -15,6 +15,13 @@ export default Object.create(null, {
                 .then(result => result.json())
         }
     },
+    getUserWatches: {
+        value: (resource, id) => {
+            console.log("test",`${remoteURL}/${resource}?userId=${id}`)
+            return fetch(`${remoteURL}/${resource}?userId=${id}`)
+                .then(result => result.json())
+        }
+    },
 
     getAllAscend: {
         value: (resource) => {
@@ -103,12 +110,19 @@ export default Object.create(null, {
                 .then(result => result.json())
         }
     },
-    searchUsername: {
-        value: function (username) {
+    searchNP: {
+        value: function(username, password) {
+          return fetch(
+            `${remoteURL}/users?username=${username}&password=${password}`
+          ).then(e => e.json())
+        }
+      },
+      searchUsername: {
+        value: function(username) {
           return fetch(`${remoteURL}/users?username=${username}`).then(e =>
             e.json()
           )
         }
-      },
+      }
+    })
     
-})

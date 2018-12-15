@@ -80,7 +80,7 @@ export default class AddWatch extends Component {
 
     newWatch = evt => {
         evt.preventDefault()
-        const credentials = JSON.parse(localStorage.getItem('credentials'))
+        const credentials = JSON.parse(sessionStorage.getItem('credentials'))
         
         console.log(this.newWatch)
         let watches = 

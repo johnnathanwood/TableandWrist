@@ -19,7 +19,7 @@ export default class EditWatchForm extends Component {
 
     updateWatch = (evt) => {
         evt.preventDefault()
-        const credentials = JSON.parse(localStorage.getItem('credentials'))
+        const credentials = JSON.parse(sessionStorage.getItem('credentials'))
 
         let updatedWatch = {
             id: this.state.watchId,
@@ -32,6 +32,7 @@ export default class EditWatchForm extends Component {
         }
         this.setState({watches:updatedWatch})
         this.props.editWatch(this.props.watchId, updatedWatch)
+        this.props.refreshData()
         this.props.close() 
     }
 

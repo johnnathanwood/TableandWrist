@@ -2,8 +2,9 @@ import React, { Component } from "react"
 import DataManager from "../../module/DataManager"
 import { Image, Card, Button, Grid} from 'semantic-ui-react'
 
+
 export default class CommunityProfiles extends Component {
-    credentials = JSON.parse(localStorage.getItem('credentials'))
+    credentials = JSON.parse(sessionStorage.getItem('credentials'))
 
     state = {
         
@@ -37,29 +38,39 @@ export default class CommunityProfiles extends Component {
   }
 
   render() {
+    const credentials = JSON.parse(sessionStorage.getItem('credentials'))
         return (
             <React.Fragment>
                     {this.props.users.map(users =>
-                <div className="profile-list">
+                <div className="community" key={users.id}>
                 <section className="profiles">
                 <Grid padded>
                            <Card.Group >
-                           <Card raised>
+                           <Card raised color="brown">
                              <Card.Content>
-                               <Image floated='right' size='mini' src={users.uploadedFileCloudinaryUrl} />
+                               <Image floated='right' size='medium' src={users.uploadedFileCloudinaryUrl} />
                                <Card.Header>{users.name}</Card.Header>
                                <Card.Meta>{users.gender}, {users.age}</Card.Meta>
                                <Card.Description>
                                {users.aboutMe}
                                </Card.Description>
                              </Card.Content>
-                             <Card.Content extra>
+                             {
+    users.userId === credentials.id ? (
+        <React.Fragment>
+    <Card.Content extra>
+    <Button basic color='green'>This is me!</Button>
+    </Card.Content>
+    </React.Fragment>
+       ): <Card.Content extra>
                                <div className='ui two buttons'>
                                  <Button basic color='green' onClick={() => {this.addRelationship(users.id)}}>
                                    Add Friend
                                  </Button>
                                </div>
                              </Card.Content>
+
+}
                            </Card>
                            </Card.Group>
                            </Grid>
@@ -71,4 +82,5 @@ export default class CommunityProfiles extends Component {
         )
     }
 }
+
 

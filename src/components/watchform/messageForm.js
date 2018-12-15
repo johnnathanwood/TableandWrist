@@ -21,7 +21,7 @@ export default class MessageForm extends Component {
 
     newMessage = evt => {
         evt.preventDefault()
-        const credentials = JSON.parse(localStorage.getItem('credentials'))
+        const credentials = JSON.parse(sessionStorage.getItem('credentials'))
         const messages = {
             id: this.state.messageId,
             message: this.state.message,
