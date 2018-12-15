@@ -27,38 +27,15 @@ export default class ProfilePage extends Component {
         const credentials = JSON.parse(sessionStorage.getItem('credentials'))
         return (
             <React.Fragment>
-                <div  className="profile">
-                {/* <video className='videoTag' autoPlay loop muted fluid>
-                <source src={Video} type='video/mp4' />
-                </video> */}
-                <h1>Hello {credentials.username}</h1>
-                <Card>
-                    <Image src={this.props.user.uploadedFileCloudinaryUrl} />
-                    <Card.Content>
-                        <Card.Header>{this.props.user.name}</Card.Header>
-                        <Card.Meta>
-                            <span className='date'>{this.props.user.gender},{this.props.user.age}</span>
-                        </Card.Meta>
-                        <Card.Description>{this.props.user.aboutMe}</Card.Description>
-                    </Card.Content>
-                    <Card.Content extra>
-                        <a>
-                            {
-                                this.props.user.id === credentials.id ? (
-                                    <React.Fragment >
-                                        <div>
-                                            <Comment.Actions>
-                                                <Comment.Actions>
-                                                    <Icon name='user' />   <EditProfileModal {...this.props} userId={this.props.user.id} users={this.props.user} />
-                                                </Comment.Actions>
-                                            </Comment.Actions>
-                                        </div>
-                                    </React.Fragment>
-                                ) : ""
-                            }
-                        </a>
-                    </Card.Content>
-                </Card>
+
+    <Header as='h1' icon textAlign='center'>
+    </Header>
+    <Image centered size='medium' src="https://res.cloudinary.com/tableandwrist/image/upload/v1544900037/twlogo.jpg" />
+                <Header as='h2' icon textAlign='center'>
+    <Image circular src={this.props.user.uploadedFileCloudinaryUrl} /> Welcome back {credentials.username}
+  </Header>
+  <br></br>
+  <br></br>
                 <Divider horizontal className="watchdivider">
       <Header as='h4'>
         <Icon name='wait' />
@@ -72,7 +49,6 @@ export default class ProfilePage extends Component {
                 return <ProfileCollection {...this.props} watch={watch} key={watch.id} />})
                 }
                 </Grid>
-                </div>
             </React.Fragment>
         )
     }

@@ -33,7 +33,7 @@
       "name": "Scott Wood",
       "gender": "male",
       "age": "50",
-      "aboutMe": "I love my family",
+      "aboutMe": "I love watches",
       "userId": 3
     }
   ],
@@ -98,7 +98,7 @@
       "brand": "Rolex",
       "model": "Rainbow Daytona",
       "year": "2018",
-      "price": "96,900",
+      "price": "96000",
       "userId": 3,
       "id": 11
     },
@@ -141,6 +141,16 @@
       "userId": 1,
       "friendId": 3,
       "id": 2
+    },
+    {
+      "userId": 3,
+      "friendId": 1,
+      "id": 3
+    },
+    {
+      "userId": 3,
+      "friendId": 2,
+      "id": 4
     }
   ]
 }

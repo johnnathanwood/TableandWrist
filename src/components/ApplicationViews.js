@@ -1,5 +1,6 @@
 import { Route, Redirect } from 'react-router-dom'
 import React, { Component } from 'react';
+import { Dimmer, Loader, Image, Segment } from 'semantic-ui-react'
 import DataManager from '../module/DataManager'
 import Login from "./login/LoginForm"
 import Register from "./login/RegisterForm"
@@ -311,7 +312,7 @@ export default class ApplicationViews extends Component {
             </React.Fragment>
         )
     }else{
-      return  <p>Page Loading</p>
+      return <Loader size='large'>Loading</Loader>
     }
     }
 }

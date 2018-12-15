@@ -18,10 +18,11 @@ export default class WatchBoxCard extends Component {
         const credentials = JSON.parse(sessionStorage.getItem('credentials'))  
         return (
             <React.Fragment>
-
             <Grid centered column={3} relaxed padded="true">
             <Grid.Column padded='vertically'>
             <div id={`watch--${this.props.watch.id}`} key={this.props.watch.id} className="MessageCard">
+            <Segment>
+                <div className="watchpillow">
                         <Card color='brown'>
                             <Image src={this.props.watch.uploadedFileCloudinaryUrl} alt="watch" size="medium" />
                             <Card.Content>
@@ -49,6 +50,8 @@ export default class WatchBoxCard extends Component {
                                 </Button>
                             </Card.Content>
                         </Card>
+                        </div>
+                        </Segment>
             </div>
                     </Grid.Column>
                 </Grid>
