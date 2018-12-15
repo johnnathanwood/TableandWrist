@@ -32,7 +32,7 @@ export default class Login extends Component {
         if (users.length) {
           alert(`username ${this.state.username} already exits!`)
         } else if (!users.length) {
-          DataManager.add("users", user).then(user =>{
+          DataManager.add("users", user).then(user => {
             sessionStorage.setItem("credentials", JSON.stringify(user[0]))
             this.props.setAuth()
           }
@@ -63,38 +63,38 @@ export default class Login extends Component {
 
   render() {
     return <form className="loginForm">
-        <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label htmlFor="inputUsername">Username</label>
-        <input onChange={this.handleFieldChange} type="username" id="username" placeholder="Username" required="" autoFocus="" />
-        <label htmlFor="inputPassword">Password</label>
-        <input onChange={this.handleFieldChange} type="password" id="password" placeholder="Password" required="" />
-        <button type="submit" onClick={this.handleLogin}>
-          Sign in
+      <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <label htmlFor="inputUsername">Username</label>
+      <input onChange={this.handleFieldChange} type="username" id="username" placeholder="Username" required="" autoFocus="" />
+      <label htmlFor="inputPassword">Password</label>
+      <input onChange={this.handleFieldChange} type="password" id="password" placeholder="Password" required="" />
+      <button type="submit" onClick={this.handleLogin}>
+        Sign in
         </button>
-        <label htmlFor="userName">
-                            Username
+      <label htmlFor="userName">
+        Username
                         </label>
-                        <input onChange={this.handleFieldChange} type="username"
-                            id="username"
-                            placeholder="Username"
-                            required="" autoFocus="" />
-                        <label htmlFor="email">
-                            Email address
+      <input onChange={this.handleFieldChange} type="username"
+        id="username"
+        placeholder="Username"
+        required="" autoFocus="" />
+      <label htmlFor="email">
+        Email address
                         </label>
-                        <input onChange={this.handleFieldChange} type="email"
-                            id="email"
-                            placeholder="Email address"
-                            required="" autoFocus="" />
-                        <label htmlFor="password">
-                            Password
+      <input onChange={this.handleFieldChange} type="email"
+        id="email"
+        placeholder="Email address"
+        required="" autoFocus="" />
+      <label htmlFor="password">
+        Password
                         </label>
-                        <input onChange={this.handleFieldChange} type="password"
-                            id="password"
-                            placeholder="Password"
-                            required="" />
-        <button type="submit" onClick={this.handleRegister}>
-          Register
+      <input onChange={this.handleFieldChange} type="password"
+        id="password"
+        placeholder="Password"
+        required="" />
+      <button type="submit" onClick={this.handleRegister}>
+        Register
         </button>
-      </form>
+    </form>
   }
 }
