@@ -80,7 +80,7 @@
       "brand": "Oris",
       "model": "Automatic ",
       "year": "2018",
-      "price": "11,000",
+      "price": "12000",
       "userId": 3,
       "id": 9
     },
@@ -130,6 +130,7 @@
       "id": 7
     }
   ],
+  "straps": [],
   "relationships": [
     {
       "userId": 1,

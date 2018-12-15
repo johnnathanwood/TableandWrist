@@ -19,9 +19,9 @@ export default class ProfileCollection extends Component {
             <React.Fragment>
             {/* <h1>{credentials.username}'s watch collection</h1> */}
                 <div id={`watch--${this.props.watch.id}`} key={this.props.watch.id} className="MessageCard">
-                <Grid divided='vertically' padded>
-                <Grid.Column floated='left'>
-                    <Card>
+                
+                
+                    <Card raised>
                         <Image src={this.props.watch.uploadedFileCloudinaryUrl} alt="this.props.watch" size="medium"/>
                         <Card.Content>
                             <Card.Header>{this.props.watch.brand}</Card.Header>
@@ -37,8 +37,6 @@ export default class ProfileCollection extends Component {
                             </p>
                         </Card.Content>
                     </Card>
-                    </Grid.Column>
-                    </Grid>
                 </div>
             </React.Fragment>
 

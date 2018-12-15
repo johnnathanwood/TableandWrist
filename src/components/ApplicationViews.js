@@ -24,6 +24,7 @@ export default class ApplicationViews extends Component {
     state = {
         users: [],
         watches: [],
+        straps:[],
         userWatches:[],
         messages: [],
         favorites: [],
@@ -47,6 +48,11 @@ export default class ApplicationViews extends Component {
         .then(() => DataManager.getAll("watches"))
         .then(watches => this.setState({
             watches: watches
+        }))
+    addStrap = straps => DataManager.add("straps", straps)
+        .then(() => DataManager.getAll("straps"))
+        .then(straps => this.setState({
+            straps: straps
         }))
     addMessage = messages => DataManager.add("messages", messages)
         .then(() => DataManager.getAll("messages"))

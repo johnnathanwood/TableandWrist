@@ -1,15 +1,17 @@
 
 import React, { Component } from "react"
 import "./profilePage.css"
-import { Comment, Image, Card, Icon, Grid } from 'semantic-ui-react'
+import { Comment, Image, Card, Icon, Grid, Divider, Header, Advertisement } from 'semantic-ui-react'
 import EditProfileModal from "./editProfileModal";
 import ProfileCollection from "../watchbox/showWatchesonProfile";
 import DataManager from "../../module/DataManager";
 
+import Video from "./video.mp4"
+
 export default class ProfilePage extends Component {
     credentials = JSON.parse(sessionStorage.getItem('credentials'))
  state = {
-    watches: []
+    watches: [],
 
  }
 
@@ -27,6 +29,9 @@ export default class ProfilePage extends Component {
         return (
             <React.Fragment>
                 <div  className="profile">
+                {/* <video className='videoTag' autoPlay loop muted fluid>
+                <source src={Video} type='video/mp4' />
+                </video> */}
                 <h1>Hello {credentials.username}</h1>
                 <Card>
                     <Image src={this.props.user.uploadedFileCloudinaryUrl} />
@@ -55,13 +60,18 @@ export default class ProfilePage extends Component {
                         </a>
                     </Card.Content>
                 </Card>
-                <Grid centered column={3} relaxed padded>
-                <Grid.Column padded='vertically'>
+                <Divider horizontal className="watchdivider">
+      <Header as='h4'>
+        <Icon name='wait' />
+        Watches
+      </Header>
+    </Divider>
+                <br></br>
+                <Grid relaxed ='very' centered>
                 {
                 this.state.watches.map(watch => {console.log("look", watch)
                 return <ProfileCollection {...this.props} watch={watch} key={watch.id} />})
                 }
-                </Grid.Column>
                 </Grid>
                 </div>
             </React.Fragment>

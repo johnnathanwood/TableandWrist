@@ -23,14 +23,16 @@ export default class WatchCollection extends Component {
 )
 
                 <h1>{credentials.username}'s watch collection</h1>
+                <Grid centered>
                 <Button> <AddWatchModal {...this.props} /></Button>
-                <Grid columns={2} relaxed='very'>
-                <Grid.Column>
+                </Grid>
+                <br></br>
+                <br></br>
+                <Grid relaxed ='very' centered>
                 {
                 this.props.watch.map(watch => <WatchBoxCard {...this.props} watch={watch} key={watch.id}/>
                 )
                 }
-                 </Grid.Column>
                  </Grid>
                 </div>
             </React.Fragment>

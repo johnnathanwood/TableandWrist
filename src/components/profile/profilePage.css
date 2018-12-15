@@ -1,4 +1,3 @@
-.profile {
-    background-image: url("profile.jpg");
-    
-  }
+.ui.header {
+  font-family:'Roboto', sans-serif;
+}
