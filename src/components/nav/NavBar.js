@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import { Icon, Button } from 'semantic-ui-react'
+import Clock from "../watchbox/clock"
 import "./NavBar.css"
 
 export default class NavBar extends Component {

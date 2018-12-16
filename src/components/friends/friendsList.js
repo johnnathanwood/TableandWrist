@@ -28,9 +28,7 @@ componentDidMount(){
     <Header as='h2' icon textAlign='center'>
       <Icon name='users' circular />
       <Header.Content>Friends</Header.Content>
-    </Header>
-    <Image centered size='large' src='https://react.semantic-ui.com/images/wireframe/centered-paragraph.png' />
-  </div>
+    </Header>  </div>
 )
           <Image src='https://static01.nyt.com/images/2018/03/23/style/23COLLECTIONS-INYT1/merlin_135755724_5c009a4e-718e-49ef-8d7c-9f741365c68c-superJumbo.jpg?quality=90&auto=webp' size='massive' rounded centered />
             <Grid relaxed ='very' centered>

@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import EditWatchModal from "./editWatchModal";
 import { Button, Divider, Grid, Image, Header,Icon} from 'semantic-ui-react'
 import WatchBoxCard from "./watchBoxCard";
+import Clock from "./clock"
 import AddWatchModal from "./addWatchModal";
 import './watchbox.css'
 
@@ -22,7 +23,9 @@ export default class WatchCollection extends Component {
             <Header as='h2' icon textAlign='center'>
       <Icon name='wait' circular />
       <Header.Content>Watch Box</Header.Content>
+    <Clock className="clock"/>
     </Header>
+    <br></br>
           <Image src='https://cdn.thegentlemansjournal.com/wp-content/uploads/2018/09/Watches-1800x756-c-center.jpg' size='huge' rounded centered />
                 <br></br>
                 <br></br>

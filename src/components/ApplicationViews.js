@@ -273,6 +273,7 @@ export default class ApplicationViews extends Component {
                             editMessage={this.editMessage}
                             deleteMessage={this.deleteMessage}
                             users={this.state.users}
+                            user={this.state.userProfile}
                             messages={this.state.messages} />
                     } else {
                         return <Redirect to="/" />

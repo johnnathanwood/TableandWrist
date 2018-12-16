@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import MessageForm from './messageForm'
 import Likes from './messageLike';
 import EditMessageModal from './editMessageModal'
-import { Comment, Message, Header, Icon } from 'semantic-ui-react'
+import { Comment, Placeholder, Header, Image, Icon, Divider } from 'semantic-ui-react'
+import "./watchform.css"
 import moment from 'moment';
 
 export default class MessageList extends Component {
@@ -24,17 +25,19 @@ export default class MessageList extends Component {
         console.log(credentials)
         return (
             <React.Fragment>
-                <Header color="blue" as='h2' icon textAlign='center'>
-                    <Icon name='comments outline' />
-                    <Header.Content>Watch Form</Header.Content>
-                </Header>
+        <Header as='h3' textAlign='center'>
+        <Icon name='comment alternate' circular />
+      Watch Form
+    </Header>
+    <Image src='https://res.cloudinary.com/tableandwrist/image/upload/v1544935828/Message..jpg' size='large' rounded centered  fluid/>
+    <br></br>
+    <Divider></Divider>
                 {
                     this.props.messages.map(messages =>
                         <div id={`message--${messages.id}`} key={messages.id} className="MessageCard">
-                            <Message size='small'floating>
-                                <Comment.Group size='small'>
+                                <Comment.Group size='small' dividing >
                                     <Comment>
-                                        <Comment.Avatar as='a' src='https://react.semantic-ui.com/images/avatar/small/elliot.jpg' />
+                                        <Comment.Avatar as='a' src={this.props.user.uploadedFileCloudinaryUrl} />
                                         <Comment.Content>
                                             <Comment.Author>{this.findUserName(messages)}</Comment.Author>
                                             <Comment.Metadata>
@@ -42,7 +45,6 @@ export default class MessageList extends Component {
                                             </Comment.Metadata>
                                             <Comment.Text>
                                                 <p>{messages.message}</p>
-                                                <Likes />
                                             </Comment.Text>
                                             {
                                                 messages.userId === credentials.id ? (
@@ -64,9 +66,9 @@ export default class MessageList extends Component {
 
                                         </Comment.Content>
                                     </Comment>
+                                    <br></br>
                                 </Comment.Group>
-                            </Message>
-                        </div>
+                                </div>
                     )
                 }
 
@@ -75,3 +77,5 @@ export default class MessageList extends Component {
         )
     }
 }
+
+

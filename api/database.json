@@ -37,7 +37,44 @@
       "userId": 3
     }
   ],
-  "messages": [],
+  "messages": [
+    {
+      "id": 1,
+      "message": "Hey ",
+      "date": "2018-12-16T03:55:28.183Z",
+      "userId": 3
+    },
+    {
+      "id": 2,
+      "message": "Whats up",
+      "date": "2018-12-16T03:59:36.658Z",
+      "userId": 3
+    },
+    {
+      "id": 3,
+      "message": "hey buddy",
+      "date": "2018-12-16T04:01:01.395Z",
+      "userId": 3
+    },
+    {
+      "id": 4,
+      "message": "how its going my man",
+      "date": "2018-12-16T04:01:47.373Z",
+      "userId": 3
+    },
+    {
+      "id": 5,
+      "message": "hey buddy",
+      "date": "2018-12-16T05:03:44.650Z",
+      "userId": 3
+    },
+    {
+      "id": 6,
+      "message": "hey",
+      "date": "2018-12-16T05:07:29.009Z",
+      "userId": 1
+    }
+  ],
   "watches": [
     {
       "uploadedFileCloudinaryUrl": "https://hodinkee.imgix.net/uploads/images/1526532023123-z4j9hpvdsor-82f5305f4c21b58a0bfd033393affa76/Bell-Ross-BR-V2-93-GMT-hero.jpg?ixlib=rails-1.1.0&fit=crop&ch=Width%2CDPR%2CSave-Data&alt=&fm=jpg&q=55&auto=format&usm=12&s=a7ec0aa1fb46f057427f1eb0748259f6",
