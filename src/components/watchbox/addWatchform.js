@@ -96,6 +96,7 @@ export default class AddWatch extends Component {
         }
         console.log(this.props)
         this.props.addWatch(watches)
+        this.props.refreshData()
         this.props.close()
     }
 

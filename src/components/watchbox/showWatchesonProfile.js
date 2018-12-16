@@ -1,7 +1,5 @@
 import React, { Component } from "react"
-import { Comment, Card, Image, Icon, Grid } from 'semantic-ui-react'
-import DataManager from "../../module/DataManager";
-
+import { Card, Image, Icon } from 'semantic-ui-react'
 
 
 
@@ -17,10 +15,9 @@ export default class ProfileCollection extends Component {
         console.log("watch",this.props.watch)
         return (
             <React.Fragment>
+
             {/* <h1>{credentials.username}'s watch collection</h1> */}
-                <div id={`watch--${this.props.watch.id}`} key={this.props.watch.id} className="MessageCard">
-                
-                
+                <div id={`watch--${this.props.watch.id}`} key={this.props.watch.id} className="MessageCard">           
                     <Card raised>
                         <Image src={this.props.watch.uploadedFileCloudinaryUrl} alt="this.props.watch" size="medium"/>
                         <Card.Content>
@@ -37,7 +34,7 @@ export default class ProfileCollection extends Component {
                             </p>
                         </Card.Content>
                     </Card>
-                </div>
+                    </div>
             </React.Fragment>
 
         )

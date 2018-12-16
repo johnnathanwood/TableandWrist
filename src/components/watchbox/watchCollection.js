@@ -17,7 +17,6 @@ export default class WatchCollection extends Component {
     render() {
         const credentials = JSON.parse(sessionStorage.getItem('credentials'))
         console.log("watchbox",this.props.watch)
-        
         return (
             <React.Fragment>
             <Header as='h2' icon textAlign='center'>
