@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import MessageForm from './messageForm'
 import Likes from './messageLike';
 import EditMessageModal from './editMessageModal'
-import { Comment, Placeholder, Header, Image, Icon, Divider } from 'semantic-ui-react'
+import { Comment, Placeholder, Header, Image, Icon, Divider, Segment } from 'semantic-ui-react'
 import "./watchform.css"
 import moment from 'moment';
 

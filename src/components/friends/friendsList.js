@@ -18,6 +18,7 @@ componentDidMount(){
 }
 
   render() {
+
     // this.props.grabFriends()
       console.log(this.props.relationships)
     return (

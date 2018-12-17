@@ -1,41 +1,61 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
-import { Icon, Button } from 'semantic-ui-react'
+
+import { Icon, Button ,  Breadcrumb} from 'semantic-ui-react'
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap'
 import Clock from "../watchbox/clock"
 import "./NavBar.css"
 
 export default class NavBar extends Component {
+  credentials = JSON.parse(sessionStorage.getItem('credentials'))
   state = { activeItem: 'bio' }
+
+  constructor(props) {
+    super(props);
+
+    this.toggleNavbar = this.toggleNavbar.bind(this);
+    this.state = {
+      collapsed: true
+    };
+  }
+
+  toggleNavbar() {
+    this.setState({
+      collapsed: !this.state.collapsed
+    });
+  }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
   render() {
+    const credentials = JSON.parse(sessionStorage.getItem('credentials'))
     const { activeItem } = this.state
     return (
-      <nav className="navbar navbar-light light-blue flex-md-nowrap shadow">
-        <ul className="nav nav-pills">
-
-          <li className="nav-item">
-            <Link className="nav-link" to="/profile">Profile</Link>
-          </li>
-
-          <li className="nav-item">
-            <Link className="nav-link" to="/watchbox">Watch Box</Link>
-          </li>
-
-          <li className="nav-item">
-            <Link className="nav-link" to="/watchform">Watch Form</Link>
-          </li>
-
-          <li className="nav-item">
-            <Link className="nav-link" to="/friends">Friends</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/community">Community</Link>
-          </li>
-        </ul>
-        <p id="navTagline">Welcome to Table !</p>
+      <div>
+      <Navbar color="faded" light>
+        <NavbarBrand href="/" className="mr-auto">Table & Wrist</NavbarBrand>
+        <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
+        <Collapse isOpen={!this.state.collapsed} navbar>
+          <Nav navbar>
+            <NavItem>
+              <NavLink href="/profile">Profile</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/watchbox">Watchbox</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/watchform">Watch Form</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/friends">Friends</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/community">Community</NavLink>
+            </NavItem>
+          </Nav>
+        </Collapse>
+      </Navbar>
         <div className="logbtn">
-        <Button animated onClick={() => {
+        <Button compact color='brown' animated onClick={() => {
           document.location.href = 'http://localhost:3000/login'
         }}>
           <Button.Content visible>Login</Button.Content>
@@ -43,7 +63,7 @@ export default class NavBar extends Component {
             <Icon name='sign-in alternate' />
           </Button.Content>
         </Button>
-        <Button animated onClick={() => {
+        <Button compact color='red' animated onClick={() => {
           sessionStorage.clear("credentials")
           document.location.href = 'http://localhost:3000'
         }}>
@@ -53,9 +73,12 @@ export default class NavBar extends Component {
           </Button.Content>
         </Button>
         </div>
-      </nav>
+        </div> 
     )
   }
 }
+
+
+
 
 
