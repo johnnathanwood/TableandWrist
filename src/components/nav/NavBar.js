@@ -9,6 +9,7 @@ import "./NavBar.css"
 export default class NavBar extends Component {
   credentials = JSON.parse(sessionStorage.getItem('credentials'))
   state = { activeItem: 'bio' }
+  
 
   constructor(props) {
     super(props);
@@ -30,7 +31,7 @@ export default class NavBar extends Component {
     const credentials = JSON.parse(sessionStorage.getItem('credentials'))
     const { activeItem } = this.state
     return (
-      <div>
+      <div id="menu">
       <Navbar color="faded" light>
         <NavbarBrand href="/" className="mr-auto">Table & Wrist</NavbarBrand>
         <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
@@ -55,7 +56,7 @@ export default class NavBar extends Component {
         </Collapse>
       </Navbar>
         <div className="logbtn">
-        <Button compact color='brown' animated onClick={() => {
+        <Button compact basic animated onClick={() => {
           document.location.href = 'http://localhost:3000/login'
         }}>
           <Button.Content visible>Login</Button.Content>
@@ -63,7 +64,7 @@ export default class NavBar extends Component {
             <Icon name='sign-in alternate' />
           </Button.Content>
         </Button>
-        <Button compact color='red' animated onClick={() => {
+        <Button compact basic animated onClick={() => {
           sessionStorage.clear("credentials")
           document.location.href = 'http://localhost:3000'
         }}>
@@ -73,7 +74,8 @@ export default class NavBar extends Component {
           </Button.Content>
         </Button>
         </div>
-        </div> 
+        </div>
+   
     )
   }
 }

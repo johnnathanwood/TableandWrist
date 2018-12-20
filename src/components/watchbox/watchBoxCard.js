@@ -24,7 +24,7 @@ export default class WatchBoxCard extends Component {
             <Segment>
                 <div className="watchpillow">
                         <Card color='brown'>
-                            <Image src={this.props.watch.uploadedFileCloudinaryUrl} alt="watch" size="medium" />
+                            <Image className="photo" src={this.props.watch.uploadedFileCloudinaryUrl} alt="watch" size="medium" />
                             <Card.Content>
                                 <Card.Header>{this.props.watch.brand}</Card.Header>
                                 <Card.Meta>
@@ -37,7 +37,7 @@ export default class WatchBoxCard extends Component {
                                     <Icon name='user' />
                                     ${this.props.watch.price}
                                 </p>
-                                <Button
+                                <Button basic compact size='mini'
                                     onClick={() => {
                                         this.props.deleteWatch(this.props.watch.id)
                                         this.props.refreshData()
@@ -45,7 +45,7 @@ export default class WatchBoxCard extends Component {
                                     }}
                                 >delete
                         </Button>
-                                <Button>
+                                <Button basic compact size='mini'>
                                     <EditWatchModal {...this.props} watchId={this.props.watch.id} watches={this.props.watch} />
                                 </Button>
                             </Card.Content>

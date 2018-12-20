@@ -8,6 +8,7 @@ import DataManager from "../../module/DataManager";
 
 
 
+
 export default class ProfilePage extends Component {
     credentials = JSON.parse(sessionStorage.getItem('credentials'))
     state = {
@@ -38,6 +39,8 @@ export default class ProfilePage extends Component {
                 </Header>
                 <br></br>
                 <br></br>
+                <div id="react-container"></div>
+    <script src="js/Note.js" type="text/babel" ></script>
                 <Divider horizontal className="watchdivider">
                     <Header as='h4'>
                         <Icon />

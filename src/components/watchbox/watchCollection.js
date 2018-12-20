@@ -29,7 +29,7 @@ export default class WatchCollection extends Component {
                 <br></br>
                 <br></br>
                 <Grid centered>
-                <Button> <AddWatchModal {...this.props} /></Button>
+                <Button basic> <AddWatchModal {...this.props} /></Button>
                 </Grid>
                 <br></br>
                 <br></br>

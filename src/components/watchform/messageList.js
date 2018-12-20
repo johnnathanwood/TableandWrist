@@ -7,6 +7,10 @@ import "./watchform.css"
 import moment from 'moment';
 
 export default class MessageList extends Component {
+    state = { open: false }
+
+    open = () => this.setState({ open: true })
+    close = () => this.setState({ open: false })
 
     findUserName = messages => {
         let temp = this.props.users.find(user => user.id === messages.userId).username
@@ -32,6 +36,7 @@ export default class MessageList extends Component {
     <Image src='https://res.cloudinary.com/tableandwrist/image/upload/v1544935828/Message..jpg' size='large' rounded centered  fluid/>
     <br></br>
     <Divider></Divider>
+    <div className="messageBox">
                 {
                     this.props.messages.map(messages =>
                         <div id={`message--${messages.id}`} key={messages.id} className="MessageCard">
@@ -49,7 +54,7 @@ export default class MessageList extends Component {
                                             {
                                                 messages.userId === credentials.id ? (
                                                     <React.Fragment >
-                                                        <div className="container">
+                                                        <div className="usercard">
                                                             <Comment.Actions>
                                                                 <Comment.Action
                                                                     onClick={() => this.props.deleteMessage(messages.id)
@@ -62,8 +67,6 @@ export default class MessageList extends Component {
                                                     </React.Fragment>
                                                 ) : ""
                                             }
-
-
                                         </Comment.Content>
                                     </Comment>
                                     <br></br>
@@ -71,11 +74,9 @@ export default class MessageList extends Component {
                                 </div>
                     )
                 }
-
+</div>
                 <MessageForm {...this.props} />
             </React.Fragment>
         )
     }
 }
-
-
