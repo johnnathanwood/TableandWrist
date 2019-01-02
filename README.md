@@ -1,10 +1,24 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Getting Started
+
+Run Table & Wrist 
+
+1. Clone project
+> git clone https://github.com/johnnathanwood/TableandWrist.git
+
+2. Run npm
+> npm install
+
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, run:
+> npm start
 
-### `npm start`
+## Database
+
+Run json server in api folder of the app
+> json-server -p 5002 -w database.json
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

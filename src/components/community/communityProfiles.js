@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import DataManager from "../../module/DataManager"
-import { Image, Card, Button, Grid} from 'semantic-ui-react'
+import { Image, Card, Button, Grid, Label} from 'semantic-ui-react'
 
 
 export default class CommunityProfiles extends Component {
@@ -57,9 +57,9 @@ export default class CommunityProfiles extends Component {
                              </Card.Content>
                              {
     users.userId === credentials.id ? (
-        <React.Fragment>
+    <React.Fragment>
     <Card.Content extra>
-    <Button basic color='green'>This is me!</Button>
+    <Label basic color='green'>User</Label>
     </Card.Content>
     </React.Fragment>
        ): <Card.Content extra>

@@ -6,6 +6,7 @@ import 'semantic-ui-css/semantic.min.css';
 import TableWrist from './components/TableWrist';
 
 
+
 ReactDOM.render(
     <Router>
     <TableWrist />

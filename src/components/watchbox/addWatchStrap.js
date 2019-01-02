@@ -7,7 +7,7 @@ import './watchImg.css'
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/tableandwrist/image/upload'
 const CLOUDINARY_UPLOAD_PRESET = 'tnsexefg'
 
-export default class AddWatch extends Component {
+export default class AddStrap extends Component {
   close = () => this.setState({ open: false })
 
     state = {
@@ -78,25 +78,23 @@ export default class AddWatch extends Component {
   }
 
 
-    newWatch = evt => {
+    newStrap = evt => {
         evt.preventDefault()
         const credentials = JSON.parse(sessionStorage.getItem('credentials'))
         
-        console.log(this.newWatch)
-        let watches = 
+        console.log(this.newStrap)
+        let straps = 
         {
-            id: this.state.watchId,
+            id: this.state.strapId,
             uploadedFileCloudinaryUrl: this.state.uploadedFileCloudinaryUrl,
-            brand: this.state.brand,
-            model: this.state.model,
-            year: this.state.year,
+            color: this.state.color,
+            material: this.state.material,
             price: this.state.price,
             userId: credentials.id
         
         }
         console.log(this.props)
-        this.props.addWatch(watches)
-        this.props.refreshData()
+        this.props.addWatch(straps)
         this.props.close()
     }
 

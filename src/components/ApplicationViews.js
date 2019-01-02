@@ -1,5 +1,6 @@
 import { Route, Redirect } from 'react-router-dom'
 import React, { Component } from 'react';
+import { Dimmer, Loader, Image, Segment } from 'semantic-ui-react'
 import DataManager from '../module/DataManager'
 import Login from "./login/LoginForm"
 import Register from "./login/RegisterForm"
@@ -24,6 +25,7 @@ export default class ApplicationViews extends Component {
     state = {
         users: [],
         watches: [],
+        straps:[],
         userWatches:[],
         messages: [],
         favorites: [],
@@ -47,6 +49,11 @@ export default class ApplicationViews extends Component {
         .then(() => DataManager.getAll("watches"))
         .then(watches => this.setState({
             watches: watches
+        }))
+    addStrap = straps => DataManager.add("straps", straps)
+        .then(() => DataManager.getAll("straps"))
+        .then(straps => this.setState({
+            straps: straps
         }))
     addMessage = messages => DataManager.add("messages", messages)
         .then(() => DataManager.getAll("messages"))
@@ -266,6 +273,7 @@ export default class ApplicationViews extends Component {
                             editMessage={this.editMessage}
                             deleteMessage={this.deleteMessage}
                             users={this.state.users}
+                            user={this.state.userProfile}
                             messages={this.state.messages} />
                     } else {
                         return <Redirect to="/" />
@@ -305,7 +313,7 @@ export default class ApplicationViews extends Component {
             </React.Fragment>
         )
     }else{
-      return  <p>Page Loading</p>
+      return <Loader size='large'>Loading</Loader>
     }
     }
 }

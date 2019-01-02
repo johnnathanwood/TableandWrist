@@ -4,6 +4,7 @@ import "./TableWrist.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 
 
+
 export default class TableWrist extends Component {
 
     isAuthenticated = () => sessionStorage.getItem("credentials") !== null
