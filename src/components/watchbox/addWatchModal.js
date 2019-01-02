@@ -16,6 +16,7 @@ export default class AddWatchModal extends Component {
         return (
             <Modal centered={false} trigger={<Comment.Action onClick={this.show(true)}>Add Watch</Comment.Action>} dimmer={dimmer} open={open} onClose={this.close}  closeIcon
             >
+            <Modal.Content image scrolling>
                 <Header icon='archive' content='Add Watch' />
                 <br></br>
                 <Image wrapped size='medium'>
@@ -23,6 +24,7 @@ export default class AddWatchModal extends Component {
                    <AddWatch {...this.props} close={this.close} />
                    </Grid>
                 </Image>
+                </Modal.Content>
             </Modal>
         )
     }

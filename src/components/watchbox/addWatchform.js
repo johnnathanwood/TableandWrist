@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Form, Grid} from 'semantic-ui-react'
+import { Button, Form, Grid, Modal} from 'semantic-ui-react'
 import request from 'superagent';
 import Dropzone from 'react-dropzone';
 import './watchImg.css'
@@ -26,30 +26,32 @@ export default class AddWatch extends Component {
   
     close = () => this.setState({ open: false })
 
-    onImageDrop(files) {
-      this.setState({
-          uploadedFile: files[0]
-      });
+    
 
-      this.handleImageUpload(files[0]);
-  }
+    onImageDrop(files) {
+        this.setState({
+          uploadedFile: files[0]
+        });
+    
+        this.handleImageUpload(files[0]);
+      }
 
   handleImageUpload(file) {
-      let upload = request.post(CLOUDINARY_UPLOAD_URL)
-          .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
-          .field('file', file);
+    let upload = request.post(CLOUDINARY_UPLOAD_URL)
+                        .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+                        .field('file', file);
 
-      upload.end((err, response) => {
-          if (err) {
-              console.error(err);
-          }
+    upload.end((err, response) => {
+      if (err) {
+        console.error(err);
+      }
 
-          if (response.body.secure_url !== '') {
-              this.setState({
-                  uploadedFileCloudinaryUrl: response.body.secure_url
-              });
-          }
-      });
+      if (response.body.secure_url !== '') {
+        this.setState({
+          uploadedFileCloudinaryUrl: response.body.secure_url
+        });
+      }
+    });
   }
 
     handleFieldChange = evt => {
@@ -57,17 +59,14 @@ export default class AddWatch extends Component {
         stateToChange[evt.target.id] = evt.target.value
         this.setState(stateToChange)
     }
+    
     constructor(props) {
-      super(props)
-      const src = ''
-      this.state = {
-          preview: null,
-          value:'',
-          src
+        super(props);
+    
+        this.state = {
+          uploadedFileCloudinaryUrl: ''
+        };
       }
-      this.onCrop = this.onCrop.bind(this)
-      this.onClose = this.onClose.bind(this)
-  }
 
   onClose() {
       this.setState({ preview: null })
@@ -112,23 +111,20 @@ export default class AddWatch extends Component {
                 <Form className="watchForm">
                 <div className="photo">
                     {
-                        <Dropzone
-                            multiple={false} accept="image/*"
+                            <Dropzone
+                            multiple={false}
+                            accept="image/*"
                             onDrop={this.onImageDrop.bind(this)}>
-                            <p>Click or drop image of your watch</p>
-                        </Dropzone>
+                            <p>Drop an image or click to select a file to upload.</p>
+                          </Dropzone>
                     }
                     <div>
-                        <div className="FileUpload">
-                        <br/>
-                    </div>
-                        <div>
-                            {this.state.uploadedFileCloudinaryUrl === '' ? null :
-                                <div>
-                                    <aside className="watchImg" src={this.state.uploadedFile}></aside>
-                                    <img src={this.state.uploadedFileCloudinaryUrl} alt=""/>
-                                </div>}
-                                </div>
+                    <div>
+        {this.state.uploadedFileCloudinaryUrl === '' ? null :
+        <div>
+          <img src={this.state.uploadedFileCloudinaryUrl} />
+        </div>}
+      </div>
                         </div>
                     </div>
                     <Form.Field>
@@ -149,6 +145,7 @@ export default class AddWatch extends Component {
                     <Button icon='save' size='mini' onClick={this.newWatch}/>
                 </Form>
                 </Grid>
+
             </React.Fragment>
         )
     }
