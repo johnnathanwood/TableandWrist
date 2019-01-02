@@ -1,3 +1,9 @@
+![alt text][logo]
+[logo]: https://github.com/johnnathanwood/TableandWrist/blob/master/src/components/profile/tableWrist.jpg "Logo Title Text 2"
+#---Table & Wrist
+ **Table & Wrist** is a app that manages your collection of watches. Many watch collectors have multiple watches in safes, at banks, and on their dresser. It is hard to keep track of what watches you have. Users can log into the app and start adding watches to their collection.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # Getting Started
