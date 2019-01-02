@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import EditWatchModal from "./editWatchModal";
-import { Button, Divider, Grid, Image, Header,Icon} from 'semantic-ui-react'
+import { Button, Divider, Grid, Image, Header,Icon, Modal} from 'semantic-ui-react'
 import WatchBoxCard from "./watchBoxCard";
 import Clock from "./clock"
 import AddWatchModal from "./addWatchModal";
@@ -29,7 +29,7 @@ export default class WatchCollection extends Component {
                 <br></br>
                 <br></br>
                 <Grid centered>
-                <Button basic> <AddWatchModal {...this.props} /></Button>
+                <Button basic><AddWatchModal {...this.props} /></Button>
                 </Grid>
                 <br></br>
                 <br></br>

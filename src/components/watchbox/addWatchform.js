@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Form} from 'semantic-ui-react'
+import { Button, Form, Grid} from 'semantic-ui-react'
 import request from 'superagent';
 import Dropzone from 'react-dropzone';
 import './watchImg.css'
@@ -108,6 +108,7 @@ export default class AddWatch extends Component {
 
         return (
             <React.Fragment>
+                <Grid centered>
                 <Form className="watchForm">
                 <div className="photo">
                     {
@@ -147,6 +148,7 @@ export default class AddWatch extends Component {
                     </Form.Field>
                     <Button icon='save' size='mini' onClick={this.newWatch}/>
                 </Form>
+                </Grid>
             </React.Fragment>
         )
     }
