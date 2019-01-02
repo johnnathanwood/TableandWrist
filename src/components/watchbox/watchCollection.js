@@ -25,7 +25,7 @@ export default class WatchCollection extends Component {
     <Clock className="clock"/>
     </Header>
     <br></br>
-          <Image src='https://cdn.thegentlemansjournal.com/wp-content/uploads/2018/09/Watches-1800x756-c-center.jpg' size='huge' rounded centered />
+          <Image src='https://airows.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_1024/MTM2MDUyODIxMjI4MzE4Njkw/box-b-8-cropped-2_1024x1024jpg.webp' size='huge' rounded centered />
                 <br></br>
                 <br></br>
                 <Grid centered>
